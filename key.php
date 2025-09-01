@@ -21,7 +21,12 @@ final class Key {
         /** @var string $bytes */
         $bytes = random_bytes(100);
 
-        return bin2hex($bytes);
+        /** @var string $key */
+        $key = bin2hex($bytes);
+
+        header("Content-Security-Policy: script-src 'nonce-$key'; object-src 'none'; base-uri 'none'; img-src 'self'");
+
+        return $key;
     }
 
     /**
