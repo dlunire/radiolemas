@@ -5,7 +5,12 @@
     font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Roboto Condensed";
     text-align: center;
     margin: 0 auto;
@@ -37,4 +42,77 @@ main {
 .picture__image {
     max-width: 450px;
     width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px;
+    border-radius: 5px;
+}
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    --button-size: 40px;
+
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: transparent;
+    border: 0;
+    border-radius: calc(var(--button-size) / 2);
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+.button:hover {
+    background-color: #0001;
+}
+
+.button:active {
+    background-color: #0002;
+    transition: none;
+}
+
+.button__item {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    --icon-size: 20px;
+    --icon-color: #202020;
+}
+
+.button__item[data-hidden="true"] {
+    svg {
+        display: none;
+    }
+}
+
+.button__item svg {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+
+    min-width: var(--icon-size);
+    min-height: var(--icon-size);
+    max-width: var(--icon-size);
+    max-height: var(--icon-size);
+}
+
+.button__item path {
+    fill: var(--icon-color);
 }
