@@ -30,7 +30,7 @@ $key = Key::generate();
 
 <body>
     <main>
-        <div class="wrapper">
+        <section class="wrapper container">
             <picture class="picture">
                 <source class="picture__source" type="image/png" src="./logo.png" srcset="./logo.png">
                 <img class="picture__image" src="./logo.png" alt="Logotipo">
@@ -55,8 +55,7 @@ $key = Key::generate();
 
             <h1>Radio Lemas</h1>
             <h2>Sitio web en construcción</h2>
-
-        </div>
+        </section>
     </main>
 </body>
 
