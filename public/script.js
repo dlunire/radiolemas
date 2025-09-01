@@ -71,6 +71,14 @@ function constrols(audio) {
 
         label.textContent = value * 100;
     });
+
+    audio.addEventListener("pause", function() {
+        play = !play;
+    });
+
+    audio.addEventListener("play", function() {
+        play = !play;
+    });
 }
 
 
