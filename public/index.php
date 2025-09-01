@@ -10,6 +10,9 @@ $key = Key::generate();
 <html lang="es">
 
 <head>
+    <!-- No quitar estas líneas -->
+    <!-- Su función es prevenir la ejecución de scripts no autorizados -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-<?= $key ?>'; object-src 'none'; base-uri 'none'; img-src 'self';">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitio Web en construcción </title>
@@ -17,9 +20,6 @@ $key = Key::generate();
     <link rel="stylesheet" href="style.css?<?= Key::get_css_hash() ?>">
     <link rel="icon" href="favicon.png" type="image/png">
 
-    <!-- No quitar estas líneas -->
-    <!-- Su función es prevenir la ejecución de scripts no autorizados -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-<?= $key ?>'; object-src 'none'; base-uri 'none'; img-src 'self';">
 </head>
 
 <body>
