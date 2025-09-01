@@ -15,10 +15,25 @@ $key = Key::generate();
     <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-<?= $key ?>'; object-src 'none'; base-uri 'none'; img-src 'self';">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio Web en construcción </title>
+    <title>Radio Lemas Cúcuta - Sitio Web en construcción</title>
 
     <link rel="stylesheet" href="style.css?<?= Key::get_css_hash() ?>">
     <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Radio Lemas Cúcuta" />
+    <meta property="og:description" content="Escucha Radio Lemas en vivo. Sitio oficial en construcción con acceso al streaming de la emisora." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://radiolemas.com/" />
+    <meta property="og:image" content="https://radiolemas.com/preview.png" />
+    <meta property="og:locale" content="es_CO" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Radio Lemas Cúcuta" />
+    <meta name="twitter:description" content="Escucha Radio Lemas en vivo. Sitio oficial en construcción con acceso al streaming de la emisora." />
+    <meta name="twitter:image" content="https://radiolemas.com/preview.png" />
+
 </head>
 
 <body>
@@ -53,4 +68,5 @@ $key = Key::generate();
 </body>
 
 <script type="module" src="./script.js?<?= key::get_js_hash() ?>" nonce="<?= $key ?>"></script>
+
 </html>
