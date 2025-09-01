@@ -2,6 +2,32 @@
 const url = "https://stream.jokmah.it/8024/stream";
 
 /**
+ * Almacena el el volumen seleccionado por el usuario en el navegador.
+ * 
+ * @param { number } value Valor numérico que representa el volumen.
+ * @returns { void }
+ */
+function setVolume(value) {
+    if (typeof value != "number") {
+        throw new Error("setVolume: se esperaba un valor numérico como argumento en «value»");
+    }
+    
+    localStorage.setItem('volume', String(value));
+}
+
+/**
+ * Devuelve el volumen previamente almacenado en el navegador.
+ * 
+ * @returns { number }
+ */
+function getVolume() {
+    /** @type { number } */
+    const value = Number(localStorage.getItem('volume') ?? 0.5);
+
+    return value;
+}
+
+/**
  * Permite inicializar la escucha de la radio.
  * 
  * @param { string } url URL del stream
@@ -57,6 +83,8 @@ function constrols(audio) {
     const label = document.querySelector("#volume-label span");
     if (!(label instanceof HTMLSpanElement)) return;
 
+    label.textContent = 100 * getVolume();
+
     button.addEventListener("click", function () {
         play = !play;
         play ? audio.play() : audio.pause();
@@ -69,7 +97,7 @@ function constrols(audio) {
         if (Number.isNaN(value)) return;
         audio.volume = value;
         setVolume(value);
-        
+
         label.textContent = value * 100;
     });
 
@@ -100,32 +128,5 @@ function constrols(audio) {
         iconPause.dataset.hidden = String(!play);
     }
 }
-
-/**
- * Almacena el el volumen seleccionado por el usuario en el navegador.
- * 
- * @param { number } value Valor numérico que representa el volumen.
- * @returns { void }
- */
-function setVolume(value) {
-    if (typeof value != "number") {
-        throw new Error("setVolume: se esperaba un valor numérico como argumento en «value»");
-    }
-
-    localStorage.setItem('volume', String(value));
-}
-
-/**
- * Devuelve el volumen previamente almacenado en el navegador.
- * 
- * @returns { number }
- */
-function getVolume() {
-    /** @type { number } */
-    const value = Number(localStorage.getItem('volume') ?? 0.5);
-
-    return value;
-}
-
 
 init(url);
