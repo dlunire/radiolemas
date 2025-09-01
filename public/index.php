@@ -7,7 +7,7 @@ include dirname(__DIR__) . "/key.php";
 $key = Key::generate();
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 
 <head>
     <!-- No quitar estas líneas -->
