@@ -23,9 +23,7 @@ $key = Key::generate();
         script-src 'nonce-<?= $key ?>';
         object-src 'none';
         base-uri 'none';
-        img-src 'self';
-        connect-src 'self' https://api.tawk.to;
-        frame-src https://embed.tawk.to; ">
+        img-src 'self';">
 </head>
 
 <body>
