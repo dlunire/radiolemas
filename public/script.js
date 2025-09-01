@@ -73,11 +73,11 @@ function constrols(audio) {
     });
 
     audio.addEventListener("pause", function() {
-        play = !play;
+        play = false;
     });
 
-    audio.addEventListener("play", function() {
-        play = !play;
+    audio.addEventListener("playing", function() {
+        play = true;
     });
 }
 
