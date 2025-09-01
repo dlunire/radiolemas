@@ -19,11 +19,7 @@ $key = Key::generate();
 
     <!-- No quitar estas líneas -->
     <!-- Su función es prevenir la ejecución de scripts no autorizados -->
-    <meta http-equiv="Content-Security-Policy" content="
-        script-src 'nonce-<?= $key ?>';
-        object-src 'none';
-        base-uri 'none';
-        img-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-<?= $key ?>'; object-src 'none'; base-uri 'none'; img-src 'self';">
 </head>
 
 <body>
