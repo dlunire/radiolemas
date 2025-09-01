@@ -48,8 +48,11 @@ function constrols(audio) {
 
     /** @type { HTMLInputElement | null } */
     const volume = document.querySelector("#volume");
-
     if (!(volume instanceof HTMLInputElement)) return;
+
+    /** @type { HTMLSpanElement | null } */
+    const label = document.querySelector("#volume-label span");
+    if (!(label instanceof HTMLSpanElement)) return;
 
     button.addEventListener("click", function() {
         play = !play;
@@ -57,6 +60,16 @@ function constrols(audio) {
 
         iconPlay.dataset.hidden = String(play);
         iconPause.dataset.hidden = String(!play);
+    });
+
+    volume.addEventListener('input', function() {
+        /** @type { number } */
+        const value = Number(this.value.trim());
+
+        if (Number.isNaN(value)) return;
+        audio.volume = value;
+
+        label.textContent = value * 100;
     });
 }
 

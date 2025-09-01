@@ -49,7 +49,7 @@ $key = Key::generate();
 
                 <label for="volume" class="volume">
                     <input type="range" name="volume" id="volume" step="0.1" min="0" max="1" class="volume__input">
-                    <div id="volume-label" class="volume__label">Volumen 50%</div>
+                    <div id="volume-label" class="volume__label">Volumen (<span>50</span>%)</div>
                 </label>
             </div>
 
