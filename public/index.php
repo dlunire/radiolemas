@@ -19,7 +19,6 @@ $key = Key::generate();
 
     <link rel="stylesheet" href="style.css?<?= Key::get_css_hash() ?>">
     <link rel="icon" href="favicon.png" type="image/png">
-
 </head>
 
 <body>
@@ -54,5 +53,4 @@ $key = Key::generate();
 </body>
 
 <script type="module" src="./script.js?<?= key::get_js_hash() ?>" nonce="<?= $key ?>"></script>
-
 </html>
