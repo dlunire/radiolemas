@@ -15,8 +15,9 @@ function init(url) {
     const audio = document.createElement('audio');
 
     audio.controls = true;
-    audio.volume = 0.5;
+    audio.volume = getVolume();
     audio.src = url;
+
     constrols(audio);
 }
 
@@ -50,6 +51,8 @@ function constrols(audio) {
     const volume = document.querySelector("#volume");
     if (!(volume instanceof HTMLInputElement)) return;
 
+    volume.value = String(getVolume());
+
     /** @type { HTMLSpanElement | null } */
     const label = document.querySelector("#volume-label span");
     if (!(label instanceof HTMLSpanElement)) return;
@@ -57,7 +60,6 @@ function constrols(audio) {
     button.addEventListener("click", function () {
         play = !play;
         play ? audio.play() : audio.pause();
-        iconState(play);
     });
 
     volume.addEventListener('input', function () {
@@ -66,7 +68,8 @@ function constrols(audio) {
 
         if (Number.isNaN(value)) return;
         audio.volume = value;
-
+        setVolume(value);
+        
         label.textContent = value * 100;
     });
 
@@ -90,11 +93,38 @@ function constrols(audio) {
     * Cambia el icon en función del estado de reproducción.
     * 
     * @param { boolean } play Estado de la reproducción
+    * @returns { void }
     */
     function iconState(play) {
         iconPlay.dataset.hidden = String(play);
         iconPause.dataset.hidden = String(!play);
     }
+}
+
+/**
+ * Almacena el el volumen seleccionado por el usuario en el navegador.
+ * 
+ * @param { number } value Valor numérico que representa el volumen.
+ * @returns { void }
+ */
+function setVolume(value) {
+    if (typeof value != "number") {
+        throw new Error("setVolume: se esperaba un valor numérico como argumento en «value»");
+    }
+
+    localStorage.setItem('volume', String(value));
+}
+
+/**
+ * Devuelve el volumen previamente almacenado en el navegador.
+ * 
+ * @returns { number }
+ */
+function getVolume() {
+    /** @type { number } */
+    const value = Number(localStorage.getItem('volume') ?? 0.5);
+
+    return value;
 }
 
 
