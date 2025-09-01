@@ -45,7 +45,7 @@ $key = Key::generate();
             </picture>
 
             <div class="controls">
-                <button class="button button--play" aria-label="Reproducir" id="play">
+                <button class="button button--play" aria-label="Reproducir" id="play" title="Escuchar en vivo">
                     <div class="button__item button__item--play" data-hidden="false">
                         <?= Key::get_play() ?>
                     </div>

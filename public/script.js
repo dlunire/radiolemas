@@ -84,10 +84,14 @@ function constrols(audio) {
     if (!(label instanceof HTMLSpanElement)) return;
 
     label.textContent = 100 * getVolume();
+    /** @type { string } */
+    const title = button.title;
 
     button.addEventListener("click", function () {
         play = !play;
         play ? audio.play() : audio.pause();
+
+        button.title = !play ? title : "Pausar reproducción";
     });
 
     volume.addEventListener('input', function () {
