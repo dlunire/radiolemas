@@ -37,8 +37,8 @@ $key = Key::generate();
             </picture>
 
             <div class="controls">
-                <button class="button button--play" aria-label="Reproducir">
-                    <div class="button__item button__item--play">
+                <button class="button button--play" aria-label="Reproducir" id="play">
+                    <div class="button__item button__item--play" data-hidden="false">
                         <?= Key::get_play() ?>
                     </div>
 
@@ -46,11 +46,16 @@ $key = Key::generate();
                         <?= Key::get_pause() ?>
                     </div>
                 </button>
-                <input type="range" name="range" id="range" step="0.1" min="0" max="1">
+
+                <label for="volume" class="volume">
+                    <input type="range" name="volume" id="volume" step="0.1" min="0" max="1" class="volume__input">
+                    <div id="volume-label" class="volume__label">Volumen 50%</div>
+                </label>
             </div>
 
             <h1>Radio Lemas</h1>
             <h2>Sitio web en construcción</h2>
+
         </div>
     </main>
 </body>

@@ -14,10 +14,9 @@ function init(url) {
     /** @type { HTMLAudioElement } */
     const audio = document.createElement('audio');
     
-    audio.controls = false;
+    audio.controls = true;
     audio.volume = 0.5;
     audio.src = url;
-
     constrols(audio);
 }
 
@@ -31,17 +30,35 @@ function constrols(audio) {
         throw new Error("controls: Se esperaba un elemento de audio como argumento en «audio»");
     }
 
+    /** @type { HTMLButtonElement | null } */
     const button = document.querySelector("#play");
+
     if (!(button instanceof HTMLButtonElement)) return;
 
     /** @type { boolean } */
     let play = false;
 
-    button.addEventListener("click", async function() {
-        play = !play;
+    /** @type { HTMLElement | null } */
+    const iconPlay = button.querySelector("[data-hidden]:first-child");
 
-        console.log({ play });
+    /** @type { HTMLElement | null } */
+    const iconPause = button.querySelector("[data-hidden]:last-child");
+
+    if (!(iconPlay instanceof HTMLElement) || !(iconPause instanceof HTMLElement)) return;
+
+    /** @type { HTMLInputElement | null } */
+    const volume = document.querySelector("#volume");
+
+    if (!(volume instanceof HTMLInputElement)) return;
+
+    button.addEventListener("click", function() {
+        play = !play;
+        play ? audio.play() : audio.pause();
+
+        iconPlay.dataset.hidden = String(play);
+        iconPause.dataset.hidden = String(!play);
     });
 }
+
 
 init(url);

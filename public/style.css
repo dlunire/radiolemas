@@ -92,6 +92,10 @@ main {
     --icon-color: #202020;
 }
 
+.button__item--play {
+    --icon-size: 15px;
+}
+
 .button__item svg {
     position: absolute;
     margin: auto;
@@ -117,4 +121,23 @@ main {
 
 .button__item path {
     fill: var(--icon-color);
+}
+
+.volume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    position: relative;
+}
+
+.volume__input {
+    display: block;
+    width: 100%;
+}
+
+.volume__label {
+    font-size: 0.8rem;
+    position: absolute;
+    transform: translateY(110%);
 }
