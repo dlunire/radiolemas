@@ -1,0 +1,34 @@
+name: 🚀 Desplegando Radiolemas
+
+on:
+  push:
+    branches:
+      - master   # O "master" si tu rama principal es master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Estableciendo acceso SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/radiolemas
+          chmod 600 ~/.ssh/radiolemas
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Desplegando aplicación con rsync
+        run: |
+          echo "Iniciando despliegue en radiolemas.com"
+          eval $(ssh-agent -s)
+          ssh-add ~/.ssh/radiolemas
+          rsync -ravz \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            -e "ssh -p ${{ secrets.SSH_PORT }}" \
+            --timeout=60 \
+            ./ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:apps/radiolemas
