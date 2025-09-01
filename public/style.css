@@ -7,5 +7,34 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto Condensed";
+    text-align: center;
+    margin: 0 auto;
 }
 
+body {
+    margin: 0;
+    height: 100dvh;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: calc(100% - 30px);
+}
+
+* {
+    box-sizing: inherit;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.picture,
+.picture__image {
+    max-width: 450px;
+    width: 100%;
+}
