@@ -13,7 +13,7 @@ function init(url) {
 
     /** @type { HTMLAudioElement } */
     const audio = document.createElement('audio');
-    
+
     audio.controls = true;
     audio.volume = 0.5;
     audio.src = url;
@@ -54,15 +54,13 @@ function constrols(audio) {
     const label = document.querySelector("#volume-label span");
     if (!(label instanceof HTMLSpanElement)) return;
 
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
         play = !play;
         play ? audio.play() : audio.pause();
-
-        iconPlay.dataset.hidden = String(play);
-        iconPause.dataset.hidden = String(!play);
+        iconState(play);
     });
 
-    volume.addEventListener('input', function() {
+    volume.addEventListener('input', function () {
         /** @type { number } */
         const value = Number(this.value.trim());
 
@@ -72,13 +70,31 @@ function constrols(audio) {
         label.textContent = value * 100;
     });
 
-    audio.addEventListener("pause", function() {
-        play = false;
+    audio.addEventListener("pause", function () {
+        if (play) {
+            play = false;
+        }
+
+        iconState(play);
     });
 
-    audio.addEventListener("playing", function() {
-        play = true;
+    audio.addEventListener("playing", function () {
+        if (!play) {
+            play = true;
+        }
+
+        iconState(play);
     });
+
+    /**
+    * Cambia el icon en función del estado de reproducción.
+    * 
+    * @param { boolean } play Estado de la reproducción
+    */
+    function iconState(play) {
+        iconPlay.dataset.hidden = String(play);
+        iconPause.dataset.hidden = String(!play);
+    }
 }
 
 
