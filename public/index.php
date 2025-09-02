@@ -5,6 +5,9 @@ include dirname(__DIR__) . "/key.php";
 
 /** @var string $key */
 $key = Key::generate();
+
+/** @var string $logo */
+$logo = "./logo.png?" . Key::get_logo_hash();
 ?>
 <!DOCTYPE html>
 <html lang="es-CO">
@@ -40,8 +43,8 @@ $key = Key::generate();
     <main>
         <section class="wrapper container">
             <picture class="picture">
-                <source class="picture__source" type="image/png" src="./logo.png?<?= Key::get_logo_hash() ?>" srcset="./logo.png">
-                <img class="picture__image" src="./logo.png?<?= Key::get_logo_hash() ?>" alt="Logotipo">
+                <source class="picture__source" type="image/png" src="<?= $logo ?>" srcset="<?= $logo ?>">
+                <img class="picture__image" src="<?= $logo ?>" alt="Logotipo">
             </picture>
 
             <div class="controls">
