@@ -41,7 +41,7 @@ $key = Key::generate();
         <section class="wrapper container">
             <picture class="picture">
                 <source class="picture__source" type="image/png" src="./logo.png" srcset="./logo.png">
-                <img class="picture__image" src="./logo.png" alt="Logotipo">
+                <img class="picture__image" src="./logo.png?<?= Key::get_logo_hash() ?>" alt="Logotipo">
             </picture>
 
             <div class="controls">
