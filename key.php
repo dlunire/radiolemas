@@ -57,6 +57,20 @@ final class Key {
     }
 
     /**
+     * Devuelve el hash correspondiente al contenido del logotipo de la emisora.
+     * 
+     * @return string
+     */
+    public static function get_logo_hash(): string {
+        /** @var string $file */
+        $file = self::get_file("logo.png");
+
+        /** @var string $hash */
+        $hash = hash_file('sha256', $file);
+        return $hash;
+    }
+
+    /**
      * Devuelve la ruta relativa al archivo
      * 
      * @param string $filename [Opcional] Permite establecer el nombre del archivo a consultar
