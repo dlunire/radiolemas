@@ -1,0 +1,36 @@
+# Ignorar bibliotecas
+node_modules/
+vendor/
+frontend/node_modules/
+
+# Ignorar archivos de configuración de entorno
+.env
+.env.local
+.env.*.local
+.env.type
+.env.type.local
+
+# Ignorar archivos de log
+logs/
+*.log
+
+# Ignorar archivos de compilación
+dist/
+build/
+out/
+.cache/
+cache
+
+# Ignorar archivos temporales del sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.bak
+*.old
+*.orig
+
+# Ignorar archivos de almacenamiento
+storage/
+
