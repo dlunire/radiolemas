@@ -149,3 +149,17 @@ main {
     position: absolute;
     transform: translateY(110%);
 }
+
+.dev {
+    position: relative;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.dev a {
+    text-decoration: none;
+}
+
+.dev a:hover {
+    text-decoration: underline;
+}
