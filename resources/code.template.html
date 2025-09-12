@@ -1,0 +1,20 @@
+@base('base-code')
+
+@section('content')
+    <section class="section section--file">
+        <h2 class="section__title section__title--file">Detalles del archivo</h2>
+        <div class="section__inner section__inner--file">
+            <p>Datos de archivos</p>
+            <ul>
+                <li><strong>Nombre: </strong>{{ $name }}</li>
+                <li><strong>Tamaño: </strong>{{ $size }}</li>
+                <li><strong>Tipo: </strong>{{ $type }}</li>
+            </ul>
+
+            <p><strong class="color color--orange">CONTENIDO DEL ARCHIVO:</strong></p>
+            <pre class="section__code">
+                {!! $code !!}
+            </pre>
+        </div>
+    </section>
+@endsection

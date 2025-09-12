@@ -1,0 +1,54 @@
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="{{ route('/favicon') }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{{ $frontend->title ?? DL_COMPANY_NAME }}</title>
+
+<meta name="description" content="{{ $frontend->description ?? 'DLUnire Framework' }}" />
+
+<!-- OpenGraph para SEO y redes sociales -->
+<meta property="og:title" content="{{ $frontend->title ?? DL_COMPANY_NAME }}" />
+<meta property="og:description" content="{{ $frontend->description ?? 'DLUnire Framework' }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ route('') }}" />
+<meta property="og:image" content="{{ $frontend->preview ?? '' }}" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="720" />
+
+<!-- Twitter Card para contenido enriquecido -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@cdelfuturo" />
+<meta name="twitter:title" content="{{ $frontend->title ?? DL_COMPANY_NAME }}" />
+<meta name="twitter:description" content="{{ $frontend->description ?? 'DLUnire Framework' }}" />
+<meta name="twitter:url" content="{{ route('') }}" />
+<meta name="twitter:image" content="{{ $frontend->preview ?? '' }}" />
+<meta name="twitter:image:type" content="image/png" />
+<meta name="twitter:image:alt" content="{{ $frontend->title }}" />
+
+<!-- Token de mitigación CSRF -->
+<meta name="csrf" content="{{ $frontend->csrf ?? '' }}" />
+
+<!-- Canonical para SEO -->
+<link rel="canonical" href="{{ route('') }}" />
+
+<!-- Estilos y favicon -->
+<link rel="stylesheet" href="{{ style() }}">
+<link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+
+<!-- Tema de color para navegadores móviles -->
+<meta name="theme-color" content="{{ $frontend->color ?? '#08d' }}" />
+
+<!-- Política de seguridad de contenido -->
+<!-- <meta http-equiv="Content-Security-Policy"
+    content="script-src *.tawk.to *.jsdelivr.net *.google.com *.gstatic.com 'nonce-{{ $frontend->token ?? 'Token Nonce' }}'; object-src 'none'"> -->
+<!-- <meta http-equiv="Content-Security-Policy" content="'nonce-{{ $frontend->token ?? 'Token Nonce' }}'; object-src 'none'"> -->
+<meta http-equiv="Content-Security-Policy" content="
+    script-src 'nonce-{{ $frontend->token }}';
+    object-src 'none';
+    base-uri 'none';
+    img-src 'self';
+    font-src 'self';
+    connect-src 'self' https://api.tawk.to;
+    frame-src https://embed.tawk.to;
+">

@@ -1,0 +1,20 @@
+# Bibliotecas
+vendor
+node_modules
+
+# Base de datos
+*.sql
+**/*.sql
+
+# Variables de entorno:
+.env.type
+.env.type.example
+.env
+.env.example
+
+# Almacenamiento
+storage
+*.dlstorage
+
+# Otros
+Herramientas

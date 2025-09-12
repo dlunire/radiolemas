@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+
+<head>
+    @includes('layouts.headers.header-code')
+</head>
+
+<body>
+    @print('content')
+</body>
+
+<script crossorigin type="module" src="{{ script() }}" nonce="{{ $frontend->token ?? 'Token Nonce' }}"></script>
+
+</html>

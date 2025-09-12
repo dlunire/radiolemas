@@ -1,0 +1,13 @@
+@use "./vars" as *;
+.color {
+    color: var(--text-color);
+    &--orange {
+        --text-color: orange;
+    }
+    &--orangered {
+        --text-color: orangered;
+    }
+    &--base-color {
+        --text-color: #{$base-color};
+    }
+}

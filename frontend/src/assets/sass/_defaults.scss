@@ -1,0 +1,121 @@
+@use "sass:color";
+@use "./vars" as *;
+:root {
+    font: {
+        size: 16px;
+        family: "Roboto", "Open Sans", sans-serif, arial;
+    }
+    line-height: 1.6;
+    background-color: color.adjust($color: $background, $lightness: -0.5%);
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    &:not([class]) {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+/* Para navegadores WebKit (Chrome, Edge, Safari) */
+
+* {
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: rgba(white, 0.7) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(white, 0.7);
+    border-radius: 20px;
+}
+
+[data-list] {
+    --zindex: 1;
+    z-index: var(--z-index);
+}
+
+code {
+    padding: 3px 5px;
+    background-color: rgba(black, 0.6);
+    border-radius: 5px;
+    border: 1px solid rgba($border-color, 0.6);
+    font: {
+        size: 0.9rem;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+pre {
+    padding: 20px;
+    overflow: auto;
+    width: 100%;
+    background-color: rgba($secondary-color, 0.6);
+    border: 1px solid rgba($border-color, 0.3);
+    border-radius: 10px;
+}
+
+blockquote {
+    border: 1px solid rgba(green, 0.3);
+    border-left: 5px solid rgba(green, 0.6);
+    background-color: rgba(green, 0.03);
+    border-radius: 4px;
+    padding: 20px 40px;
+    margin-bottom: 30px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        color: orange;
+        border-bottom: 1px solid rgba($border-color, 0.3);
+        padding-bottom: 5px;
+        font: {
+            size: 1rem;
+        }
+        text-transform: uppercase;
+    }
+    p {
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

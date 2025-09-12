@@ -1,0 +1,45 @@
+@use "sass:color";
+@use "./vars" as *;
+.menu {
+    list-style: none;
+    padding-left: 0;
+    &__item {
+        margin: 0;
+        display: flex;
+        &:not(:first-of-type) {
+            border-top: 1px solid rgba($border-color, 0.1);
+        }
+    }
+    &__link {
+        color: inherit;
+        opacity: 0.7;
+        transition: 300ms ease;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        padding-right: 20px;
+        display: flex;
+        flex-grow: 1;
+        &:hover {
+            opacity: 1;
+        }
+        &:active {
+            transition: none;
+            opacity: 0.7;
+        }
+        span {
+            user-select: none;
+            pointer-events: none;
+        }
+        svg {
+            transform: unset !important;
+        }
+        & {
+            --icon-size: 18px;
+            --icon-width: var(--icon-size);
+            --icon-height: var(--icon-size);
+            gap: 5px;
+            align-items: center;
+        }
+    }
+}
