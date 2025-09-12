@@ -30,3 +30,4 @@ Puede optar por desarrollar sobre él corriendo el servidor de desarrollo:
 
 ```bash
 php -S localhost:4000 -t public/
+```
