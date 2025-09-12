@@ -163,3 +163,11 @@ main {
 .dev a:hover {
     text-decoration: underline;
 }
+
+.text {
+    text-align: var(--align);
+}
+
+.text--center {
+    --align: center;
+}
