@@ -6,21 +6,10 @@ namespace DLUnire\Services\Install;
 
 use DLRoute\Server\DLServer;
 use DLStorage\Storage\SaveData;
+use DLUnire\Services\Utilities\Redirect;
 use Exception;
 
 final class Install extends SaveData {
-
-    /**
-     * Permite excluir las rutas que no serán parte de la redirección
-     *
-     * @var array
-     */
-    private array $excludes = [
-        "/^\/file\//i",
-        "/^\/js$/i",
-        "/^\/style$/i",
-        "/^\/favicon$/i"
-    ];
 
     /**
      * Inicia el proceso de instalación del sistema
@@ -28,6 +17,13 @@ final class Install extends SaveData {
      * @return void
      */
     public function run(): void {
+        Redirect::set_excludes([
+            "/file",
+            "/js",
+            "/style",
+            "/favicon"
+        ]);
+        
         $this->get_frontend_path('index.js');
         $this->get_frontend_path('index.css');
 
@@ -94,32 +90,6 @@ final class Install extends SaveData {
     }
 
     /**
-     * Redirige hacia una ruta específica
-     *
-     * @param string $route
-     * @return bool
-     */
-    private function is_redirect(string $route): bool {
-        $route = trim($route);
-        if ($this->is_post()) return false;
-
-        /** @var string $current_route */
-        $current_route = DLServer::get_route();
-        if ($current_route === $route) return false;
-
-        foreach ($this->excludes as $pattern) {
-            /** @var bool $found */
-            $found = boolval(preg_match($pattern, $current_route));
-
-            if ($found) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
      * Permite identificar si se realiza la petición por medio de un método HTTP POST
      *
      * @return boolean
@@ -143,16 +113,13 @@ final class Install extends SaveData {
 
     /**
      * Redirige a la ruta indicada.
-     *
+     * 
+     * @param string $route Ruta elegida para la redirección
+     * @param int $code [Opcional] Código de redirección
      * @return void
      */
-    private function redirect(string $route): void {
-        /** @var bool $is_redirect */
-        $is_redirect = $this->is_redirect($route);
-
-        if ($is_redirect) {
-            redirect($route);
-        }
+    private function redirect(string $route, int $code = 302): void {
+        Redirect::route($route, $code);
     }
 
     /**

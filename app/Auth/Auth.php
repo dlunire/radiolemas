@@ -7,11 +7,13 @@
 
 namespace DLUnire\Auth;
 
+use DLRoute\Server\DLServer;
 use Framework\Auth\AuthBase;
 use DLUnire\Models\Entities\UserData;
 use DLUnire\Models\Users;
 use DLUnire\Models\Views\TestConection;
 use DLUnire\Services\Utilities\Credentials;
+use DLUnire\Services\Utilities\Redirect;
 use PDOException;
 
 /**
@@ -72,6 +74,7 @@ class Auth extends AuthBase {
         if ($logged) {
             $callback();
         }
+
     }
 
     /**
@@ -248,9 +251,12 @@ class Auth extends AuthBase {
          */
         $quantity = Users::count();
 
-        if ($$quantity < 1) {
+        /** @var string $route */
+        $route = DLServer::get_route();
+
+        if ($quantity < 1 && $route !== "/create/user") {
             $this->clear_auth();
-            redirect('/create/user', $code);
+            Redirect::route('/create/user', $code);
         }
     }
 

@@ -115,6 +115,11 @@ final class InstallController extends BaseController {
         ];
     }
 
+    /**
+     * Carga el formulario que permite verificar la conexión con el motor de base de datos
+     * 
+     * @return string
+     */
     public function check_view(): string {
         /** @var Frontend $frontend */
         $frontend = new Frontend();
