@@ -37,6 +37,15 @@
             @include border-color(0.1);
         }
     }
+
+    &--dialog {
+
+        &-close {
+            &:hover {
+                @include border-color(0.5, red);
+            }
+        }
+    }
 }
 
 .list {

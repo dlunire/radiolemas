@@ -6,6 +6,8 @@
     --radius: 20px;
     --icon-width: var(--icon-size);
     --icon-height: var(--icon-size);
+    border-color: var(--border-color);
+
     gap: 5px;
     padding: 0 var(--padding);
     border-radius: var(--radius);
@@ -495,8 +497,8 @@
 
     &--dialog {
         &-close {
-            --icon-color: white;
-            border: 1px solid $border-color;
+            border: 1px solid;
+            border-color: var(--border-color);
             padding: 0 20px;
             display: flex;
             align-items: center;
@@ -510,15 +512,12 @@
             }
 
             &:hover {
-                border-color: rgba(red, 0.8);
-                background-color: rgba(red, 0.03);
+                background-color: rgba(red, 0.1);
                 --icon-color: red;
             }
 
             &:active {
                 background-color: transparent;
-                --icon-color: white;
-
                 path {
                     transition: none;
                 }
