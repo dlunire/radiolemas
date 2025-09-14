@@ -566,9 +566,6 @@
         display: flex;
         margin: 0;
         border-top: 1px solid var(--border-color);
-        
-        &:not(:first-of-type) {
-        }
     }
 }
 
@@ -614,9 +611,9 @@
     }
 
     &__input {
-        background-color: $input-color;
-        color: $input-text-color;
-        border: 1px solid $input-border-color;
+        background-color: var(--input-color);
+        color: var(--fore-color);
+        border: 1px solid var(--border-color);
         padding: 0 20px;
         height: 35px;
         border-radius: 20px;
@@ -625,16 +622,15 @@
         text-align: left;
         justify-content: flex-start;
         font: inherit;
-        outline: 1px solid transparent;
         transition: 300ms ease;
+
+        &,
+        &:focus {
+            outline: 1px solid transparent;
+        }
 
         font: {
             size: 0.88rem;
-        }
-
-        &:focus {
-            outline: 1px solid transparent;
-            border-color: $input-border-focused;
         }
 
         &--login {

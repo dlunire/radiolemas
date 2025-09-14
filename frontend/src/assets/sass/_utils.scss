@@ -1,0 +1,36 @@
+/// Permite establecer el color y transparencia del borde inyectando la propiedad personalizada
+/// `--border-color`.
+/// 
+/// @param {Number} $alpha [0.4] - Esteblece el canal alfa o transparencia del borde.
+/// @param {type} $color [black] - establece el color del borde.
+/// @output 
+@mixin border-color($alpha: 0.4, $color: black) {
+    --border-color: #{rgba($color, $alpha)};
+}
+
+/// Crea un borde reutilizable con un color dinámico.
+///
+/// @access public
+/// @param {Number} $border [1px] - Grosor del borde.
+/// @param {Number} $alpha [0.4] - Opacidad del color.
+/// @param {Color} $color [black] - Color base del borde.
+/// @output Aplica `border-width`, `border-style` y `border-color`.
+///
+/// @example scss - Uso básico
+///   .box {
+///     @include border(2px, 0.7, red);
+///   }
+///
+/// @example css - Resultado esperado
+///   .box {
+///     border-width: 2px;
+///     border-style: solid;
+///     border-color: rgba(255, 0, 0, 0.7);
+///   }
+/// @output
+@mixin border($border: 1px, $alpha: 0.4, $color: black) {
+    @include border-color($alpha, $color);
+    border-width: $border;
+    border-style: solid;
+    border-color: var(--border-color);
+}
