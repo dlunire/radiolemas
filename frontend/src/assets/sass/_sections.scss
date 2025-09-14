@@ -49,12 +49,12 @@
     &--nav {
         border-radius: 0;
         &:not(:first-of-type) {
-            // border-left: 1px solid rgba($border-color, 0.3);
+            border-left: 1px solid var(--border-color);
         }
     }
     & {
         @media screen and (max-width: 750px) {
-            // border-bottom: 1px solid rgba($border-color, 0.3);
+            border-bottom: 1px solid var(--border-color);
             min-height: 40px;
         }
     }

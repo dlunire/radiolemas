@@ -11,7 +11,7 @@
     border-radius: var(--radius);
     background-color: transparent;
     border: 0;
-    color: inherit;
+    color: var(-fore-color);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,11 +36,11 @@
     }
 
     &--normalize {
-        --icon-color: #{rgba(white, 0.8)};
+        --icon-color: #{rgba(black, 0.8)};
         --padding: 20px;
         height: 30px;
         border-radius: 20px;
-        border: 1px solid rgba(white, 0.1);
+        border: 1px solid rgba(black, 0.25);
         color: var(--icon-color);
     }
 
@@ -149,15 +149,7 @@
         height: 30px;
         width: max-content;
         max-width: calc(100vw - 40px);
-
-        &:hover {
-            background-color: rgba($base-color, 0.3);
-        }
-
-        span {
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        background-color: var(--button-color);
     }
 
     &--error {
@@ -165,30 +157,9 @@
     }
 
     &--help {
-        border: 1px solid $border-color;
+        border: 1px solid var(--border-color);
         height: 30px;
         padding: 0 20px;
-
-        path {
-            transition: 300ms ease;
-        }
-
-        &:hover {
-            --icon-color: orange;
-            background-color: rgba($base-color, 0.3);
-        }
-
-        &,
-        &:active {
-            --icon-color: #{rgba(white, 0.6)};
-            background-color: $secondary-color;
-        }
-
-        &:active {
-            path {
-                transition: none;
-            }
-        }
     }
 
     &--windows-close {
@@ -585,7 +556,6 @@
 
         &[data-open="true"] {
             height: var(--menu-height);
-            padding-top: var(--padding);
             padding-bottom: var(--padding);
             pointer-events: all;
             opacity: 1;
@@ -595,9 +565,9 @@
     &__item {
         display: flex;
         margin: 0;
-
+        border-top: 1px solid var(--border-color);
+        
         &:not(:first-of-type) {
-            border-top: 1px solid rgba(white, 0.06);
         }
     }
 }
