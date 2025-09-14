@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /// Permite establecer el color y transparencia del borde inyectando la propiedad personalizada
 /// `--border-color`.
 /// 
@@ -133,3 +135,25 @@
     --watermark-color: #{rgba($color, $alpha)};
 }
 
+/// Devuelve el color procesado.
+/// 
+/// @param {Number} $alpha [1] - Canal alfa del color (0 a 1).
+/// @param {type} $color [black] - Color a retornar 
+/// @return {type} -
+@function get-color($alpha: 1, $color: black) {
+    @return rgba($color, $alpha);
+}
+
+/// Oscurece el color base seleccionado.
+/// 
+/// @param {Number} $darken [0%] - Establece el porcentaje con el que se oscurecerá el color.
+/// @param {Color} $color [white] - Color que devolverá por defecto.
+/// @return {Color} -
+@function darken-color($darken: 0%, $color: white) {
+
+    @if $darken < 0 {
+        $darken: $darken * (-1);
+    }
+
+    @return color.adjust($color: $color, $lightness: $darken * (-1));
+}

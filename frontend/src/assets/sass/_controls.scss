@@ -7,6 +7,7 @@
     --radius: 20px;
     --icon-width: var(--icon-size);
     --icon-height: var(--icon-size);
+    --icon-color: var(--text-color);
     border-color: var(--border-color);
 
     gap: 5px;
@@ -14,7 +15,7 @@
     border-radius: var(--radius);
     background-color: transparent;
     border: 0;
-    color: var(-fore-color);
+    color: var(--text-color);
     display: inline-flex;
     align-items: center;
     justify-content: center;

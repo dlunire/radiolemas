@@ -1031,6 +1031,7 @@
                     &:first-of-type {
                         &::before {
                             background-color: var(--column-color);
+                            border-color: var(--column-border-color);
                         }
                     }
                 }
@@ -1067,7 +1068,7 @@
                         right: 0;
                         top: 0;
                         bottom: 0;
-                        background-color:  var(--backgrond-cell);
+                        background-color: var(--backgrond-cell);
                         z-index: 1;
                     }
                 }
@@ -1076,7 +1077,7 @@
             td {
                 &:first-of-type {
                     &::before {
-                        border-right: 2px solid rgba($border-color, 0.3);
+                        border-right: 2px solid var(--column-border-color);
                     }
                 }
             }
@@ -1113,7 +1114,7 @@
 
         th {
             &:not(:first-of-type) {
-                border-left: 1px solid;
+                border-left: 1px solid var(--column-border-color);
                 border-color: var(--border-color);
             }
         }
@@ -1129,6 +1130,7 @@
             td {
                 &:first-of-type {
                     background-color: var(--column-color);
+                    color: var(--text-column-color);
                 }
             }
         }

@@ -129,8 +129,10 @@
 }
 
 .table {
-    --column-color: silver;
-    
+    --column-color: white;
+    --text-column-color: black;
+    --column-border-color: #{get-color(1, white)};
+
     &-container {
 
         &__header {
@@ -168,4 +170,8 @@
 .dropzone {
     @include background-color(0.1);
     @include text-color();
+}
+
+.profile {
+    --background: #{get-color($color: white)};
 }
