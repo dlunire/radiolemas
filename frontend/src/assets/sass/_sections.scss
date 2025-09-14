@@ -1125,6 +1125,12 @@
                 transform: scale(0.995);
                 transition: none;
             }
+
+            td {
+                &:first-of-type {
+                    background-color: var(--column-color);
+                }
+            }
         }
     }
 }
