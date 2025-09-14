@@ -19,14 +19,11 @@ jobs:
         with:
           node-version: '22' # o la versión que uses en tu proyecto
       
-      - name: Ingresar al directorio frontend
-        run: cd frontend
-
-      - name: Instalar dependencias Node
-        run: npm install
-
-      - name: Compilar aplicación Svelte
-        run: npm run build
+      - name: Compilando frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
 
       # ---------- PHP / COMPOSER ----------
       - name: Configurar PHP con Composer
