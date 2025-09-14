@@ -28,7 +28,7 @@
         {onclick}
     >
         <IconUpload />
-        <span>Agregar estudiantes</span>
+        <span>Noticias</span>
     </button>
     <button
         class="button button--nav"

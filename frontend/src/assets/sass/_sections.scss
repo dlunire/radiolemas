@@ -929,12 +929,11 @@
         }
 
         &__footer {
-            background-color: $background;
+            background-color: var(--background);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 7px 10px;
-            border-top: 1px solid rgba($border-color, 0.3);
         }
 
         &__title {
@@ -946,7 +945,7 @@
             --icon-size: 30px;
             --icon-width: var(--icon-size);
             --icon-height: var(--icon-size);
-            --icon-color: white;
+            --icon-color: black;
 
             font: {
                 weight: 300;
@@ -971,17 +970,17 @@
     & {
         width: 100%;
         border-collapse: collapse;
-        background-color: rgba($secondary-color, 0.65);
-        color: rgba(white, 0.7);
+        background-color: var(--background);
+        color: var(--text-color);
         user-select: none;
         animation: 300ms ease fade-in 100ms forwards;
         opacity: 0;
-        border-bottom: 2px solid rgba($border-color, 0.3);
+        border-bottom: 2px solid var(--border-color);
 
         th {
             text-align: center;
             position: relative;
-            --icon-color: white;
+            --icon-color: black;
         }
 
         th,
@@ -991,7 +990,7 @@
         }
 
         td {
-            border: 1px solid rgba($border-color, 0.2);
+            border: 1px solid var(--border-color);
             position: relative;
 
             &::before {
@@ -1020,7 +1019,7 @@
 
             &:nth-of-type(2n) {
                 td {
-                    background-color: rgba(white, 0.02);
+                    background-color: rgba(black, 0.05);
                 }
 
                 th,
