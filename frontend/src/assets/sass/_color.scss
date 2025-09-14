@@ -142,6 +142,7 @@
 .footer {
 
     &--dashboard {
+        @include background-color(0);
         --text-color: black;
         --icon-color: var(--text-color);
     }

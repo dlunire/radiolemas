@@ -85,10 +85,10 @@
 }
 
 .footer {
-    --icon-color: #{$text-footer-color};
-    color: var(--icon-color);
-
-    background-color: $footer-color;
+    --icon-color: var(--text-color);
+    color: var(--text-color);
+    background-color: var(--background);
+    
     padding: 10px;
     position: sticky;
     bottom: 0;
