@@ -101,8 +101,6 @@ hr {
         left: 0;
         width: 100%;
         padding: 13px 10px;
-        background-color: color.adjust($color: $background, $lightness: 2%);
-        border-top: 1px solid rgba($border-color, 0.5);
         display: flex;
         justify-content: center;
         align-items: center;

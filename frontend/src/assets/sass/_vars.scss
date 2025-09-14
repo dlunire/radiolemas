@@ -1,13 +1,35 @@
 @use "sass:color";
 $max-width: 1200px;
 $width: calc(100% - 40px);
+
+// Colores de texto
+$text-color: black;
+
 // ZONA DE COLORES
-$base-color: #002844;
-$secondary-color: color.adjust($color: $base-color, $saturation: -50%, $lightness: -10%);
-$background: #060a0c;
-$background-modal: rgb(6, 12, 18);
-$dropzone-color: #121825;
-$dropzone-success-color: #052b00;
-$dropzone-error-color: #880000;
-$border-color: color.adjust($color: $base-color, $lightness: 10%);
-$border-color-focused: color.adjust($color: $base-color, $lightness: 35%);
+$base-color: white;
+$secondary-color: silver;
+$background: white;
+
+$background-modal: unset;
+$border-color: white;
+$border-color-focused: white;
+
+// Color de zona de carga de archivos:
+$dropzone-color: black;
+
+// CABECERA DE PÁGINA
+$header-color: #f9f9f9;
+$text-header-color: #101010;
+
+// PIE DE PÁGINA
+$footer-color: black;
+$text-footer-color: white;
+
+// Color de la barra de desplazamiento
+$scrollbar-color: black;
+
+// Color de los campos del formulario:
+$input-color: white;
+$input-text-color: black;
+$input-border-color: rgba(black, 0.3);
+$input-border-focused: rgba(black, 0.7);

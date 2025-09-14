@@ -1,8 +1,9 @@
 @use "sass:color";
 @use "./vars" as *;
 .header {
-    background-color: $secondary-color;
-    border-bottom: 1px solid rgba(white, 0.1);
+    background-color: $header-color;
+    color: $text-header-color;
+    border-bottom: 1px solid rgba(black, 0.1);
     padding: 10px;
     position: sticky;
     top: 0;
@@ -22,9 +23,9 @@
         --icon-size: 20px;
         --icon-width: var(--icon-size);
         --icon-height: var(--icon-size);
-        --icon-color: orangered;
+        --icon-color: #{$text-color};
         margin: 0;
-        color: orange;
+        color: var(--icon-color);
         display: flex;
         align-items: center;
         gap: 5px;
@@ -48,12 +49,12 @@
     &--nav {
         border-radius: 0;
         &:not(:first-of-type) {
-            border-left: 1px solid rgba($border-color, 0.3);
+            // border-left: 1px solid rgba($border-color, 0.3);
         }
     }
     & {
         @media screen and (max-width: 750px) {
-            border-bottom: 1px solid rgba($border-color, 0.3);
+            // border-bottom: 1px solid rgba($border-color, 0.3);
             min-height: 40px;
         }
     }
@@ -71,8 +72,8 @@
 }
 
 .footer {
-    --icon-color: white;
-    background-color: color.adjust($color: $base-color, $lightness: -20%);
+    --icon-color: #{$text-footer-color};
+    background-color: $footer-color;
     color: var(--icon-color);
     padding: 10px;
     position: sticky;
@@ -147,7 +148,7 @@
 }
 
 .section {
-    background-color: rgba(black, 0.3);
+    background-color: $background;
     flex-grow: 1;
     &__title {
         --icon-size: 20px;
@@ -166,7 +167,6 @@
             text-align: center;
             text-transform: uppercase;
             color: orange;
-            border-bottom: 1px solid rgba($border-color, 0.2);
             background-color: $background;
             padding-top: 15px;
             padding-bottom: 15px;
@@ -263,18 +263,14 @@
         height: 45px;
         border-radius: 0 0 30px 0;
         margin-bottom: 20px;
-        border-top: 1px solid rgba($border-color, 0.3);
-        border-bottom: 1px solid rgba($border-color, 0.3);
-        border-right: 1px solid rgba($border-color, 0.3);
         font: {
             weight: 500;
             size: 1.1rem;
         }
         @media screen and (max-width: 750px) {
             border-radius: 0;
-            background-color: $secondary-color;
+            background-color: $background;
             border: 0;
-            border-bottom: 2px solid rgba($border-color, 0.2);
         }
     }
     & {
@@ -298,7 +294,6 @@
             }
         }
         @media screen and (min-width: 301px) and (max-width: 750px) {
-            border-right: 1px solid rgba($border-color, 0.3);
         }
     }
     &__content {

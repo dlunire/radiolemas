@@ -1,0 +1,22 @@
+@use "./vars" as *;
+
+/* Para navegadores WebKit (Chrome, Edge, Safari) */
+
+* {
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: rgba($scrollbar-color, 0.7) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba($scrollbar-color, 0.7);
+    border-radius: 20px;
+}
