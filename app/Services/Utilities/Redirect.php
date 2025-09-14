@@ -57,6 +57,10 @@ final class Redirect {
         /** @var string $current_route */
         $current_route = DLServer::get_route();
 
+        if ($current_route == "/{$uri}") {
+            return;
+        }
+
         foreach (static::$excludes as $route) {
             /** @var string $pattern; */
             $pattern = "/^\\{$route}\b/i";
