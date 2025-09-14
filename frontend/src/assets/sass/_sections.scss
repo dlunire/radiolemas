@@ -1026,7 +1026,7 @@
                 td {
                     &:first-of-type {
                         &::before {
-                            background-color: color.adjust($color: $background, $lightness: 1%);
+                            background-color: color.adjust($color: $background, $lightness: 1%);    
                         }
                     }
                 }
