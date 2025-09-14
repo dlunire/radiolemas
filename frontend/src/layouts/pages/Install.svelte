@@ -58,11 +58,11 @@
             <hr />
 
             <p>
-                Bienvenido al asistente de instalación del sistema. Por favor,
+                Bienvenido al asistente de instalación del sistema.<br>Por favor,
                 ingrese las credenciales de la base de datos del sistema.
             </p>
 
-            <p>&nbsp;</p>
+            <hr>
             <Form
                 action="/install/credentials"
                 className="form--clase-01 form--clase-02"

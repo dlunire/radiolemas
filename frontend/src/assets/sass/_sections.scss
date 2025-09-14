@@ -85,13 +85,17 @@
 
 .footer {
     --icon-color: #{$text-footer-color};
-    background-color: $footer-color;
     color: var(--icon-color);
+
+    background-color: $footer-color;
     padding: 10px;
     position: sticky;
     bottom: 0;
-    border-top: 1px solid rgba($base-color, 0.1);
     z-index: 10;
+    overflow: hidden;
+    min-height: 47px;
+    display: flex;
+    justify-content: center;
 
     &::before {
         content: "";
@@ -103,13 +107,13 @@
         top: 0;
         bottom: 0;
         pointer-events: none;
-        border-top: 1px solid rgba(white, 0.05);
     }
 
     &__inner {
         max-width: $max-width;
         margin: 0 auto;
         padding: 5px;
+        width: 100%;
 
         &--dashboard {
             max-width: unset;
@@ -172,7 +176,7 @@
 }
 
 .section {
-    background-color: $background;
+    background-color: var(--background);
     flex-grow: 1;
 
     &__title {
