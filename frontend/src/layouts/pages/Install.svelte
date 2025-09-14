@@ -160,6 +160,7 @@
                                 placeholder="Por ejemplo, localhost"
                                 class="form__input"
                                 autocomplete=""
+                                value="localhost"
                             />
                         </label>
 
@@ -177,6 +178,7 @@
                                 class="form__input"
                                 oninput={handleNumeric}
                                 autocomplete="off"
+                                value="3306"
                             />
                         </label>
 
@@ -245,6 +247,7 @@
                                 placeholder="Por ejemplo, dl_"
                                 class="form__input"
                                 autocomplete="off"
+                                value="dl_"
                             />
                         </label>
                     </div>

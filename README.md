@@ -18,7 +18,7 @@ Y posteriormente, instale las dependencias
 
 ```bash
 composer install && cd frontend && npm install
-```
+```         
 
 Luego el frontend:
 
