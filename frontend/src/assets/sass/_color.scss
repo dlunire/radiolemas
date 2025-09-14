@@ -79,11 +79,17 @@
 
 .modal {
     &-container {
-        --background: white;
-        --fore-color: black;
+        @include background-color(1, silver);
+        --text-color: black;
+
+        &__header {
+            --background: black;
+            --text-color: white;
+        }
     }
 
     & {
-        --backgrund-color: rgba(black, 0.02);
+        @include background-color(1, white);
+        @include border(1px, 0.3);
     }
 }
