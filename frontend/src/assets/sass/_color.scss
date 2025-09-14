@@ -100,6 +100,13 @@
     &__inner {
         --text-color: black;
     }
+
+    &__column {
+
+        &--content {
+            @include border(1px, 0.3);
+        }
+    }
 }
 
 .header {
@@ -113,6 +120,21 @@
         &--check {
             --text-color: black;
 
+        }
+    }
+}
+
+.table {
+
+    &-container {
+
+        &__header {
+            @include background-color(0.05);
+            @include border($border: 1px, $alpha: 0.1, $direction: "bottom");
+        }
+
+        &__title {
+            --icon-color: black;
         }
     }
 }
