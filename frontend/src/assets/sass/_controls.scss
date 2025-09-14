@@ -17,7 +17,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: 300ms ease;
+    transition: 600ms ease;
     position: relative;
     cursor: pointer;
     white-space: nowrap;
@@ -151,7 +151,7 @@
         height: 30px;
         width: max-content;
         max-width: calc(100vw - 40px);
-        background-color: var(--button-color);
+        background-color: var(--background);
     }
 
     &--error {

@@ -34,7 +34,12 @@
 
     &--item {
         &:hover {
-            @include border-color(0.1);
+            @include background-color(0.1);
+            transition: none;
+        }
+
+        &:active {
+            @include background-color(0.15);
         }
     }
 
@@ -69,5 +74,16 @@
         &:focus {
             @include border-color(0.7);
         }
+    }
+}
+
+.modal {
+    &-container {
+        --background: white;
+        --fore-color: black;
+    }
+
+    & {
+        --backgrund-color: rgba(black, 0.02);
     }
 }
