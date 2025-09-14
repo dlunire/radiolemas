@@ -11,3 +11,14 @@
         --text-color: #{$base-color};
     }
 }
+
+// Colores en los botones:
+.button {
+    --border-color: transparent;
+
+    &--list {
+        --fore-color: black;
+        --border-color: silver;
+        --icon-color: var(--fore-color);
+    }
+}

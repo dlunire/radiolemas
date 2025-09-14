@@ -100,15 +100,14 @@
 
     &--list {
         --padding: 20px;
-        border: 1px solid $border-color;
         height: 100%;
         flex-grow: 1;
         width: 100%;
         white-space: nowrap;
         overflow: hidden;
-        background-color: $secondary-color;
         z-index: 1;
         justify-content: space-between;
+        border: 1px solid var(--border-color);
 
         span {
             text-overflow: ellipsis;
