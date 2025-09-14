@@ -88,7 +88,7 @@
     --icon-color: var(--text-color);
     color: var(--text-color);
     background-color: var(--background);
-    
+
     padding: 10px;
     position: sticky;
     bottom: 0;
@@ -262,6 +262,7 @@
             --icon-height: var(--icon-size);
             border-right: 0;
             min-width: 300px;
+
             @media screen and (max-width: 750px) {
                 min-width: unset;
             }
@@ -1026,7 +1027,7 @@
                 td {
                     &:first-of-type {
                         &::before {
-                            background-color: color.adjust($color: $background, $lightness: 1%);    
+                            background-color: color.adjust($color: $background, $lightness: 1%);
                         }
                     }
                 }
@@ -1091,16 +1092,15 @@
         position: sticky;
         top: 0;
         left: 0;
-        background-color: $background;
+        background-color: var(--backgrond);
         z-index: 10;
 
         &::before {
             content: "";
             pointer-events: none;
             user-select: none;
-            // background: $background;
-            border-bottom: 1px solid rgba($border-color, 0.3);
-            border-top: 1px solid rgba($border-color, 0.3);
+            border-bottom: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
             position: absolute;
             margin: auto;
             left: 0;
@@ -1148,10 +1148,10 @@
 
     & {
         position: relative;
-        background-color: $background;
+        background-color: var(--background);
         width: 100%;
         max-width: 340px;
-        border: 1px solid rgba(white, 0.1);
+        border: 1px solid var(--border-color);
         animation: 300ms ease fade-in forwards;
         border-radius: 20px;
         margin-left: auto;
@@ -1168,10 +1168,11 @@
 
     &__header {
         --icon-size: 100px;
+        --icon-color: var(--text-color);
         position: relative;
         margin: 0 auto;
         border-radius: 50%;
-        border: 2px solid $border-color;
+        border: 2px solid var(--border-color);
         width: var(--icon-size);
         height: var(--icon-size);
         margin-top: 10px;
@@ -1211,7 +1212,7 @@
         text-align: center;
         margin: 0;
         height: 40px;
-        border-color: rgba(white, 0.2);
+        border-color: var(--border-color);
 
         font: {
             size: 1.1rem;
@@ -1273,7 +1274,8 @@
     width: 100%;
     height: 100vh;
     overflow: auto;
-    background-color: $background;
+    background-color: var(--background);
+    color: var(--text-color);
     z-index: 1000;
     animation: 300ms ease fade-in forwards;
 
@@ -1287,7 +1289,9 @@
         padding-bottom: 5px;
         padding-left: 15px;
         padding-right: 70px;
-        border-bottom: 1px solid rgba($border-color, 0.3);
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--background);
+        color: var(--text-color);
     }
 
     &__content {
@@ -1311,7 +1315,7 @@
 }
 
 .watermark {
-    --icon-color: #{rgba(white, 0.02)};
+    --icon-color: var(--watermark-color);
     position: absolute;
     margin: auto;
     left: 0;

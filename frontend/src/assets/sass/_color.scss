@@ -51,6 +51,10 @@
             }
         }
     }
+
+    &--table-header {
+        @include background-color(0.1);
+    }
 }
 
 .list {
@@ -145,5 +149,13 @@
         @include background-color(0);
         --text-color: black;
         --icon-color: var(--text-color);
+    }
+}
+
+.windows {
+
+    &__header {
+        @include background-color();
+        --text-color: white;
     }
 }

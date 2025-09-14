@@ -22,6 +22,7 @@
     position: relative;
     cursor: pointer;
     white-space: nowrap;
+    color: var(--text-color);
 
     &:active {
         transition: none;
@@ -251,7 +252,7 @@
         padding: 0 10px;
 
         &:not(:first-of-type) {
-            border-left: 1px solid rgba($border-color, 0.35);
+            border-left: 1px solid var(--border-color);
         }
 
         &:hover {
@@ -304,7 +305,7 @@
     }
 
     &--query {
-        border: 1px solid $border-color;
+        border: 1px solid var(--border-color);
         border-left: 0;
         width: 60px;
         height: 35px;
@@ -325,7 +326,7 @@
         --button-size: 40px;
         width: var(--button-size);
         height: var(--button-size);
-        border: 1px solid $border-color;
+        border: 1px solid var(--border-color);
 
         img {
             display: flex;
@@ -346,12 +347,11 @@
     }
 
     &--profile {
-        --icon-color: white;
+        --icon-color: var(--text-color);
         flex-grow: 1;
         height: 40px;
         border-radius: 30px;
-        border: 1px solid;
-        border-color: rgba(white, 0.2);
+        border: 1px solid var(--border-color);
         display: flex;
         font: inherit;
 
@@ -366,8 +366,10 @@
     }
 
     &--paginate {
-        --icon-color: white;
-        border: 1px solid $border-color;
+        --icon-color: var(--text-color);
+        border: 1px solid  var(--border-color);
+        background-color: var(--background);
+
         width: 40px;
         height: 30px;
         display: flex;
@@ -384,14 +386,6 @@
                 transform: rotate(180deg);
             }
         }
-
-        &:hover {
-            background-color: rgba($base-color, 0.5);
-        }
-
-        &:active {
-            background-color: transparent;
-        }
     }
 
     &--table-header {
@@ -405,10 +399,11 @@
         margin-right: -1px;
         position: relative;
         padding-right: 30px;
-        background-color: $background;
+        background-color: var(--background);
         --icon-size: 15px;
         --icon-width: var(--icon-size);
         --icon-height: var(--icon-size);
+        --icon-color: var(--text-color);
 
         svg {
             display: flex;
@@ -427,14 +422,6 @@
             &:last-of-type {
                 transform: rotate(-90deg) translateX(-4px);
             }
-        }
-
-        &:hover {
-            background-color: color.adjust($color: $background, $lightness: 3%);
-        }
-
-        &:active {
-            background-color: $background;
         }
 
         &[data-direction] {
