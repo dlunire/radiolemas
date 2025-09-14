@@ -52,7 +52,7 @@
     --border-color: transparent;
 
     &__box {
-        @include border-color(0.2);
+        @include border-color();
         --button-color: white;
     }
 
