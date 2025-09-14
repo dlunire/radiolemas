@@ -10,7 +10,7 @@
     import WindowsControls from "../components/Nav/WindowsControls.svelte";
 
     export let data: DataTable = { columns: {}, records: [] };
-    export let title: string = "Agregar estudiantes";
+    export let title: string = "Cargar archivos";
 
     let open: boolean = false;
     let element: HTMLElement | null = null;
