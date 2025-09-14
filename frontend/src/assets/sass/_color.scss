@@ -93,3 +93,26 @@
         @include border(1px, 0.3);
     }
 }
+
+.section {
+    --text-color: black;
+
+    &__inner {
+        --text-color: black;
+    }
+}
+
+.header {
+    @include background-color(0.05, black);
+}
+
+.form {
+
+    &__buttons {
+
+        &--check {
+            --text-color: black;
+
+        }
+    }
+}

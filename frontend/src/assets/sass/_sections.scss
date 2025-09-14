@@ -3,8 +3,8 @@
 @use "./utils" as *;
 
 .header {
-    background-color: $header-color;
-    color: $text-header-color;
+    background-color: var(--background);
+    color: var(--text-color);
     border-bottom: 1px solid rgba(black, 0.1);
     padding: 10px;
     position: sticky;
@@ -177,7 +177,8 @@
 }
 
 .section {
-    background-color: var(--background);
+    @include background-color(1, white);
+    color: var(--text-color);
     flex-grow: 1;
 
     &__title {
@@ -239,7 +240,8 @@
         --icon-size: 100px;
         --icon-width: var(--icon-size);
         --icon-height: var(--icon-size);
-        --icon-color: #{rgba(white, 0.7)};
+        --icon-color: var(--text-color);
+
         display: flex;
         align-items: center;
         justify-content: center;

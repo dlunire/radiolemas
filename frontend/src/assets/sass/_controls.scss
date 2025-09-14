@@ -679,8 +679,11 @@
             justify-content: center;
             max-width: 500px;
             margin: 0 auto;
-            border: 1px solid rgba(white, 0.1);
             border-radius: 4px;
+        }
+
+        &--center {
+            justify-content: center;
         }
 
         &--login {
@@ -702,7 +705,6 @@
         padding: 30px;
         padding-bottom: 50px;
         opacity: 0;
-        border: 1px solid rgba(white, 0.1);
 
         @media screen and (max-width: 600px) {
             grid-template-columns: 1fr;

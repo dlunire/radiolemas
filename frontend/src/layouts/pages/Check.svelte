@@ -47,7 +47,7 @@
 <Container>
     <section class="section section--install" bind:this={container}>
         <div class="section__inner">
-            <p class="p-width p-center p-color">
+            <p class="p-width p-center">
                 Presiona el botón <strong>Verificar credenciales</strong> para comprobar
                 la conexión con la base de datos. Si los datos ingresados son válidos,
                 continuarás con la creación del usuario administrador. En caso contrario,
@@ -62,10 +62,7 @@
                 bind:loading
             >
                 {#snippet content()}
-                    <legend class="form__buttons form__buttons--check">
-                        <fieldset class="form__fieldset">
-                            <span>Comprobación de credenciales</span>
-                        </fieldset>
+                    <div class="form__buttons form__buttons--center">
                         <ButtonSubmit bind:loading>
                             {#snippet content()}
                                 <IconKeys />
@@ -73,7 +70,7 @@
                                 <IconLoading bind:open={loading} size={25} />
                             {/snippet}
                         </ButtonSubmit>
-                    </legend>
+                    </div>
                 {/snippet}
             </Form>
         </div>
