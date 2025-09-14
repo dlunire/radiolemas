@@ -242,7 +242,7 @@
     }
 
     &--nav {
-        --icon-color: white;
+        --icon-color: var(--text-color);
         --icon-size: 18px;
         --icon-width: var(--icon-size);
         --icon-height: var(--icon-size);
