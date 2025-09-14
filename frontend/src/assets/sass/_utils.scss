@@ -8,32 +8,101 @@
     --border-color: #{rgba($color, $alpha)};
 }
 
-/// Crea un borde reutilizable con un color dinámico.
 ///
-/// @access public
+/// Aplica un borde configurable en todos los lados o en una dirección específica.
+/// El color se gestiona a través de la variable CSS `--border-color` configurada por el mixin `border-color`.
+///
 /// @param {Number} $border [1px] - Grosor del borde.
-/// @param {Number} $alpha [0.4] - Opacidad del color.
+/// @param {Number} $alpha [0.4] - Nivel de opacidad para el color del borde.
 /// @param {Color} $color [black] - Color base del borde.
-/// @output Aplica `border-width`, `border-style` y `border-color`.
+/// @param {String} $direction ["all"] - Dirección en la que se aplicará el borde.
+///   - `"all"`: todos los lados.
+///   - `"left"`: solo borde izquierdo.
+///   - `"right"`: solo borde derecho.
+///   - `"top"`: solo borde superior.
+///   - `"bottom"`: solo borde inferior.
+///   - `"x"`: bordes izquierdo y derecho.
+///   - `"y"`: bordes superior e inferior.
+/// @output Estilos CSS que aplican `border-width`, `border-style` y `border-color` según la dirección indicada.
 ///
-/// @example scss - Uso básico
+/// @example scss - Borde en todos los lados
 ///   .box {
-///     @include border(2px, 0.7, red);
+///     @include border(2px, 0.7, red, "all");
 ///   }
 ///
-/// @example css - Resultado esperado
+/// @example css - Resultado
 ///   .box {
 ///     border-width: 2px;
 ///     border-style: solid;
 ///     border-color: rgba(255, 0, 0, 0.7);
 ///   }
+///
+/// @example scss - Borde solo en la parte inferior
+///   .underline {
+///     @include border(3px, 1, blue, "bottom");
+///   }
+///
+/// @example css - Resultado
+///   .underline {
+///     border-bottom-width: 3px;
+///     border-bottom-style: solid;
+///     border-bottom-color: rgba(0, 0, 255, 1);
+///   }
 /// @output
-@mixin border($border: 1px, $alpha: 0.4, $color: black) {
+@mixin border($border: 1px, $alpha: 0.4, $color: black, $direction: "all") {
     @include border-color($alpha, $color);
-    border-width: $border;
-    border-style: solid;
-    border-color: var(--border-color);
+
+    @if $direction =="all" {
+        border-width: $border;
+        border-style: solid;
+        border-color: var(--border-color);
+    }
+
+    @else if $direction =="left" {
+        border-left-width: $border;
+        border-left-style: solid;
+        border-left-color: var(--border-color);
+    }
+
+    @else if $direction =="right" {
+        border-right-width: $border;
+        border-right-style: solid;
+        border-right-color: var(--border-color);
+    }
+
+    @else if $direction =="top" {
+        border-top-width: $border;
+        border-top-style: solid;
+        border-top-color: var(--border-color);
+    }
+
+    @else if $direction =="bottom" {
+        border-bottom-width: $border;
+        border-bottom-style: solid;
+        border-bottom-color: var(--border-color);
+    }
+
+    @else if $direction =="x" {
+        border-left-width: $border;
+        border-left-style: solid;
+        border-left-color: var(--border-color);
+
+        border-right-width: $border;
+        border-right-style: solid;
+        border-right-color: var(--border-color);
+    }
+
+    @else if $direction =="y" {
+        border-top-width: $border;
+        border-top-style: solid;
+        border-top-color: var(--border-color);
+
+        border-bottom-width: $border;
+        border-bottom-style: solid;
+        border-bottom-color: var(--border-color);
+    }
 }
+
 
 /// Establece el color en la variable personalizada `--background`.
 /// 

@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "./vars" as *;
+@use "./utils" as *;
 
 .button {
     --icon-size: 1.2rem;
@@ -582,9 +583,7 @@
         }
 
         &--toggle {
-            background-color: rgba($secondary-color, 0.3);
             padding: 0;
-            margin-top: 10px;
             display: flex;
             align-items: center;
             justify-content: right;
@@ -667,7 +666,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        margin-top: 40px;
+        margin-top: 20px;
         border-top: 1px solid rgba(white, 0.1);
         padding-top: 10px;
         position: relative;
@@ -688,6 +687,10 @@
             justify-content: center;
             border-top: 1px solid rgba($border-color, 0.3);
             padding-top: 15px;
+        }
+
+        &--border {
+            @include border(1px, 0.3, black, "top");
         }
     }
 

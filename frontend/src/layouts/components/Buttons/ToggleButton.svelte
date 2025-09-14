@@ -9,7 +9,7 @@
 </script>
 
 <div class="toggle-container">
-    <button class="button" type="button" aria-label="Toggle" {onclick}></button>
+    <button class="button button--toggle" type="button" aria-label="Toggle" {onclick}></button>
     <div class="toggle" class:toggle--active={active}></div>
     <span class="label" class:label--active={active}>{label}</span>
 </div>
@@ -48,7 +48,7 @@
         }
 
         & {
-            border: 1px solid rgba(white, 0.3);
+            border: 1px solid rgba(black, 0.6);
             position: absolute;
             margin: auto;
             left: 0;
@@ -75,7 +75,7 @@
                 bottom: 0;
                 left: 2px;
 
-                background-color: rgba(white, 0.1);
+                background-color: rgba(black, 0.5);
                 border-radius: 50%;
                 transition: 300ms ease;
             }
@@ -94,7 +94,7 @@
         padding-left: 50px;
         padding-right: 10px;
         transition: 300ms ease;
-        color: rgba(white, 0.5);
+        color: rgba(black, 0.9);
         user-select: none;
         pointer-events: none;
         &--active {

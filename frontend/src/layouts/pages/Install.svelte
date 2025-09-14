@@ -58,11 +58,10 @@
             <hr />
 
             <p>
-                Bienvenido al asistente de instalación del sistema.<br>Por favor,
-                ingrese las credenciales de la base de datos del sistema.
+                Bienvenido al asistente de instalación del sistema.<br />Por
+                favor, ingrese las credenciales de la base de datos del sistema.
             </p>
 
-            <hr>
             <Form
                 action="/install/credentials"
                 className="form--clase-01 form--clase-02"
@@ -261,7 +260,7 @@
                         </div>
                     </div>
 
-                    <div class="form__buttons">
+                    <div class="form__buttons form__buttons--border">
                         <ButtonSubmit bind:loading>
                             {#snippet content()}
                                 <IconKeys />
