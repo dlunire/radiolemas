@@ -159,3 +159,12 @@
         --text-color: white;
     }
 }
+
+.watermark {
+    @include watermark-color(0.1);
+}
+
+.dropzone {
+    @include background-color(0.1);
+    @include text-color();
+}

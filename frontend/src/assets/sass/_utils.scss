@@ -112,3 +112,24 @@
 @mixin background-color($alpha: 1, $color: black) {
     --background: #{rgba($color, $alpha)};
 }
+
+/// Establece el color de texto por medio de `--text-color`.
+/// 
+/// @param {Number} $alpha [1] - Establece el canal alfa del color, es decir, completamente
+///                              transparente con el valor 0 y opaco con 0.
+/// @param {type} $color [black] - El color de texto a escablecer
+/// @output 
+@mixin text-color($alpha: 1, $color: black) {
+    --text-color: #{rgba($color, $alpha)};
+}
+
+/// Establece el color de la marca de agua por medio de `--watermark`.
+/// 
+/// @param {Number} $alpha [1] - Establece el canal alfa del color, es decir, completamente
+///                              transparente con el valor 0 y opaco con 0.
+/// @param {type} $color [black] - El color de la marca de agua a escablecer
+/// @output 
+@mixin watermark-color($alpha: 1, $color: black) {
+    --watermark-color: #{rgba($color, $alpha)};
+}
+

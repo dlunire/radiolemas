@@ -387,6 +387,8 @@
     overflow: auto;
     height: 100%;
     width: 100%;
+    background-color: var(--background);
+    color: var(--text-color);
 
     &::before,
     &::after {
@@ -403,7 +405,8 @@
 
     &::before {
         width: 0;
-        background-color: black;
+        background-color: var(--backgrond);
+        color: var(--text-color);
         z-index: 0;
         pointer-events: none;
         user-select: none;
@@ -437,7 +440,6 @@
 
     &__content {
         padding-bottom: 20px;
-        background-color: $secondary-color;
         flex-direction: column;
 
         p {
@@ -453,11 +455,11 @@
     }
 
     &__title {
-        --icon-color: #{rgba(white, 0.8)};
+        --icon-color: var(--text-color);
         --icon-size: 150px;
         --icon-width: var(--icon-size);
         --icon-height: var(--icon-size);
-        color: white;
+        color: var(--icon-color);
         margin: 0;
         text-transform: uppercase;
         animation: 350ms ease 50ms fade-in forwards;
@@ -484,7 +486,7 @@
     &__subtitle {
         margin: 0;
         text-align: center;
-        color: yellowgreen;
+        color: var(--text-color);
         margin-top: 10px;
 
         font: {
