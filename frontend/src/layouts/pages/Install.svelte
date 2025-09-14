@@ -53,13 +53,13 @@
         <div class="section__inner">
             <h1 class="section__title">
                 <IconKeys />
-                <span>Instalación de credenciales</span>
+                <span>Credenciales de la base de datos</span>
             </h1>
             <hr />
 
             <p>
-                Programa de instalación, diseñado para configurar rápidamente
-                los parámetros de conexión a la base de datos.
+                Bienvenido al asistente de instalación del sistema. Por favor,
+                ingrese las credenciales de la base de datos del sistema.
             </p>
 
             <p>&nbsp;</p>
