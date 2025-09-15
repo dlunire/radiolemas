@@ -796,7 +796,7 @@
         bottom: 0;
         border-radius: inherit;
         pointer-events: none;
-        --icon-color: #{rgba($base-color, 0.6)};
+        --icon-color: var(--text-color);
         --icon-size: 500px;
         --icon-width: var(--icon-size);
         --icon-height: 250px;
@@ -823,8 +823,6 @@
             svg {
                 margin: 0 auto;
             }
-
-            --icon-color: white;
             --icon-size: 100px;
             --icon-width: var(--icon-size);
             --icon-height: var(--icon-size);
@@ -866,8 +864,7 @@
             top: 0;
             bottom: 0;
             overflow: hidden;
-            opacity: 0.01;
-            --icon-color: white;
+            opacity: 0.1;
             height: 100%;
             width: 100%;
 
@@ -1335,9 +1332,15 @@
     overflow: hidden;
     pointer-events: none;
     user-select: none;
+    opacity: 1;
 
     svg {
+        opacity: 1;
         width: 100%;
         height: 100%;
+    }
+
+    path {
+        fill: black !important;
     }
 }
