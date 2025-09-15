@@ -50,14 +50,10 @@
     }
 
     &--submit {
-        &:hover {
-            background-color: rgba(black, 0.3);
-        }
-
-        &,
-        &:active {
-            background-color: rgba(white, 0.05);
-        }
+        --icon-color: var(--text-color);
+        background-color: var(--background);
+        color: var(--icon-color);
+        border: 0;
     }
 
     &--close {
@@ -198,18 +194,11 @@
         flex-grow: 1;
         border-radius: 5px;
         height: 35px;
+        border: 0;
 
-        &:hover {
-            background-color: color.adjust($color: $background, $lightness: 3%);
-        }
-
-        &:active {
-            background-color: $background;
-        }
-
-        &:focus {
-            outline: 1px solid $border-color;
-        }
+        --icon-color: var(--text-color);
+        background-color: var(--background);
+        color: var(--icon-color);
     }
 
     &--settings {
@@ -713,7 +702,7 @@
 
         &--login {
             span {
-                color: orange;
+                color: var(--text-color);
 
                 font: {
                     size: 0.9rem;

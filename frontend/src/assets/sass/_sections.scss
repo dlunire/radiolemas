@@ -297,6 +297,12 @@
         height: 100%;
         overflow: auto;
     }
+
+    &--install {
+        background-color: var(--background);
+        color: var(--text-color);
+        --icon-color: var(--text-color);
+    }
 }
 
 .sidebar {

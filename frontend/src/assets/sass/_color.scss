@@ -55,6 +55,31 @@
     &--table-header {
         @include background-color(0.1);
     }
+
+    &--submit {
+        @include background-color(1, #0080d4);
+        --text-color: white;
+
+        &:hover {
+            @include background-color(0.8, #0080d4);
+        }
+
+        &:active {
+            @include background-color($color: #0080d4);
+        }
+    }
+
+    &--login {
+        --text-color: white;
+        
+        &:hover {
+            @include background-color($color: $primary-color);
+        }
+        
+        &, &:active {
+            @include background-color($color: darken-color(10%, $primary-color));
+        }
+    }
 }
 
 .list {
@@ -152,6 +177,11 @@
         @include background-color(0);
         --text-color: black;
         --icon-color: var(--text-color);
+    }
+
+    &--install {
+        @include background-color();
+        --text-color: white;
     }
 }
 

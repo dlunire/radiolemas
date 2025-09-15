@@ -2,6 +2,7 @@
     import IconCodigosdelFuturo from "../icons/IconCodigosdelFuturo.svelte";
     import Footer from "./Footer.svelte";
     export let dashboard: boolean = false;
+    export let install: boolean = true;
     export let author: string = "David E Luna M (DLUnire)";
 </script>
 
@@ -9,7 +10,7 @@
     <slot>Agregue un contenido o componente aquí</slot>
 </div>
 
-<Footer {dashboard}>
+<Footer {dashboard} {install}>
     <div class="footer__inner" class:footer__inner--dashboard={dashboard}>
         <div class="footer__author" class:footer__author--dashboard={dashboard}>
             Desarrollado por <a

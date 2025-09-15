@@ -102,7 +102,7 @@
                             {#snippet content()}
                                 <IconKeys />
                                 <span>Iniciar sesión</span>
-                                <IconLoading bind:open={loading} size={25} />
+                                <IconLoading bind:open={loading} size={27} color="black" fixedColor="#0004" />
                             {/snippet}
                         </ButtonLogin>
                     </div>

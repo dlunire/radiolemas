@@ -40,6 +40,7 @@
 <style lang="scss">
     @use "sass:color";
     @use "../../assets/sass/vars" as *;
+    @use "../../assets/sass/utils" as *;
 
     .mirror {
         --line-fixed-color: var(--fixed-color);
@@ -147,7 +148,6 @@
             top: 0;
             bottom: 0;
 
-            background-color: $base-color;
             transition: 300ms ease;
             z-index: 100;
 
@@ -156,7 +156,7 @@
                 --animation-color: #{$secondary-color};
                 --canva-color: #{rgba(white, 0.05)};
 
-                background-color: color.adjust($color: white, $lightness: -10%);
+                background-color: darken-color(80%, white);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -173,7 +173,6 @@
             $lightness: -15%,
         );
 
-        background-color: rgba($color, 0.6);
         z-index: 20;
 
         display: flex;
@@ -185,7 +184,6 @@
         }
 
         & {
-            background-color: silver;
             position: fixed;
             margin: auto;
             left: 0;
