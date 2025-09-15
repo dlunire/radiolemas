@@ -2,6 +2,7 @@
 
 use DLRoute\Requests\DLRoute;
 use DLUnire\Auth\Auth;
+use DLUnire\Controllers\TestController;
 
 /** @var Auth $auth */
 $auth = Auth::get_instance();
@@ -12,3 +13,7 @@ $auth->authenticated(function () {
     DLRoute::get('/logged', function () {
     });
 });
+
+
+// Visualizar dirección IP
+DLRoute::get('/ip', [TestController::class, 'ip']);
