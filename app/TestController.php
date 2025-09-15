@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DLUnire\Controllers;
+namespace DLUnire;
 
 use DLRoute\Server\DLServer;
 use Framework\Abstracts\BaseController;

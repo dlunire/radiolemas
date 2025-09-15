@@ -2,7 +2,7 @@
 
 use DLRoute\Requests\DLRoute;
 use DLUnire\Auth\Auth;
-use DLUnire\Controllers\TestController;
+use DLUnire\TestController;
 
 /** @var Auth $auth */
 $auth = Auth::get_instance();
