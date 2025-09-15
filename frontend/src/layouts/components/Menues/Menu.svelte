@@ -17,20 +17,15 @@
 </script>
 
 <ul class="menu">
-    <MenuItem href="/dashboard" label="Estudiantes" icon={iconCSV} />
+    <MenuItem href="/dashboard" label="Noticias" icon={iconCSV} />
     <MenuItem
         href="/dashboard/certificate"
-        label="Certificados"
+        label="Galería"
         icon={iconCertificate}
     />
     <MenuItem
         href="/dashboard/history"
-        label="Historial de carga"
+        label="Historial de publicaciones"
         icon={iconTime}
-    />
-    <MenuItem
-        href="/dashboard/register"
-        label="Buscador de registro"
-        icon={iconSearchRegister}
     />
 </ul>
