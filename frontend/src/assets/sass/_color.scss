@@ -80,6 +80,18 @@
             @include background-color($color: darken-color(10%, $primary-color));
         }
     }
+
+    &--primary {
+        --text-color: white;
+
+        &:hover {
+            @include background-color($color: $primary-color);
+        }
+
+        &, &:active {
+            @include background-color($color: darken-color(10%, $primary-color));
+        }
+    }
 }
 
 .list {

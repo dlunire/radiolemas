@@ -81,22 +81,15 @@
     }
 
     &--primary {
-        $primary: rgb(0, 103, 167);
         --icon-size: 1rem;
-        --icon-color: white;
+        --icon-color: var(--text-color);
+
+        background-color: var(--background);
+        color: var(--icon-color);
         gap: 5px;
         height: 30px;
         min-width: 100px;
         padding: 0 20px;
-
-        &:hover {
-            background-color: color.adjust($color: $primary, $lightness: 7%);
-        }
-
-        &,
-        &:active {
-            background-color: $primary;
-        }
     }
 
     &--list {
