@@ -8,15 +8,14 @@ use DLUnire\Controllers\Admin\Dashboard\DashboardController;
 use DLUnire\Controllers\Admin\Files\FileController;
 use DLUnire\Controllers\Admin\Settings\SettingsController;
 use DLUnire\Controllers\Auth\AuthController;
+use DLUnire\Controllers\HomeController;
 use DLUnire\Models\Users;
 use DLUnire\Services\Utilities\CSVParser;
 
 /** @var Auth $auth */
 $auth = Auth::get_instance();
 
-DLRoute::get('/', function () {
-    redirect("/login");
-});
+DLRoute::get('/', [HomeController::class, 'index']);
 
 ## AUTENTICACIÓN CON RUTAS INEXISTENTES O NO REGISTRADAS PARA FACILITAR REDIRECCIÓN
 $auth->authenticated(function () {

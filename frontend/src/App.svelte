@@ -8,6 +8,8 @@
     getFullURL("/credentials/check"),
     getFullURL("/create/user"),
     getFullURL("/login"),
+    getFullURL("/"),
+    getFullURL("/blog")
   ];
 </script>
 

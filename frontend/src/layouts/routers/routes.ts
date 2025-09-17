@@ -1,6 +1,6 @@
 import { getComponent, type Route, route } from './sources/generator';
 
-import Home from '../pages/Home.svelte';
+import Home from '../pages/home/Home.svelte';
 import User from '../pages/User.svelte';
 import Install from '../pages/Install.svelte';
 import Check from '../pages/Check.svelte';
@@ -26,4 +26,7 @@ export const routes: Route[] = [
     route('/dashboard/register', getComponent(Register), []),
     route('/dashboard/profile', getComponent(Profile), []),
     route('/dashboard/settings', getComponent(Settings), []),
+
+    // Página principal:
+    route('/', getComponent(Home), [])
 ];
