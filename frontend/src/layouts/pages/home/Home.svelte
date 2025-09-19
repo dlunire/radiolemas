@@ -40,8 +40,6 @@
                 Una vez completada la instalación, podrás acceder a todo su contenido
                 y funcionalidades.
             </blockquote>
-
-            <p>Eduardo</p>
         </div>
     </section>
 </Container>
