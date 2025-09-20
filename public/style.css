@@ -171,3 +171,7 @@ main {
 .text--center {
     --align: center;
 }
+
+.text--highlight {
+    color: #ff4900ff;
+}
