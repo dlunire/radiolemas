@@ -40,6 +40,17 @@
                 Una vez completada la instalación, podrás acceder a todo su contenido
                 y funcionalidades.
             </blockquote>
+            
+            <blockquote>
+                <strong>Nota importante:</strong>
+                Si usted observa este mensaje, significa que las próximas horas estará disponible la Web de la emisora. No olvides
+                que debe alimentar el sitio Web de noticias.
+                
+                <p>
+                    La emisora ya incluye un <strong>panel de administración</strong> para que pueda cargar las noticias por sí mismo. También
+                    se incluyen módulos de configuración que le permita personalizar su herramienta.
+                </p>
+            </blocquote>
         </div>
     </section>
 </Container>

@@ -58,4 +58,3 @@ MVP - Diseño recomendado
 - Evita sliders grandes (pesan y no aportan mucho al MVP).
 - Backend solo con endpoints esenciales: noticias, programas, contacto.
 
-
