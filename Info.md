@@ -31,7 +31,7 @@ El siguiente contenido permite generar el mapa de navegación de la emisora de r
      - Noticias al día - 12:00 PM
      - Música sin pausa - 08:00 PM
 
-5. Sección: Noticias (Blog MVP)
+5. Página: Noticias (Blog MVP)
    - Vista tipo cards con imagen, título, resumen corto y botón leer más.
    - Cateogrías básicas:
      - Música.
@@ -57,4 +57,56 @@ MVP - Diseño recomendado
 - Tipografía clara y moderna.
 - Evita sliders grandes (pesan y no aportan mucho al MVP).
 - Backend solo con endpoints esenciales: noticias, programas, contacto.
+
+
+
+## PÁGINA DE FACEBOOK INSERTADA EN LA WEB
+
+Fragmento de código para Facebook:
+
+```html
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v23.0&appId=APP_ID"></script>
+
+<div class="fb-page" data-href="https://www.facebook.com/profile.php?id=61575156278078" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+```
+
+## Visualizar historias de Instagram
+
+Petición que se envía a Instagram:
+
+```bash
+GET https://graph.instagram.com/{ig-user-id}/stories
+  ?fields=id,media_type,media_url,permalink,timestamp
+  &access_token={ACCESS_TOKEN}
+```
+
+Salida que se obtiene de la plataforma:
+
+```json
+{
+  "data": [
+    {
+      "id": "17901234567890123",
+      "media_type": "IMAGE",
+      "media_url": "https://scontent.cdninstagram.com/v/t51.29350-15/1234567890_n.jpg?...",
+      "permalink": "https://www.instagram.com/stories/usuario/17901234567890123/",
+      "timestamp": "2025-09-20T13:45:12+0000"
+    },
+    {
+      "id": "17909876543210987",
+      "media_type": "VIDEO",
+      "media_url": "https://scontent.cdninstagram.com/v/t50.2886-16/9876543210_n.mp4?...",
+      "permalink": "https://www.instagram.com/stories/usuario/17909876543210987/",
+      "timestamp": "2025-09-20T14:01:55+0000"
+    }
+  ],
+  "paging": {
+    "cursors": {
+      "before": "QVFIUj...",
+      "after": "QVFIUm..."
+    }
+  }
+}
+```
 
