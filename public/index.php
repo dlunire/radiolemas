@@ -65,8 +65,7 @@ $logo = "./logo.png?" . Key::get_logo_hash();
             </div>
 
             <h1>Radio Lemas</h1>
-            <h2>Sitio web en construcción</h2>
-            <h3>Actualización importante</h3>
+            <h2>Actualizaión importante</h2>
 
             <!-- Aviso de lanzamiento próximo -->
             <p class="text text--highlight text--center">
