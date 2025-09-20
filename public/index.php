@@ -66,10 +66,18 @@ $logo = "./logo.png?" . Key::get_logo_hash();
 
             <h1>Radio Lemas</h1>
             <h2>Sitio web en construcción</h2>
-            <p class="text text--center">En las próximas horas está disponible una versión preliminar de la Web de emisora en modo Beta</p>
+            <h3>Actualización importante</h3>
+            <p class="text text--center">Aquí, el mensaje</p>
+
+            <!-- Aviso de lanzamiento próximo -->
+            <p class="text text--highlight text--center">
+                Si estás viendo este mensaje, significa que muy pronto lanzaremos el sitio web oficial de la emisora. 
+                ¡Gracias por acompañarnos en esta etapa previa!
+            </p>
 
             <div class="dev">
-                Para visualizar la versión que se encuentra de desarrollo, <a href="https://dev.radiolemas.com" target="_blank" title="Ir a la versión de desarrollo">presione este enlace</a>
+                Para visualizar la versión que se encuentra de desarrollo, 
+                <a href="https://dev.radiolemas.com" target="_blank" title="Ir a la versión de desarrollo">presione este enlace</a>
             </div>
         </section>
     </main>
