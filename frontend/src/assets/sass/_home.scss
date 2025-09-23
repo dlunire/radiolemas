@@ -1,0 +1,102 @@
+@use "sass:color";
+@use "./utils" as *;
+@use "./vars" as *;
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.header {
+
+    &--home {
+        @include background-color(1, white);
+
+        padding: 0;
+        // border-bottom: 0;
+    }
+
+    &__inner {
+
+        &--home {
+            padding: 12px 0;
+        }
+    }
+
+    &__title {
+
+        &--home {
+            --icon-height: 40px;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--background);
+        height: 40px;
+
+        &--home {
+            @include background-color(1);
+        }
+    }
+}
+
+.live {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    &__title {
+        margin: 0;
+
+        font: {
+            size: 1.2rem;
+        }
+
+        text-transform: uppercase;
+    }
+}
+
+.container {
+
+    &__nav {
+        --icon-color: var(--text-color);
+
+        background: var(--background);
+        color: var(--text-color);
+        position: relative;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+
+        &-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: $max-width;
+            margin: 0 auto;
+            flex-grow: 1;
+        }
+
+        &--home {
+            --text-color: white;
+            @include background-color();
+        }
+    }
+
+    &__hero {
+        background-color: var(--background);
+
+        min-height: 260px;
+        @include background-color(0.8);
+    }
+}

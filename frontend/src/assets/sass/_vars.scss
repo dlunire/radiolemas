@@ -1,5 +1,5 @@
 @use "sass:color";
-$max-width: 1200px;
+$max-width: 1400px;
 $width: calc(100% - 40px);
 
 // Colores de texto
@@ -36,3 +36,8 @@ $input-border-focused: rgba(black, 0.7);
 
 // Color de botones
 $primary-color: #0080d4;
+
+// Colores de la emisora:
+$station-color-01: black;
+$station-color-02: #ff4900ff;
+$station-color-03: #ffa904ff;

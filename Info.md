@@ -110,3 +110,5 @@ Salida que se obtiene de la plataforma:
 }
 ```
 
+## Servidores de Streaming de prueba
+https://manual.serviciostreaming.com/books/reproductores-de-radio/page/reproductor-flotante

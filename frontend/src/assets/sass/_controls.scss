@@ -9,11 +9,11 @@
     --icon-height: var(--icon-size);
     --icon-color: var(--text-color);
     border-color: var(--border-color);
+    background-color: var(--background);
 
     gap: 5px;
     padding: 0 var(--padding);
     border-radius: var(--radius);
-    background-color: transparent;
     border: 0;
     color: var(--text-color);
     display: inline-flex;
@@ -24,6 +24,12 @@
     cursor: pointer;
     white-space: nowrap;
     color: var(--text-color);
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.8;
+        filter: grayscale(1);
+    }
 
     &:active {
         transition: none;
@@ -493,6 +499,15 @@
                 }
             }
         }
+    }
+
+    &--live {
+        min-width: 60px;
+        height: 35px;
+
+        --icon-size: 16px;
+        --icon-width: var(--icon-size);
+        --icon-height: var(--icon-size);
     }
 }
 

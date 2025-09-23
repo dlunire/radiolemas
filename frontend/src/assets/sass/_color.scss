@@ -92,6 +92,18 @@
             @include background-color($color: darken-color(10%, $primary-color));
         }
     }
+
+    &--live {
+        --background: #{darken-color(7)};
+
+        &:hover {
+            --background: #{darken-color(12)};
+        }
+
+        &:active {
+            --background: #{darken-color(15)};
+        }
+    }
 }
 
 .list {
