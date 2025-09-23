@@ -6,6 +6,7 @@
     export let title: string = "";
     export let target: string = "_top";
     export let ariaLabel: string = "";
+    export let className: string = "";
 
     function handle(event: MouseEvent) {
         const { target: anchor } = event;
@@ -16,6 +17,6 @@
     }
 </script>
 
-<a {href} on:click={handle} {title} {target} aria-label={ariaLabel}>
+<a {href} on:click={handle} {title} {target} aria-label={ariaLabel} class={className}>
     <slot />
 </a>

@@ -100,3 +100,47 @@
         @include background-color(0.8);
     }
 }
+
+.menu {
+
+    &--home {
+        display: flex;
+        padding-left: 0;
+        margin: 0;
+        height: auto;
+    }
+
+    &__item {
+
+        &--home {
+            display: flex;
+            position: relative;
+
+            &:not(:first-of-type) {
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    height: 70%;
+                    border-left: 1px solid rgba(black, 0.4);
+                    pointer-events: none;
+                }
+            }
+
+        }
+    }
+
+    &__link {
+
+        &--home {
+            display: flex;
+            padding: 0 10px;
+            opacity: 1;
+        }
+    }
+}

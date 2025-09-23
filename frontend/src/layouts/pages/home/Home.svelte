@@ -3,6 +3,7 @@
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLema from "../../icons/IconRadioLema.svelte";
     import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
+    import Link from "../../routers/components/Link.svelte";
     import { getFullURL } from "../../routers/sources/router";
     import Container from "../../sections/Container.svelte";
     import Header from "../../sections/Header.svelte";
@@ -25,6 +26,47 @@
         <IconLogoHeader />
     </h1>
 
+    <div class="header__menu">
+        <ul class="menu menu--home">
+            <li class="menu__item menu__item--home">
+                <a
+                    href={getFullURL("/#home")}
+                    class="menu__link menu__link--home"
+                    aria-label="Home">Home</a
+                >
+            </li>
+
+            <li class="menu__item menu__item--home">
+                <a
+                    href={getFullURL("/#programming")}
+                    class="menu__link menu__link--home"
+                    aria-label="Programación"
+                >
+                    Programación
+                </a>
+            </li>
+            <li class="menu__item menu__item--home">
+                <Link
+                    href={getFullURL("/online")}
+                    ariaLabel="En Vivo"
+                    className="menu__link menu__link--home"
+                    title="En Vivo">En Vivo</Link
+                >
+            </li>
+            <li class="menu__item menu__item--home">
+                <Link
+                    href={getFullURL("/news")}
+                    ariaLabel="En Vivo"
+                    className="menu__link menu__link--home"
+                    title="En Vivo">Noticias</Link
+                >
+            </li>
+            <li class="menu__item menu__item--home">
+                <a href={getFullURL("/#contact")} class="menu__link menu__link--home">Contacto</a>
+            </li>
+        </ul>
+    </div>
+
     <Live />
 </Header>
 
@@ -38,33 +80,5 @@
     <section class="container__hero"></section>
 
     <section class="section section--home">
-        <div class="section__inner section__inner--home">
-            <div class="logo logo--central">
-                <IconRadioLema />
-            </div>
-            <blockquote>
-                <strong>Importante:</strong>
-                Actualmente estamos configurando la página principal de la emisora.
-                Una vez completada la instalación, podrás acceder a todo su contenido
-                y funcionalidades.
-            </blockquote>
-
-            <blockquote>
-                <p>
-                    <strong>Nota importante:</strong>
-                    Si usted observa este mensaje, significa que las próximas horas
-                    estará disponible la Web de la emisora. No olvides que debe alimentar
-                    el sitio Web de noticias.
-                </p>
-
-                <p>
-                    La emisora ya incluye un <strong
-                        >panel de administración</strong
-                    > para que pueda cargar las noticias por sí mismo. También se
-                    incluyen módulos de configuración que le permita personalizar
-                    su herramienta.
-                </p>
-            </blockquote>
-        </div>
     </section>
 </Container>
