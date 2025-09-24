@@ -3,6 +3,7 @@
     import Footer from "./Footer.svelte";
     export let dashboard: boolean = false;
     export let install: boolean = true;
+    export let home: boolean = false;
     export let author: string = "David E Luna M (DLUnire)";
 </script>
 
@@ -10,9 +11,9 @@
     <slot>Agregue un contenido o componente aquí</slot>
 </div>
 
-<Footer {dashboard} {install}>
-    <div class="footer__inner" class:footer__inner--dashboard={dashboard}>
-        <div class="footer__author" class:footer__author--dashboard={dashboard}>
+<Footer bind:dashboard bind:install bind:home>
+    <div class="footer__inner" class:footer__inner--dashboard={dashboard} class:footer__inner--home={home}>
+        <div class="footer__author" class:footer__author--dashboard={dashboard} class:footer__author--home={home}>
             Desarrollado por <a
                 href="https://github.com/dlunire"
                 class="footer__link"

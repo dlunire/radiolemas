@@ -18,7 +18,6 @@
 
     &--home {
         @include background-color(1, white);
-
         padding: 0;
         // border-bottom: 0;
     }
@@ -26,7 +25,12 @@
     &__inner {
 
         &--home {
+            transition: 300ms ease padding;
             padding: 12px 0;
+            @media screen and (max-width: $media-max-width) {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
         }
     }
 
@@ -85,6 +89,12 @@
             max-width: $max-width;
             margin: 0 auto;
             flex-grow: 1;
+            transition: 300ms ease padding;
+
+            @media screen and (max-width: $media-max-width) {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
         }
 
         &--home {
@@ -142,5 +152,14 @@
             padding: 0 10px;
             opacity: 1;
         }
+    }
+}
+
+.footer {
+
+    &--home {
+        @include background-color();
+        --text-color: white;
+        position: relative;
     }
 }

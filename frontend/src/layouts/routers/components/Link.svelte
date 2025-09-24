@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { navigate } from "../sources/router";
+    import { getFullURL, navigate } from "../sources/router";
 
     export let href: string;
     export let title: string = "";
@@ -8,9 +8,7 @@
     export let className: string = "";
     export let native: boolean = false;
     export let rel: string = "follow";
-
     function onclick(event: MouseEvent) {
-        const anchor = event.currentTarget as HTMLAnchorElement;
         if (native) return;
 
         event.preventDefault();
@@ -21,7 +19,7 @@
 </script>
 
 <a
-    {href}
+    href={native ? getFullURL(href) : href}
     {onclick}
     {title}
     {target}

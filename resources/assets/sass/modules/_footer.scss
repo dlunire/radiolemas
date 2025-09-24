@@ -16,6 +16,11 @@
     &__inner {
         max-width: $max-width;
         margin: 0 auto;
+
+        @media screen and (max-width: $media-max-width) {
+            padding-left: 15px; 
+            padding-right: 15px;
+        }
     }
 
     font: {

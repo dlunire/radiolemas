@@ -18,6 +18,11 @@
         justify-content: space-between;
         max-width: $max-width;
 
+        @media screen and (max-width: $media-max-width) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
         &--dashboard {
             max-width: unset;
             width: $width;
@@ -225,13 +230,17 @@
         max-width: $max-width;
         padding: 20px;
 
+        @media screen and (max-width: $media-max-width) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
         &--login {
             margin-top: 30px;
             max-width: 500px;
         }
 
         &--file {
-            max-width: $max-width;
             margin: 0 auto;
         }
     }
@@ -823,6 +832,7 @@
             svg {
                 margin: 0 auto;
             }
+
             --icon-size: 100px;
             --icon-width: var(--icon-size);
             --icon-height: var(--icon-size);
