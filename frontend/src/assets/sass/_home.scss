@@ -108,6 +108,7 @@
 
         min-height: 260px;
         @include background-color(0.8);
+        background-image: linear-gradient(45deg, get-color(0.9), transparent);
     }
 }
 
