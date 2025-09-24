@@ -27,6 +27,7 @@
         &--home {
             transition: 300ms ease padding;
             padding: 12px 0;
+
             @media screen and (max-width: $media-max-width) {
                 padding-left: 15px;
                 padding-right: 15px;
@@ -162,5 +163,66 @@
         @include background-color();
         --text-color: white;
         position: relative;
+    }
+}
+
+.section {
+
+    &--news {
+        padding: 0;
+        border-bottom: 1px solid red;
+        display: flex;
+    }
+
+    &__inner {
+        
+        &--news {
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            background-color: silver;
+        }
+    }
+
+    &__title {
+
+        &--news {
+            border-bottom: 1px solid;
+            padding-bottom: 5px;
+        }
+    }
+}
+
+.news {
+    display: flex;
+    flex-grow: 1;
+
+    &__column {
+        @include border-color(0.3);
+        position: relative;
+        background-color: var(--background);
+        padding: 20px;
+
+        &--content {
+            flex-grow: 1;
+        }
+
+        &--sidebar {
+            border-left: 1px solid var(--border-color);
+            @include background-color(0.05);
+            min-width: 360px;
+        }
+    }
+
+    &__content {
+        display: flex;
+
+        &-column {
+            flex-grow: 1;
+
+            &--sidebar {
+                min-width: 50%;
+            }
+        }
     }
 }

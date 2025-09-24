@@ -1,5 +1,6 @@
 <script lang="ts">
     import ContainerNav from "../../components/Container/ContainerNav.svelte";
+    import ContainerNews from "../../components/Container/ContainerNews.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
@@ -32,8 +33,7 @@
 
 <Container dashboard={false} install={false} home={true}>
     <ContainerNav bind:lema />
-
     <section class="container__hero"></section>
 
-    <section class="section section--home"></section>
+    <ContainerNews />
 </Container>
