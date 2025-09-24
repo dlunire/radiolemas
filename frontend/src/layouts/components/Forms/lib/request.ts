@@ -118,8 +118,8 @@ export function getLocalURL(): string {
 
     const { href } = link.dataset;
     if (!href) return getURLBase();
-
     const url: URL = new URL(href);
+
     return url.href.replace(/\/+$/, '');
 }
 

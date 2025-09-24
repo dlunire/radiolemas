@@ -1,4 +1,3 @@
-<!-- lib/router/Link.svelte -->
 <script lang="ts">
     import { navigate } from "../sources/router";
 
@@ -7,16 +6,28 @@
     export let target: string = "_top";
     export let ariaLabel: string = "";
     export let className: string = "";
+    export let native: boolean = false;
+    export let rel: string = "follow";
 
-    function handle(event: MouseEvent) {
-        const { target: anchor } = event;
-        if (!(anchor instanceof HTMLAnchorElement)) return;
+    function onclick(event: MouseEvent) {
+        const anchor = event.currentTarget as HTMLAnchorElement;
+        if (native) return;
 
         event.preventDefault();
         navigate(href);
     }
+
+    $: safeRel = target === "_blank" ? "noopener noreferrer" : rel;
 </script>
 
-<a {href} on:click={handle} {title} {target} aria-label={ariaLabel} class={className}>
+<a
+    {href}
+    {onclick}
+    {title}
+    {target}
+    aria-label={ariaLabel}
+    class={className}
+    rel={safeRel}
+>
     <slot />
 </a>

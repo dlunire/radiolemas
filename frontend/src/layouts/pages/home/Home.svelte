@@ -1,8 +1,6 @@
 <script lang="ts">
     import Live from "../../components/Header/Live.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
-    import IconRadioLema from "../../icons/IconRadioLema.svelte";
-    import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
     import Link from "../../routers/components/Link.svelte";
     import { getFullURL } from "../../routers/sources/router";
     import Container from "../../sections/Container.svelte";
@@ -47,7 +45,7 @@
             </li>
             <li class="menu__item menu__item--home">
                 <Link
-                    href={getFullURL("/online")}
+                    href="/online"
                     ariaLabel="En Vivo"
                     className="menu__link menu__link--home"
                     title="En Vivo">En Vivo</Link
@@ -55,14 +53,17 @@
             </li>
             <li class="menu__item menu__item--home">
                 <Link
-                    href={getFullURL("/news")}
+                    href="/news"
                     ariaLabel="En Vivo"
                     className="menu__link menu__link--home"
                     title="En Vivo">Noticias</Link
                 >
             </li>
             <li class="menu__item menu__item--home">
-                <a href={getFullURL("/#contact")} class="menu__link menu__link--home">Contacto</a>
+                <a
+                    href={getFullURL("/#contact")}
+                    class="menu__link menu__link--home">Contacto</a
+                >
             </li>
         </ul>
     </div>
@@ -79,6 +80,5 @@
 
     <section class="container__hero"></section>
 
-    <section class="section section--home">
-    </section>
+    <section class="section section--home"></section>
 </Container>
