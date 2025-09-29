@@ -208,8 +208,11 @@
         }
 
         &--sidebar {
+            --width: 450px;
+
             border-left: 1px solid var(--border-color);
-            min-width: 360px;
+            min-width: var(--width);
+            max-width: var(--width);
         }
     }
 
@@ -273,6 +276,46 @@
 
             font: {
                 size: 1.1rem;
+            }
+        }
+    }
+
+    &__articles {
+        display: grid;
+        gap: 30px;
+    }
+
+    &__article {
+        display: flex;
+        
+        &-sidebar {
+            background-color: rgba(black, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 5px 0 0 5px;
+            min-width: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4/3;
+        }
+
+        &-title {
+            margin: 0;
+
+            font: {
+                size: 1.1rem;
+            }
+        }
+
+        &-content {
+            padding-left: 10px;
+        }
+
+        &-resume {
+
+            font: {
+                size: 0.9rem;
             }
         }
     }

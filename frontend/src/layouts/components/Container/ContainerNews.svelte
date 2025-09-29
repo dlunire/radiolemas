@@ -1,4 +1,7 @@
-<script lang="ts"></script>
+<script lang="ts">
+    import Articles from "./Articles.svelte";
+
+</script>
 
 <section class="section section--home section--news">
     <div class="section__inner section__inner--news">
@@ -93,11 +96,7 @@
                     Noticias destacadas
                 </h2>
 
-                <section class="news__articles">
-                    <article class="news__article">
-                        
-                    </article>
-                </section>
+                <Articles />
             </sidebar>
         </div>
     </div>
