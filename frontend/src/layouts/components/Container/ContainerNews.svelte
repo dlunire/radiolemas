@@ -38,18 +38,51 @@
                         <header class="news__recents-header">
                             Foto
                         </header>
+
+                        <section class="news__recents-content">
+                            <span>Categoría</span>
+                            <h2 class="news__recents-title" aria-label="Título">
+                                Título de la noticia
+                            </h2>
+
+                            <div class="news__recents-description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, dolorum molestias ea quis facere vitae.
+                            </div>
+                        </section>
                     </div>
 
                     <div class="news__recents-item">
                         <header class="news__recents-header">
                             Foto
                         </header>
+
+                        <section class="news__recents-content">
+                            <span>Categoría</span>
+                            <h2 class="news__recents-title" aria-label="Título">
+                                Título de la noticia
+                            </h2>
+
+                            <div class="news__recents-description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, dolorum molestias ea quis facere vitae.
+                            </div>
+                        </section>
                     </div>
 
                     <div class="news__recents-item">
                         <header class="news__recents-header">
                             Foto
                         </header>
+
+                        <section class="news__recents-content">
+                            <span>Categoría</span>
+                            <h2 class="news__recents-title" aria-label="Título">
+                                Título de la noticia
+                            </h2>
+
+                            <div class="news__recents-description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, dolorum molestias ea quis facere vitae.
+                            </div>
+                        </section>
                     </div>
 
                 </div>
