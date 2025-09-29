@@ -244,7 +244,8 @@
         display: grid;
         gap: 15px;
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-
+        margin-top: 20px;
+        
         &-header {
             display: flex;
             align-items: center;
