@@ -10,7 +10,7 @@
                 </h2>
 
                 <article class="news__content">
-                    <div class="news__content-column">
+                    <div class="news__content-column news__content-column--content">
                         <h2 class="news__title">Título de la noticia</h2>
         
                         <p>

@@ -220,7 +220,11 @@
         &-column {
             flex-grow: 1;
             background-color: var(--background);
-            
+
+            &--content {
+                padding-right: 10px;
+            }
+
             &--sidebar {
                 min-width: 50%;
                 @include background-color(0.3);
@@ -229,6 +233,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                border-radius: 5px;
             }
         }
     }
