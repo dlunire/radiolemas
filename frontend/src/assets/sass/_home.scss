@@ -239,4 +239,15 @@
             }
         }
     }
+
+    &__recents {
+        display: grid;
+        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+
+        &-item {
+            border: 1px solid var(--border-color);
+            min-height: 50px;
+        }
+    }
 }

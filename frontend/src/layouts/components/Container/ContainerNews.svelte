@@ -32,6 +32,12 @@
                         Foto
                     </sidebar>
                 </article>
+
+                <div class="news__recents">
+                    <div class="news__recents-item"></div>
+                    <div class="news__recents-item"></div>
+                    <div class="news__recents-item"></div>
+                </div>
             </div>
 
             <sidebar class="news__column news__column--sidebar">
