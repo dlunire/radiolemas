@@ -16,53 +16,9 @@
     export let showNumber: boolean = true;
     export let content: Function | undefined = undefined;
     export let showControls: boolean = true;
+    export let relative: boolean = false;
 
     export let data: DataTable = unknown as DataTable;
-    //     columns: {
-    //         name: "Nombres",
-    //         lastname: "Apellidos",
-    //         documentNumber: "Nº de documento",
-    //         email: "Correo electrónico",
-    //     },
-    //     records: [
-    //         {
-    //             name: "Carlos Andrés",
-    //             lastname: "Pérez Gómez",
-    //             documentNumber: 1234567,
-    //             email: "carlos.perez@example.com",
-    //         },
-    //         {
-    //             name: "María Fernanda",
-    //             lastname: "Rodríguez Díaz",
-    //             documentNumber: 2345678,
-    //             email: "maria.fernandez@example.com",
-    //         },
-    //         {
-    //             name: "Luis Alberto",
-    //             lastname: "García Torres",
-    //             documentNumber: 3456789,
-    //             email: "luis.garcia@example.com",
-    //         },
-    //         {
-    //             name: "Ana Sofía",
-    //             lastname: "Martínez Rivas",
-    //             documentNumber: 4567890,
-    //             email: "ana.martinez@example.com",
-    //         },
-    //         {
-    //             name: "Jorge Enrique",
-    //             lastname: "Ramírez López",
-    //             documentNumber: 5678901,
-    //             email: "jorge.ramirez@example.com",
-    //         },
-    //         {
-    //             name: "Camila Julieta",
-    //             lastname: "Morales Vega",
-    //             documentNumber: 6789012,
-    //             email: "camila.morales@example.com",
-    //         },
-    //     ],
-    // };
 
     onMount(() => {
         if (!data) return;
@@ -150,7 +106,7 @@
 </script>
 
 {#if show}
-    <div class="table-container">
+    <div class="table-container" class:relative>
         {#if showControls}
             <header class="table-container__header">
                 <h2 class="table-container__title">
@@ -181,8 +137,9 @@
                 </div>
             </header>
         {/if}
-        <div class="table-container__container">
-            <div class="table-container__content">
+
+        <div class="table-container__container" class:relative>
+            <div class="table-container__content" class:relative>
                 <table class="table">
                     <colgroup>
                         {#if showNumber}
@@ -252,3 +209,11 @@
         </footer>
     </div>
 {/if}
+
+
+<style>
+    .relative {
+        position: relative;
+        overflow-x: auto;
+    }
+</style>
