@@ -245,9 +245,19 @@
         gap: 15px;
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 
+        &-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            aspect-ratio: 4/3;
+        }
+
         &-item {
             border: 1px solid var(--border-color);
             min-height: 50px;
+            border-radius: 5px;
         }
     }
 }

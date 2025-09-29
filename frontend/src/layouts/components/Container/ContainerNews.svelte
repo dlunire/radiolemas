@@ -34,9 +34,24 @@
                 </article>
 
                 <div class="news__recents">
-                    <div class="news__recents-item"></div>
-                    <div class="news__recents-item"></div>
-                    <div class="news__recents-item"></div>
+                    <div class="news__recents-item">
+                        <header class="news__recents-header">
+                            Foto
+                        </header>
+                    </div>
+
+                    <div class="news__recents-item">
+                        <header class="news__recents-header">
+                            Foto
+                        </header>
+                    </div>
+
+                    <div class="news__recents-item">
+                        <header class="news__recents-header">
+                            Foto
+                        </header>
+                    </div>
+
                 </div>
             </div>
 
