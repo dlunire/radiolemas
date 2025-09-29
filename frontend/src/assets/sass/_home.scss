@@ -167,6 +167,7 @@
 }
 
 .section {
+    @include border-color(0.4);
 
     &--news {
         padding: 0;
@@ -175,20 +176,27 @@
     }
 
     &__inner {
-        
+
         &--news {
             padding: 0;
             flex-grow: 1;
             display: flex;
-            background-color: silver;
+        }
+
+        &--padding {
+            --padding: 40px;
+
+            padding-top: var(--padding);
+            padding-bottom: var(--padding);
         }
     }
 
     &__title {
 
         &--news {
-            border-bottom: 1px solid;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 5px;
+            flex-grow: 1;
         }
     }
 }
@@ -226,7 +234,7 @@
 
             &--content {
                 padding-right: 10px;
-                
+
             }
 
             &--sidebar {
@@ -267,7 +275,7 @@
         }
 
         &-content {
-           padding-top: 15px;
+            padding-top: 15px;
         }
 
         &-title {
@@ -287,7 +295,7 @@
 
     &__article {
         display: flex;
-        
+
         &-sidebar {
             background-color: rgba(black, 0.8);
             color: white;

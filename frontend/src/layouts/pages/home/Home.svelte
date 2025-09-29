@@ -1,6 +1,7 @@
 <script lang="ts">
     import ContainerNav from "../../components/Container/ContainerNav.svelte";
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
+    import Tendencies from "../../components/Container/Tendencies.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
@@ -36,4 +37,5 @@
     <section class="container__hero"></section>
 
     <ContainerNews />
+    <Tendencies />
 </Container>
