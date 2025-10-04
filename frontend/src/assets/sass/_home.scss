@@ -337,6 +337,7 @@
 .tendencies {
     margin-top: 40px;
 }
+
 .trend {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -374,6 +375,7 @@
 
         &-resume {
             margin-top: 7px;
+
             font: {
                 size: 0.97rem;
             }
@@ -388,4 +390,24 @@
     margin-top: 40px;
     overflow: auto;
     width: 100%;
+}
+
+.about {
+    column-count: 2;
+    column-gap: 2rem;
+    margin-top: 40px;
+
+    font: {
+        size: 17px;
+    }
+
+    @media screen and (max-width: 570px) {
+        column-count: 1;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
 }
