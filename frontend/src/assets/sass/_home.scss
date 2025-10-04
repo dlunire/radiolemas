@@ -416,7 +416,7 @@
 }
 
 .contact {
-    background-color: silver;
+    @include border-color(0.3, $station-color-02);
     min-height: 100px;
     display: flex;
 
@@ -430,6 +430,7 @@
         position: relative;
         overflow: hidden;
         min-height: 400px;
+        border-top: 1px solid var(--border-color);
 
         &--maps {
             flex-grow: 3;
