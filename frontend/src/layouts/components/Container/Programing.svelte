@@ -3,9 +3,9 @@
 
 
 </script>
-<section class="section section--home section--news" id="Programing">
+<section class="section section--home section--news" id="programming">
     <div class="section__inner section__inner--article">
-        <h2 class="section__title section__title--news" aria-label="Recientes">
+        <h2 class="section__title section__title--news" aria-label="Programación">
             Programación
         </h2>
 

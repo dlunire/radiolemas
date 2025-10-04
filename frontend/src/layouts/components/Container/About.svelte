@@ -2,7 +2,7 @@
     let about: string | undefined = undefined;
 </script>
 
-<section class="section section--home section--news" id="tendencies">
+<section class="section section--home section--news" id="about">
     <div class="section__inner section__inner--article">
         <h2
             class="section__title section__title--news"

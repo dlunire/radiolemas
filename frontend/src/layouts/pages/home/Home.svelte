@@ -1,5 +1,6 @@
 <script lang="ts">
     import About from "../../components/Container/About.svelte";
+    import Contact from "../../components/Container/Contact.svelte";
     import ContainerNav from "../../components/Container/ContainerNav.svelte";
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
     import Programing from "../../components/Container/Programing.svelte";
@@ -42,4 +43,5 @@
     <Tendencies />
     <Programing />
     <About />
+    <Contact />
 </Container>

@@ -396,6 +396,9 @@
     column-count: 2;
     column-gap: 2rem;
     margin-top: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 
     font: {
         size: 17px;
@@ -409,5 +412,43 @@
         margin-top: 0;
         margin-bottom: 0;
         border-bottom: 1px solid var(--border-color);
+    }
+}
+
+.contact {
+    background-color: silver;
+    min-height: 100px;
+    display: flex;
+
+    &,
+    &__column {
+        display: flex;
+    }
+
+    &__column {
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        min-height: 400px;
+
+        &--maps {
+            flex-grow: 3;
+
+            iframe {
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &--forms {
+            min-width: 400px;
+            flex-grow: 1
+        }
     }
 }
