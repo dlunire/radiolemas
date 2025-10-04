@@ -446,9 +446,10 @@
             }
         }
 
-        &--forms {
-            min-width: 400px;
-            flex-grow: 1
+        &--form {
+            min-width: 600px;
+            flex-grow: 1;
+            border-left: 1px solid var(--border-color);
         }
     }
 }
