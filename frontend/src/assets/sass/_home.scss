@@ -421,7 +421,7 @@
     display: flex;
 
     &,
-    &__column {
+    &__column--maps {
         display: flex;
     }
 
@@ -429,7 +429,7 @@
         align-items: center;
         position: relative;
         overflow: hidden;
-        min-height: 400px;
+        min-height: 250px;
         border-top: 1px solid var(--border-color);
 
         &--maps {
@@ -448,9 +448,19 @@
         }
 
         &--form {
-            min-width: 600px;
+            min-width: 400px;
             flex-grow: 1;
             border-left: 1px solid var(--border-color);
+            padding: 30px;
+            font: {
+                family: "Roboto Condensed", "Roboto", "Raleway", sans-serif, arial;
+                weight: 400;
+            }
         }
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 15px;
     }
 }

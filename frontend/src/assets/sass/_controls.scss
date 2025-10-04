@@ -572,6 +572,10 @@
             align-items: center;
             justify-content: right;
         }
+
+        &--contact {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__item {
@@ -642,6 +646,11 @@
         }
 
         &--settings {
+            border-radius: 4px;
+        }
+
+        &--contact {
+            margin-top: 0;
             border-radius: 4px;
         }
     }
@@ -717,6 +726,12 @@
                 }
             }
         }
+
+        &--contact {
+            span {
+                margin-bottom: 0;
+            }
+        }
     }
 
     &__search {
@@ -733,6 +748,18 @@
         display: flex;
         align-items: center;
         gap: 5px;
+    }
+
+    &__textarea {
+        display: block;
+        resize: none;
+        font: inherit;
+        width: 100%;
+
+        &--contact {
+            min-height: 250px;
+            padding: 10px 20px;
+        }
     }
 
     &-container {
