@@ -12,6 +12,8 @@
 </div>
 
 <Footer bind:dashboard bind:install bind:home>
+    <slot name="footer-content"></slot>
+    
     <div class="footer__inner" class:footer__inner--dashboard={dashboard} class:footer__inner--home={home}>
         <div class="footer__author" class:footer__author--dashboard={dashboard} class:footer__author--home={home}>
             Desarrollado por <a
