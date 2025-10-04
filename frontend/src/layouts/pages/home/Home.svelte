@@ -1,4 +1,5 @@
 <script lang="ts">
+    import About from "../../components/Container/About.svelte";
     import ContainerNav from "../../components/Container/ContainerNav.svelte";
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
     import Programing from "../../components/Container/Programing.svelte";
@@ -40,4 +41,5 @@
     <ContainerNews />
     <Tendencies />
     <Programing />
+    <About />
 </Container>
