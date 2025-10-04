@@ -163,6 +163,47 @@
         @include background-color();
         --text-color: white;
         position: relative;
+        display: block;
+        padding: 0;
+    }
+
+    &__inner {
+
+        &--home {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 20px;
+        border-radius: 5px;
+    }
+
+    &__item {
+        border: 1px solid rgba(white, 0.1);
+        flex-grow: 1;
+        padding: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+    }
+
+    &__author {
+        max-width: $max-width;
+        flex-grow: 1;
+    }
+
+    &__info {
+        background-color: rgba(white, 0.03);
+        padding: 5px 15px;
+        border-top: 1px solid rgba(white, 0.05);
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -452,6 +493,7 @@
             flex-grow: 1;
             border-left: 1px solid var(--border-color);
             padding: 30px;
+
             font: {
                 family: "Roboto Condensed", "Roboto", "Raleway", sans-serif, arial;
                 weight: 400;

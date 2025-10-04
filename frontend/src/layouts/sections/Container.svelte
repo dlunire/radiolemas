@@ -13,18 +13,42 @@
 
 <Footer bind:dashboard bind:install bind:home>
     <slot name="footer-content"></slot>
-    
-    <div class="footer__inner" class:footer__inner--dashboard={dashboard} class:footer__inner--home={home}>
-        <div class="footer__author" class:footer__author--dashboard={dashboard} class:footer__author--home={home}>
-            Desarrollado por <a
-                href="https://github.com/dlunire"
-                class="footer__link"
-                class:footer__link--dashboard={dashboard}
-                target="_blank"
+
+    {#if !home}
+        <div
+            class="footer__inner"
+            class:footer__inner--dashboard={dashboard}
+            class:footer__inner--home={home}
+        >
+            <div
+                class="footer__author"
+                class:footer__author--dashboard={dashboard}
+                class:footer__author--home={home}
             >
-                <IconCodigosdelFuturo />
-                <span>{author}</span>
-            </a>
+                Desarrollado por <a
+                    href="https://github.com/dlunire"
+                    class="footer__link"
+                    class:footer__link--dashboard={dashboard}
+                    target="_blank"
+                >
+                    <IconCodigosdelFuturo />
+                    <span>{author}</span>
+                </a>
+            </div>
         </div>
-    </div>
+    {:else}
+        <div class="footer__info" class:footer__info--home={home}>
+            <div class="footer__author" class:footer__autor--home={home}>
+                Desarrollado por <a
+                    href="https://github.com/dlunire"
+                    class="footer__link"
+                    class:footer__link--dashboard={dashboard}
+                    target="_blank"
+                >
+                    <IconCodigosdelFuturo />
+                    <span>{author}</span>
+                </a>
+            </div>
+        </div>
+    {/if}
 </Footer>

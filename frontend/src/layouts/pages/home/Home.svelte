@@ -45,7 +45,7 @@
     <About />
     <Contact />
 
-    <div class="form__inner form__inner--home" slot="footer-content">
+    <div class="footer__inner footer__inner--home" slot="footer-content">
         <div class="footer__cards">
             <div class="footer__item">1</div>
             <div class="footer__item">2</div>
