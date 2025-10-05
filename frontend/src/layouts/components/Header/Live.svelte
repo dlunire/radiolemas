@@ -58,8 +58,6 @@
     $: if (audio instanceof HTMLAudioElement && !audio.paused) {
         openLoading = false;
     }
-
-    $: console.log({ paused, playing });
 </script>
 
 <div class="live">

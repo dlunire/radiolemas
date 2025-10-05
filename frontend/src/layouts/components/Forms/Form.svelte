@@ -106,6 +106,8 @@
 
     onMount(() => {
         if (!(form instanceof HTMLFormElement)) return;
+        if (typeof className != "string" || !className) return;
+         
         const classNames: string[] = className.split(/\s+/);
         form.classList.add(...classNames);
     });
