@@ -615,8 +615,10 @@
             outline: 1px solid transparent;
         }
 
-        font: {
-            size: 0.88rem;
+        & {
+            font: {
+                size: 0.88rem;
+            }
         }
 
         &--login {
