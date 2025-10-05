@@ -7,7 +7,16 @@
     import Tendencies from "../../components/Container/Tendencies.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
+    import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
+    import IconAddress from "../../icons/IconAddress.svelte";
+    import IconEmail from "../../icons/IconEmail.svelte";
+    import IconFacebook from "../../icons/IconFacebook.svelte";
+    import IconInstagram from "../../icons/IconInstagram.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
+    import IconLogoSCR from "../../icons/IconLogoSCR.svelte";
+    import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
+    import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
+    import IconRadioLemasIso from "../../icons/IconRadioLemasIso.svelte";
     import { getFullURL } from "../../routers/sources/router";
     import Container from "../../sections/Container.svelte";
     import Header from "../../sections/Header.svelte";
@@ -47,9 +56,12 @@
 
     <div class="footer__inner footer__inner--home" slot="footer-content">
         <div class="footer__cards">
-            <div class="footer__item">1</div>
-            <div class="footer__item">2</div>
-            <div class="footer__item">2</div>
+            <div class="footer__item footer__item--logo">
+                <IconRadioLemasDark />
+                <SocialMedia />
+            </div>
+            <div class="footer__item footer__item--links">2</div>
+            <div class="footer__item footer__item--">2</div>
             <div class="footer__item">3</div>
         </div>
     </div>
