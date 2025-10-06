@@ -10,7 +10,7 @@
         </h2>
 
         <div class="programming">
-            <Table showControls={false} relative={true}  />
+            <Table showControls={false}  />
         </div>
     </div>
 </section>
