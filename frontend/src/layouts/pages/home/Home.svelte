@@ -17,8 +17,8 @@
 
     /** Indica si es una página de usuario */
     let home: boolean = true;
-
     let lema: string = "La Poderosa Online";
+    let openMenu: boolean = false;
 </script>
 
 <Header bind:home id="home">
@@ -26,7 +26,7 @@
         <IconLogoHeader />
     </h1>
 
-    <MobileMenu />
+    <MobileMenu bind:openMenu />
 
     <MenuHeader />
 
