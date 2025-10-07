@@ -356,7 +356,7 @@
 
     &--paginate {
         --icon-color: var(--text-color);
-        border: 1px solid  var(--border-color);
+        border: 1px solid var(--border-color);
         background-color: var(--background);
 
         width: 40px;
@@ -494,6 +494,7 @@
 
             &:active {
                 background-color: transparent;
+
                 path {
                     transition: none;
                 }
@@ -508,6 +509,83 @@
         --icon-size: 16px;
         --icon-width: var(--icon-size);
         --icon-height: var(--icon-size);
+    }
+
+    &--menu {
+        --line-size: 20px;
+        --radius: 20px;
+
+        height: 30px;
+        width: 90px;
+        display: flex;
+        padding-left: calc(var(--line-size));
+        transition: 150ms ease;
+
+        span {
+            transition: 300ms ease;
+            transform-origin: left;
+
+            &:not([class]) {
+                width: var(--line-size);
+                height: 2px;
+                background-color: black;
+
+                position: absolute;
+                display: block;
+                margin: auto;
+                left: 12px;
+                right: auto;
+                top: 0;
+                bottom: 0;
+
+                &:first-of-type {
+                    transform: translateY(-4px);
+                }
+
+                &:nth-of-type(3) {
+                    transform: translateY(4px);
+                }
+            }
+        }
+
+        & {
+            border: 1px solid;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        &-open {
+            background-color: black;
+            border-color: black;
+            color: white;
+            border-radius: 0 var(--radius) 0 0;
+            transform: translateY(calc(100% / 2));
+            // height: 40px;
+
+            span {
+                &:not([class]) {
+                    background-color: white;
+
+                    &:nth-of-type(2) {
+                        opacity: 0;
+                        background-color: red;
+                    }
+
+                    &:first-of-type {
+                        transform: translateY(-4px) rotate(24deg);
+                    }
+
+                    &:nth-of-type(3) {
+                        transform: translateY(4px) rotate(-24deg);
+                    }
+                }
+            }
+        }
+
+        & {
+            @media screen and (min-width: 751px) {
+                display: none;
+            }
+        }
     }
 }
 

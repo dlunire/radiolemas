@@ -8,6 +8,7 @@
     import MenuFooter from "../../components/Footer/MenuFooter.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
+    import MobileMenu from "../../components/Header/MobileMenu.svelte";
     import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
@@ -24,6 +25,8 @@
     <h1 class="header__title header__title--home">
         <IconLogoHeader />
     </h1>
+
+    <MobileMenu />
 
     <MenuHeader />
 
