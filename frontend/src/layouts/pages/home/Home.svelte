@@ -5,6 +5,7 @@
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
     import Programing from "../../components/Container/Programing.svelte";
     import Tendencies from "../../components/Container/Tendencies.svelte";
+    import MenuFooter from "../../components/Footer/MenuFooter.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
     import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
@@ -48,11 +49,7 @@
             </div>
 
             <div class="footer__item footer__item--links">
-                <menu class="menu menu--footer">
-                    <li class="menu__item menu__item--footer">
-                        <Link href="/#home" native={true}>Home</Link>
-                    </li>
-                </menu>
+                <MenuFooter />
             </div>
             <div class="footer__item footer__item--">2</div>
             <div class="footer__item">3</div>

@@ -167,8 +167,9 @@
 .footer {
 
     &--home {
-        @include background-color();
         --text-color: white;
+        @include background-color();
+        
         position: relative;
         display: block;
         padding: 0;
@@ -221,6 +222,14 @@
         border-top: 1px solid rgba(white, 0.05);
         display: flex;
         justify-content: center;
+    }
+
+    &__title {
+        margin-top: 0;
+
+        &--menu {
+            margin-bottom: 0;
+        }
     }
 }
 
