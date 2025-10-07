@@ -521,6 +521,11 @@
         padding-left: calc(var(--line-size));
         transition: 150ms ease;
 
+        font: {
+            family: "Roboto Condensed", "Roboto", "Open Sans", sans-serif, arial;
+            weight: 400;
+        }
+
         span {
             transition: 300ms ease;
             transform-origin: left;
