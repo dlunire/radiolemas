@@ -8,16 +8,9 @@
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
     import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
-    import IconAddress from "../../icons/IconAddress.svelte";
-    import IconEmail from "../../icons/IconEmail.svelte";
-    import IconFacebook from "../../icons/IconFacebook.svelte";
-    import IconInstagram from "../../icons/IconInstagram.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
-    import IconLogoSCR from "../../icons/IconLogoSCR.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
-    import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
-    import IconRadioLemasIso from "../../icons/IconRadioLemasIso.svelte";
-    import { getFullURL } from "../../routers/sources/router";
+    import Link from "../../routers/components/Link.svelte";
     import Container from "../../sections/Container.svelte";
     import Header from "../../sections/Header.svelte";
 
@@ -25,16 +18,9 @@
     let home: boolean = true;
 
     let lema: string = "La Poderosa Online";
-
-    function onclick(event: MouseEvent): void {
-        const anchor: HTMLAnchorElement = document.createElement("a");
-        anchor.href = getFullURL("/dashboard");
-        anchor.click();
-        anchor.remove();
-    }
 </script>
 
-<Header bind:home>
+<Header bind:home id="home">
     <h1 class="header__title header__title--home">
         <IconLogoHeader />
     </h1>
@@ -60,7 +46,14 @@
                 <IconRadioLemasDark />
                 <SocialMedia />
             </div>
-            <div class="footer__item footer__item--links">2</div>
+
+            <div class="footer__item footer__item--links">
+                <menu class="menu menu--footer">
+                    <li class="menu__item menu__item--footer">
+                        <Link href="/#home" native={true}>Home</Link>
+                    </li>
+                </menu>
+            </div>
             <div class="footer__item footer__item--">2</div>
             <div class="footer__item">3</div>
         </div>

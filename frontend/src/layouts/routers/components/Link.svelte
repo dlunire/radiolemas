@@ -1,9 +1,10 @@
 <script lang="ts">
+    import type { HTMLAttributeAnchorTarget } from "svelte/elements";
     import { getFullURL, navigate } from "../sources/router";
 
     export let href: string;
     export let title: string = "";
-    export let target: string = "_top";
+    export let target: HTMLAttributeAnchorTarget | null | undefined = "_top";
     export let ariaLabel: string = "";
     export let className: string = "";
     export let native: boolean = false;

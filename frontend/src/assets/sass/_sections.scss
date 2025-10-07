@@ -185,6 +185,7 @@
     @include background-color(1, white);
     color: var(--text-color);
     flex-grow: 1;
+    scroll-margin-top: var(--header-height);
 
     &__title {
         --icon-size: 20px;
@@ -1363,4 +1364,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.scroll-target {
+    scroll-margin-top: 90px; // Ajusta este valor según la altura real de tu header
 }

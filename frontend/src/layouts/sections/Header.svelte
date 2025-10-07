@@ -1,13 +1,28 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+
     export let dashboard: boolean = false;
     export let home: boolean = false;
     export const content: Function | undefined = undefined;
+    export let id: string = "header";
+
+    let header: HTMLElement | null = null;
+
+    onMount(() => {
+        const root: HTMLElement | null = document.body.closest("html");
+        if (!(root instanceof HTMLElement) || !(header instanceof HTMLElement)) return;
+
+        const size: DOMRect = header.getBoundingClientRect();
+        root.style.setProperty("--header-height", `${size.height}px`);
+    });
 </script>
 
 <header
     class="header"
     class:header--dashboard={dashboard}
     class:header--home={home}
+    {id}
+    bind:this={header}
 >
     <div
         class="header__inner"

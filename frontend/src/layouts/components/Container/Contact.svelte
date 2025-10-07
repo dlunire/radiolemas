@@ -12,7 +12,7 @@
             ></iframe>`;
 </script>
 
-<section class="section section--home section--contact" id="contact-us">
+<section class="section section--home section--contact" id="contact">
 
     <section class="contact">
         <div class="contact__column contact__column--maps">
