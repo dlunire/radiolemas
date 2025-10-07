@@ -1,19 +1,23 @@
 @use "sass:color";
 @use "./vars" as *;
+
 .menu {
     list-style: none;
     padding-left: 0;
+
     &__item {
         margin: 0;
         display: flex;
+
         &:not(:first-of-type) {
             border-top: 1px solid rgba($border-color, 0.1);
         }
 
         &:not(:first-of-type) {
-            border-top: 1px solid rgba(white, 0.05);
+            border-top: 1px solid transparent;
         }
     }
+
     &__link {
         color: inherit;
         opacity: 0.7;
@@ -24,20 +28,25 @@
         padding-right: 20px;
         display: flex;
         flex-grow: 1;
+
         &:hover {
             opacity: 1;
         }
+
         &:active {
             transition: none;
             opacity: 0.7;
         }
+
         span {
             user-select: none;
             pointer-events: none;
         }
+
         svg {
             transform: unset !important;
         }
+
         & {
             --icon-size: 18px;
             --icon-width: var(--icon-size);
@@ -47,7 +56,7 @@
         }
 
         &--footer {
-            padding-left: 15px;
+            padding: 5px 15px;
 
             &:hover {
                 transition: none;
