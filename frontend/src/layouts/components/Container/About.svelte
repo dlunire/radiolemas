@@ -7,7 +7,7 @@
     onMount(() => {
         if (!(section instanceof HTMLElement)) return;
         if (location.hash != "#about") return;
-        
+
         section.scrollIntoView({
             behavior: "smooth",
         });

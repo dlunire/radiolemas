@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import Form from "../Forms/Form.svelte";
 
     let maps: string = `<iframe
@@ -10,10 +11,24 @@
                 referrerpolicy="no-referrer-when-downgrade"
                 title="Google Maps"
             ></iframe>`;
+
+    let section: HTMLElement | null = null;
+
+    onMount(() => {
+        if (!(section instanceof HTMLElement)) return;
+        if (location.hash != "#about") return;
+
+        section.scrollIntoView({
+            behavior: "smooth",
+        });
+    });
 </script>
 
-<section class="section section--home section--contact" id="contact">
-
+<section
+    class="section section--home section--contact"
+    id="contact"
+    bind:this={section}
+>
     <section class="contact">
         <div class="contact__column contact__column--maps">
             {@html maps}
