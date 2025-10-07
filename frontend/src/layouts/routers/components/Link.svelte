@@ -8,7 +8,8 @@
     export let ariaLabel: string = "";
     export let className: string = "";
     export let native: boolean = false;
-    export let rel: string = "follow";
+
+    let rel: string = "follow";
     function onclick(event: MouseEvent) {
         if (native) return;
 
