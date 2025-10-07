@@ -11,7 +11,6 @@
     import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
-    import Link from "../../routers/components/Link.svelte";
     import Container from "../../sections/Container.svelte";
     import Header from "../../sections/Header.svelte";
 
