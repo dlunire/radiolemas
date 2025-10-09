@@ -8,6 +8,7 @@
     import MenuFooter from "../../components/Footer/MenuFooter.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
+    import MenuMobileHeader from "../../components/Header/MenuMobileHeader.svelte";
     import MobileMenu from "../../components/Header/MobileMenu.svelte";
     import WindowMenu from "../../components/Header/WindowMenu.svelte";
     import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
@@ -62,4 +63,8 @@
 
 <WindowMenu bind:openMenu>
     <ContainerNav slot="header" />
+
+    <div class="window__container" slot="container">
+        <MenuMobileHeader />
+    </div>
 </WindowMenu>

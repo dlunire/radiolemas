@@ -661,8 +661,25 @@
     }
 
     & {
+        @include border-color(0.3);
         background-color: white;
         position: relative;
         min-height: 100px;
+        animation: 300ms ease 30ms fade-in forwards;
+    }
+}
+
+.grow {
+    padding: 40px 20px;
+    
+    &__title {
+        margin: 0;
+
+        font: {
+            size: 1rem;
+            family: "Roboto", "Raleway", "Open Sans", arial;
+        }
+
+        border-bottom: 1px solid var(--border-color);
     }
 }
