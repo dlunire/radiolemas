@@ -116,6 +116,7 @@
 
 <style>
     svg {
+        display: block;
         min-height: var(--icon-height);
         max-height: var(--icon-height);
     }

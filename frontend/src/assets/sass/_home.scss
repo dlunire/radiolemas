@@ -158,6 +158,14 @@
             }
 
         }
+
+        &--mobile {
+            @include border-color(0.05);
+
+            &:not(:first-of-type) {
+                border-top: 1px solid var(--border-color);
+            }
+        }
     }
 
     &__link {
@@ -166,6 +174,23 @@
             display: flex;
             padding: 0 10px;
             opacity: 1;
+        }
+
+        &--mobile {
+            padding-top: 4px;
+            padding-bottom: 4px;
+            color: black;
+            opacity: 1;
+            transition: 300ms ease;
+
+            &:hover {
+                background-color: rgba(black, 0.05);
+                transition: none;
+            }
+
+            &:active {
+                background-color: transparent;
+            }
         }
     }
 }
@@ -661,7 +686,7 @@
     }
 
     & {
-        @include border-color(0.3);
+        @include border-color(0.5);
         background-color: white;
         position: relative;
         min-height: 100px;
@@ -671,9 +696,10 @@
 
 .grow {
     padding: 40px 20px;
-    
+
     &__title {
         margin: 0;
+        padding-bottom: 5px;
 
         font: {
             size: 1rem;
@@ -681,5 +707,14 @@
         }
 
         border-bottom: 1px solid var(--border-color);
+    }
+
+    &__logo {
+        --icon-height: 50px;
+        
+        margin: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
     }
 }

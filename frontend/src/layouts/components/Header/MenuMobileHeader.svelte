@@ -1,8 +1,14 @@
 <script lang="ts">
+    import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
     import Link from "../../routers/components/Link.svelte";
 </script>
 
 <div class="grow">
+
+    <div class="grow__logo">
+        <IconRadioLemasH />
+    </div>
+
     <h2 class="grow__title" aria-label="Menú de Navegación">
         <span>Menú de navegación</span>
     </h2>
