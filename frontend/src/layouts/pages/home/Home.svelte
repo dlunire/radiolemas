@@ -9,6 +9,7 @@
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
     import MobileMenu from "../../components/Header/MobileMenu.svelte";
+    import WindowMenu from "../../components/Header/WindowMenu.svelte";
     import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
@@ -58,3 +59,7 @@
         </div>
     </div>
 </Container>
+
+<WindowMenu bind:openMenu>
+    <ContainerNav slot="header" />
+</WindowMenu>

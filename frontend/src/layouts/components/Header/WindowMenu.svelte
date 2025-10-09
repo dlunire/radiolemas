@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
+    export let openMenu: boolean = false;
+
     // your script goes here
     let windows: HTMLElement | null = null;
 
@@ -10,6 +12,11 @@
     });
 </script>
 
-<section class="window-container" bind:this={windows}>
-    
-</section>
+{#if openMenu}
+    <section class="window-container" bind:this={windows}>
+        <div class="window">
+            <slot name="header"></slot>
+            <slot name="container"></slot>
+        </div>
+    </section>
+{/if}

@@ -644,3 +644,25 @@
 
     color: $station-color-02;
 }
+
+.window {
+
+    &-container {
+        position: fixed;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: var(--header-height);
+        bottom: 0;
+        z-index: 100000;
+        background-color: rgba(black, 0.8);
+        animation: 300ms fadeIn forwards;
+        overflow: auto;
+    }
+
+    & {
+        background-color: white;
+        position: relative;
+        min-height: 100px;
+    }
+}
