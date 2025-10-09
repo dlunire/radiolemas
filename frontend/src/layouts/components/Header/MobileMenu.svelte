@@ -4,7 +4,7 @@
 
     function onclick(event: MouseEvent): void {
         openMenu = !openMenu;
-        value = openMenu ? "hidden": "auto";
+        value = openMenu ? "hidden" : "auto";
 
         const { target: button } = event;
         if (!(button instanceof HTMLButtonElement)) return;
@@ -17,7 +17,7 @@
 
     let label: string = "Menú";
 
-    $: {    
+    $: {
         label = openMenu ? "Cerrar" : "Menú";
         document.body.style.setProperty("overflow", value);
     }

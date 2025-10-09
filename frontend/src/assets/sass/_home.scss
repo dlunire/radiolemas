@@ -39,6 +39,10 @@
 
         &--home {
             --icon-height: 40px;
+
+            @media screen and (max-width: 980px) {
+                display: none;
+            }
         }
     }
 
@@ -56,7 +60,7 @@
 
     &__menu {
 
-        @media screen and (max-width: 980px) {
+        @media screen and (max-width: 750px) {
             display: none;
         }
     }
@@ -727,5 +731,11 @@
             margin: 0;
             padding: 0;
         }
+    }
+}
+
+.mobile {
+    @media screen and (min-width: 751px) {
+        display: none;
     }
 }

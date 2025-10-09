@@ -29,7 +29,6 @@
     </h1>
 
     <MobileMenu bind:openMenu />
-
     <MenuHeader />
 
     <Live />

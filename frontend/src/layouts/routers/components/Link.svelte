@@ -13,6 +13,7 @@
     let rel: string = "follow";
     function onclick(event: MouseEvent) {
         openMenu = false;
+        console.log({ native, href });
         if (native) return;
 
         event.preventDefault();
@@ -23,7 +24,7 @@
 </script>
 
 <a
-    href={native ? getFullURL(href) : href}
+    href={!native ? getFullURL(href) : href}
     {onclick}
     {title}
     {target}
