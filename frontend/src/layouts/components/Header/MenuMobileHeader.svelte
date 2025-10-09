@@ -1,5 +1,7 @@
 <script lang="ts">
+    import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
     import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
+    import IconRadioLemasIso from "../../icons/IconRadioLemasIso.svelte";
     import Link from "../../routers/components/Link.svelte";
 
     export let openMenu: boolean = false;
