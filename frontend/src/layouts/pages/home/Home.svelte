@@ -65,6 +65,6 @@
     <ContainerNav slot="header" />
 
     <div class="window__container" slot="container">
-        <MenuMobileHeader />
+        <MenuMobileHeader bind:openMenu />
     </div>
 </WindowMenu>

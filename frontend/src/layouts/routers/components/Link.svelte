@@ -8,9 +8,11 @@
     export let ariaLabel: string = "";
     export let className: string = "";
     export let native: boolean = false;
+    export let openMenu: boolean = false;
 
     let rel: string = "follow";
     function onclick(event: MouseEvent) {
+        openMenu = false;
         if (native) return;
 
         event.preventDefault();

@@ -1,10 +1,11 @@
 <script lang="ts">
     import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
     import Link from "../../routers/components/Link.svelte";
+
+    export let openMenu: boolean = false;
 </script>
 
 <div class="grow">
-
     <div class="grow__logo">
         <IconRadioLemasH />
     </div>
@@ -19,7 +20,9 @@
             <Link
                 href="/#home"
                 native={true}
-                className="menu__link menu__link--mobile">Home</Link
+                className="menu__link menu__link--mobile"
+                bind:openMenu
+                >Home</Link
             >
         </li>
 
@@ -27,7 +30,7 @@
             <Link
                 href="/#programming"
                 native={true}
-                className="menu__link menu__link--mobile">Programación</Link
+                className="menu__link menu__link--mobile" bind:openMenu>Programación</Link
             >
         </li>
 
@@ -35,7 +38,7 @@
             <Link
                 href="/online"
                 native={false}
-                className="menu__link menu__link--mobile">En Vivo</Link
+                className="menu__link menu__link--mobile" bind:openMenu>En Vivo</Link
             >
         </li>
 
@@ -43,14 +46,14 @@
             <Link
                 href="/news"
                 native={false}
-                className="menu__link menu__link--mobile">Noticias</Link
+                className="menu__link menu__link--mobile" bind:openMenu>Noticias</Link
             >
         </li>
         <li class="menu__item menu__item--mobile">
             <Link
                 href="/#contact"
                 native={true}
-                className="menu__link menu__link--mobile">Contacto</Link
+                className="menu__link menu__link--mobile" bind:openMenu>Contacto</Link
             >
         </li>
     </menu>

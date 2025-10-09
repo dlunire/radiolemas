@@ -695,7 +695,10 @@
 }
 
 .grow {
-    padding: 40px 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 40px;
 
     &__title {
         margin: 0;
@@ -710,11 +713,20 @@
     }
 
     &__logo {
-        --icon-height: 50px;
-        
+        --icon-height: 80px;
+
         margin: 0;
         position: relative;
         display: flex;
-        justify-content: center;
+
+        svg {
+            transition: 300ms ease;
+            display: flex;
+            justify-content: flex-start;
+            border: 1px solid red;
+            width:120px;
+            margin: 0;
+            padding: 0;
+        }
     }
 }
