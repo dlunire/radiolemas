@@ -72,7 +72,7 @@
         height: var(--icon-height) !important;
     }
 
-    path {
+    rect {
         stroke: var(--icon-color) !important;
         transition: 300ms ease;
     }

@@ -1,6 +1,12 @@
 <script lang="ts">
     import type { ILink } from "../../../lib/interface/link";
+    import IconContact from "../../icons/IconContact.svelte";
+    import IconHome from "../../icons/IconHome.svelte";
+    import IconLInk from "../../icons/IconLInk.svelte";
+    import IconLive from "../../icons/IconLive.svelte";
+    import IconNews from "../../icons/IconNews.svelte";
     import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
+    import IconStation from "../../icons/IconStation.svelte";
     import Link from "../../routers/components/Link.svelte";
 
     export let openMenu: boolean = false;
@@ -15,12 +21,12 @@
     ];
 </script>
 
-<div class="grow">
-    <div class="grow__logo">
+<div class="grow grow--mobile">
+    <div class="grow__logo grow__logo--mobile">
         <IconRadioLemasH />
     </div>
 
-    <h2 class="grow__title" aria-label="Menú de Navegación">
+    <h2 class="grow__title grow__title--mobile" aria-label="Menú de Navegación">
         <span>Menú de navegación</span>
     </h2>
 
@@ -31,7 +37,10 @@
                 href="/#home"
                 native={true}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>Home</Link
+                bind:openMenu>
+                    <IconHome />
+                    <span>Home</span>
+                </Link
             >
         </li>
 
@@ -40,7 +49,10 @@
                 href="/#programming"
                 native={true}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>Programación</Link
+                bind:openMenu>
+                    <IconStation />
+                    <span>Programación</span>
+                </Link
             >
         </li>
 
@@ -49,7 +61,10 @@
                 href="/online"
                 native={false}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>En Vivo</Link
+                bind:openMenu>
+                    <IconLive />
+                    <span>En Vivo</span>
+                </Link
             >
         </li>
 
@@ -58,7 +73,10 @@
                 href="/news"
                 native={false}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>Noticias</Link
+                bind:openMenu>
+                    <IconNews />
+                    <span>Noticias</span>
+                </Link
             >
         </li>
         <li class="menu__item menu__item--mobile">
@@ -66,7 +84,10 @@
                 href="/#contact"
                 native={true}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>Contacto</Link
+                bind:openMenu>
+                    <IconContact />
+                    <span>Contacto</span>
+                </Link
             >
         </li>
     </menu>
@@ -78,9 +99,12 @@
     </h2>
 
     <menu class="menu menu--mobile">
-        {#each links as link, index}
+        {#each links as link}
             <li class="menu__item menu__item--mobile">
-                <Link {...link}>{index + 1}. Home</Link>
+                <Link {...link}>
+                    <IconLInk />
+                    <span>{link.title}</span>
+                </Link>
             </li>
         {/each}
     </menu>

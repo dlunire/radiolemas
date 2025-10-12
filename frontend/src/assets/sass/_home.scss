@@ -773,6 +773,12 @@
             padding: 0;
         }
     }
+
+    &--mobile {
+        --icon-color: #{rgba(black, 0.8)};
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .mobile {
