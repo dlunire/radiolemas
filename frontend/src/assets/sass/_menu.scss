@@ -16,23 +16,16 @@
         display: flex;
 
         &:not(:first-of-type) {
-            border-top: 1px solid rgba($border-color, 0.1);
-        }
-
-        &:not(:first-of-type) {
-            border-top: 1px solid transparent;
+            border-top: 1px solid rgba(white, 0.04);
         }
     }
 
     &__link {
         color: inherit;
-        opacity: 0.7;
         transition: 300ms ease;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 30px;
-        padding-right: 20px;
         display: flex;
+        height: 35px;
+        align-items: center;
         flex-grow: 1;
 
         &:hover {
@@ -54,9 +47,10 @@
         }
 
         & {
-            --icon-size: 18px;
+            --icon-size: 15px;
             --icon-width: var(--icon-size);
             --icon-height: var(--icon-size);
+
             gap: 5px;
             align-items: center;
         }
@@ -66,6 +60,7 @@
 
             &:hover {
                 transition: none;
+                background-color: rgba(white, 0.02);
             }
         }
     }
@@ -74,5 +69,6 @@
         display: block;
         width: 100%;
         margin: 0;
+
     }
 }

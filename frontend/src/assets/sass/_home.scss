@@ -279,9 +279,19 @@
 
     &__title {
         margin-top: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border-bottom: 1px solid rgba(white, 0.04);
+        padding-bottom: 4px;
 
         &--menu {
             margin-bottom: 0;
+
+            font: {
+                size: 1rem;
+
+            }
         }
     }
 }
@@ -733,10 +743,7 @@
 }
 
 .grow {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 0;
-    padding-bottom: 40px;
+    padding: 0;
 
     &__title {
         margin: 0;
@@ -813,7 +820,7 @@
     &__item {
 
         &:not(:first-of-type) {
-            border-top: 1px solid rgba(white, 0.06);
+            border-top: 1px solid rgba(white, 0.04);
         }
     }
 
@@ -836,7 +843,7 @@
 
         &:hover {
             transition: none;
-            background-color: rgba(white, 0.05);
+            background-color: rgba(white, 0.03);
         }
 
         &:active {
