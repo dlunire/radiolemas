@@ -1,12 +1,11 @@
 <script lang="ts">
-    import IconFolder from "../../icons/IconFolder.svelte";
+    import IconExternalLink from "../../icons/IconExternalLink.svelte";
     import IconLInk from "../../icons/IconLInk.svelte";
-    import IconMenuItem from "../../icons/IconMenuItem.svelte";
 </script>
 
 <div class="links" id="links">
     <h3 class="links__title" aria-label="Enlaces externos">
-        <IconMenuItem />
+        <IconExternalLink />
         <span>Enlaces externos</span>
     </h3>
 
