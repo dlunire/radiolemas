@@ -786,7 +786,12 @@
     list-style: none;
     padding-left: 0;
     padding-top: 10px;
-    
+
+    font: {
+        family: "Raleway";
+        weight: 500;
+    }
+
     &__item,
     &__link {
         display: flex;
@@ -800,13 +805,21 @@
     }
 
     &__link {
-        height: 30px;
+        height: 35px;
         color: inherit;
         padding-left: 15px;
         transition: 300ms ease;
         flex-grow: 1;
         align-items: center;
         border-radius: 5px;
+        gap: 5px;
+        align-items: center;
+
+        & {
+            --icon-size: 15px;
+            --icon-width: var(--icon-size);
+            --icon-height: var(--icon-size);
+        }
 
         &:hover {
             transition: none;
