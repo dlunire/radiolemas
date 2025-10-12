@@ -5,6 +5,12 @@
     list-style: none;
     padding-left: 0;
 
+    font: {
+        family: "Raleway", "Roboto", "Open Sans", sans-serif, arial;
+        weight: 500;
+        size: 0.9rem;
+    }
+
     &__item {
         margin: 0;
         display: flex;
