@@ -1,5 +1,6 @@
 <script lang="ts">
     import IconFolder from "../../icons/IconFolder.svelte";
+    import IconLInk from "../../icons/IconLInk.svelte";
     import IconMenuItem from "../../icons/IconMenuItem.svelte";
 </script>
 
@@ -16,7 +17,7 @@
                 aria-label="Enlace 1"
                 class="link__link link__link--footer"
             >
-                <IconFolder />
+                <IconLInk />
                 <span>Recurso del primer enlace</span>
             </a>
         </li>
@@ -26,7 +27,7 @@
                 aria-label="Enlace 2"
                 class="link__link link__link--footer"
             >
-                <IconFolder />
+                <IconLInk />
                 <span>Músicas y vídeos</span>
             </a>
         </li>
@@ -36,7 +37,7 @@
                 aria-label="Enlace 3"
                 class="link__link link__link--footer"
             >
-                <IconFolder />
+                <IconLInk />
                 <span>Programas de radio</span>
             </a>
         </li>
@@ -46,7 +47,7 @@
                 aria-label="Enlace 4"
                 class="link__link link__link--footer"
             >
-                <IconFolder />
+                <IconLInk />
                 <span>Legal</span>
             </a>
         </li>
@@ -56,7 +57,7 @@
                 aria-label="Enlace 5"
                 class="link__link link__link--footer"
             >
-                <IconFolder />
+                <IconLInk />
                 <span>Política de tratamiento de datos</span>
             </a>
         </li>
