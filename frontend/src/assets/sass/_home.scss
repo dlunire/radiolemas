@@ -200,6 +200,9 @@
 }
 
 .footer {
+    --icon-size: 17px;
+    --icon-width: var(--icon-size);
+    --icon-height: var(--icon-size);
 
     &--home {
         --text-color: white;
@@ -236,7 +239,6 @@
         padding: 10px;
 
         display: flex;
-        align-items: center;
         justify-content: center;
         min-height: 100px;
 
@@ -752,5 +754,52 @@
 .mobile {
     @media screen and (min-width: 751px) {
         display: none;
+    }
+}
+
+.links {
+    flex-grow: 1;
+
+    &__title {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        font: {
+            size: 1rem;
+            family: "Roboto Condensed" "Roboto", "Raleway", "Open Sans", sans-serif, arial;
+        }
+    }
+
+}
+
+.link {
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+
+    &__item,
+    &__link {
+        display: flex;
+    }
+
+    &__link {
+        height: 30px;
+        color: inherit;
+        padding-left: 15px;
+        transition: 300ms ease;
+        flex-grow: 1;
+        align-items: center;
+        border-radius: 5px;
+
+        &:hover {
+            transition: none;
+            background-color: rgba(white, 0.05);
+        }
+
+        &:active {
+            background-color: transparent;
+        }
     }
 }

@@ -5,6 +5,7 @@
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
     import Programing from "../../components/Container/Programing.svelte";
     import Tendencies from "../../components/Container/Tendencies.svelte";
+    import Links from "../../components/Footer/Links.svelte";
     import MenuFooter from "../../components/Footer/MenuFooter.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
@@ -54,7 +55,9 @@
             <div class="footer__item footer__item--links">
                 <MenuFooter />
             </div>
-            <div class="footer__item footer__item--">2</div>
+            <div class="footer__item footer__item--">
+                <Links />
+            </div>
             <div class="footer__item">3</div>
         </div>
     </div>
