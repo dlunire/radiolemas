@@ -7,12 +7,12 @@
     import Tendencies from "../../components/Container/Tendencies.svelte";
     import Links from "../../components/Footer/Links.svelte";
     import MenuFooter from "../../components/Footer/MenuFooter.svelte";
+    import SocialMedia from "../../components/Footer/SocialMedia.svelte";
     import Live from "../../components/Header/Live.svelte";
     import MenuHeader from "../../components/Header/MenuHeader.svelte";
     import MenuMobileHeader from "../../components/Header/MenuMobileHeader.svelte";
     import MobileMenu from "../../components/Header/MobileMenu.svelte";
     import WindowMenu from "../../components/Header/WindowMenu.svelte";
-    import SocialMedia from "../../components/SocialMedia/SocialMedia.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
     import Container from "../../sections/Container.svelte";
@@ -49,7 +49,6 @@
         <div class="footer__cards">
             <div class="footer__item footer__item--logo">
                 <IconRadioLemasDark />
-                <SocialMedia />
             </div>
 
             <div class="footer__item footer__item--links">
@@ -58,7 +57,9 @@
             <div class="footer__item footer__item--">
                 <Links />
             </div>
-            <div class="footer__item">3</div>
+            <div class="footer__item">
+                <SocialMedia />
+            </div>
         </div>
     </div>
 </Container>
