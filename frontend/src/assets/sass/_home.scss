@@ -204,6 +204,7 @@
     --icon-width: var(--icon-size);
     --icon-height: var(--icon-size);
 
+    background-image: linear-gradient(45deg, rgba(white, 0.03), transparent);
     &--home {
         --text-color: white;
         @include background-color();
