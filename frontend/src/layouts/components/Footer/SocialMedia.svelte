@@ -72,6 +72,7 @@
                 href="#home"
                 class="social__link social__link--footer"
                 aria-label="YouTube"
+                data-youtube
             >
                 <IconYouTube />
             </a>

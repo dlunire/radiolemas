@@ -34,5 +34,9 @@
             transition: none;
             border-color: rgba(white, 0.15);
         }
+
+        &[data-youtube] {
+            --icon-color: red;
+        }
     }
 }

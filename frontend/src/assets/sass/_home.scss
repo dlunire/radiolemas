@@ -733,8 +733,10 @@
         background-color: white;
         position: relative;
         min-height: 100px;
-        animation: 300ms ease 30ms fade-in forwards;
+        animation: 300ms ease 30ms deploy-down-windows forwards;
+        transform-origin: left top;
         max-width: 500px;
+        opacity: 0;
 
         @media screen and (min-width: 500px) {
             border-radius: 0 0 10px 0;
