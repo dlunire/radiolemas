@@ -1,20 +1,38 @@
 @use "./vars" as *;
 
 .social {
+    --icon-size: 100px;
+    --icon-width: var(--icon-size),
+    --icon-height: var(--icon-size);
 
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     list-style: none;
     padding-left: 0;
 
     svg {
         display: block;
     }
-    
+
     &__item {
+        display: flex;
+        justify-content: center;
+        aspect-ratio: 1/1;
+        border-radius: 5px;
+    }
+
+    &__link {
+        transition: 300ms ease;
+        border: 1px solid transparent;
+        flex-grow: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid rgba(white, 0.1);
+        border-radius: 5px;
+
+        &:hover {
+            transition: none;
+            border-color: rgba(white, 0.15);
+        }
     }
 }
