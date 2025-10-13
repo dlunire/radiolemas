@@ -40,7 +40,7 @@
     <section class="container__hero">
         <picture>
             <!-- Imagen para pantallas pequeñas -->
-            <source srcset="./vite.svg" media="(max-width: 500px)" />
+            <source srcset="./hero-mobile.png" media="(max-width: 500px)" />
 
             <!-- Imagen por defecto (pantallas grandes) -->
             <source srcset="./hero.png" />
