@@ -542,6 +542,7 @@
                 right: auto;
                 top: 0;
                 bottom: 0;
+                transform: translateY(0);
 
                 &:first-of-type {
                     transform: translateY(-4px);

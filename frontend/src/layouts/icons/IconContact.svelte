@@ -38,8 +38,10 @@
 
 <style>
     svg {
-        width: var(--icon-width) !important;
-        height: var(--icon-height) !important;
+        min-width: var(--icon-width) !important;
+        min-height: var(--icon-height) !important;
+        max-width: var(--icon-width) !important;
+        max-height: var(--icon-height) !important;
     }
 
     path {

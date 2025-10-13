@@ -89,7 +89,7 @@
                     <span>Contacto</span>
                 </Link
             >
-        </li>
+        </li>.
     </menu>
 
     {#if links.length > 0}
