@@ -123,10 +123,55 @@
 
     &__hero {
         background-color: var(--background);
+        position: relative;
 
-        min-height: 260px;
         @include background-color(0.8);
         background-image: linear-gradient(45deg, get-color(0.9), transparent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        picture,
+        img,
+        svg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            z-index: 1;
+            background-color: rgba(black, 0.5);
+            background-image: linear-gradient(45deg, black 20%, transparent, black);
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            max-width: $max-width;
+            z-index: 2;
+            pointer-events: 1;
+
+            @media screen and (min-width: 2000px) {
+                border-left: 1px solid rgba(white, 0.1);
+                border-right: 1px solid rgba(white, 0.1);
+            }
+        }
     }
 }
 
@@ -205,6 +250,7 @@
     --icon-height: var(--icon-size);
 
     background-image: linear-gradient(45deg, rgba(white, 0.03), transparent);
+
     &--home {
         --text-color: white;
         @include background-color();
