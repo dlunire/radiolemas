@@ -5,6 +5,10 @@
 <div class="links" id="links">
     <h3 class="links__title" aria-label="Enlaces externos">
         <IconSocialMedia />
-        <span>Enlaces externos</span>
+        <span>Redes sociales</span>
     </h3>
+
+    <ul class="social social--footer">
+        
+    </ul>
 </div>
