@@ -295,15 +295,23 @@
         display: flex;
         justify-content: center;
         min-height: 100px;
-        // border: 1px solid rgba(white, 0.1);
         border-radius: 5px;
 
         &--logo {
             --icon-height: 100px;
-            display: block;
+            display: flex;
 
             svg {
                 margin: 0 auto;
+
+                & {
+                    max-width: unset !important;
+                    min-width: unset !important;
+                    max-height: unset !important;
+                    max-height: unset !important;
+                    width: 100%;
+                    height: auto !important;
+                }
             }
         }
 
