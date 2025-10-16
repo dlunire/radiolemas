@@ -1,8 +1,8 @@
 <script>
     import IconContact from "../../icons/IconContact.svelte";
     import IconHome from "../../icons/IconHome.svelte";
-    import IconLive from "../../icons/IconLive.svelte";
     import IconNews from "../../icons/IconNews.svelte";
+    import IconOclock from "../../icons/IconOclock.svelte";
     import IconStation from "../../icons/IconStation.svelte";
     import Link from "../../routers/components/Link.svelte";
     import { getFullURL } from "../../routers/sources/router";
@@ -27,7 +27,7 @@
                 class="menu__link menu__link--home"
                 aria-label="ProgramacióTotalmehnte.n"
             >
-                <IconStation />
+                <IconOclock />
                 <span>Programación</span>
             </a>
         </li>
@@ -37,7 +37,7 @@
                 ariaLabel="En Vivo"
                 className="menu__link menu__link--home"
                 title="En Vivo">
-                    <IconLive />
+                    <IconStation />
                     <span>En Vivo</span>
                 </Link
             >

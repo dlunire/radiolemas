@@ -3,8 +3,8 @@
     import IconContact from "../../icons/IconContact.svelte";
     import IconHome from "../../icons/IconHome.svelte";
     import IconLInk from "../../icons/IconLInk.svelte";
-    import IconLive from "../../icons/IconLive.svelte";
     import IconNews from "../../icons/IconNews.svelte";
+    import IconOclock from "../../icons/IconOclock.svelte";
     import IconRadioLemasH from "../../icons/IconRadioLemasH.svelte";
     import IconStation from "../../icons/IconStation.svelte";
     import Link from "../../routers/components/Link.svelte";
@@ -50,7 +50,7 @@
                 native={true}
                 className="menu__link menu__link--mobile"
                 bind:openMenu>
-                    <IconStation />
+                    <IconOclock />
                     <span>Programación</span>
                 </Link
             >
@@ -62,7 +62,7 @@
                 native={false}
                 className="menu__link menu__link--mobile"
                 bind:openMenu>
-                    <IconLive />
+                    <IconStation />
                     <span>En Vivo</span>
                 </Link
             >
