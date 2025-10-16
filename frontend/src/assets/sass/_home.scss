@@ -976,7 +976,7 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        height: 35px;
+        min-height: 35px;
 
         &:not(:first-of-type) {
             border-top: 1px solid rgba(white, 0.05);
