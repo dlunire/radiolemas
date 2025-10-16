@@ -38,6 +38,11 @@
         @media screen and (max-width: 980px) {
             display: none;
         }
+
+        svg {
+            display: block;
+            margin: 0;
+        }
     }
 
     &__inner {
