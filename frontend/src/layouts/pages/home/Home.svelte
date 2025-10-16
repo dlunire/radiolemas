@@ -16,6 +16,7 @@
     import WindowMenu from "../../components/Header/WindowMenu.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
+    import Link from "../../routers/components/Link.svelte";
     import Container from "../../sections/Container.svelte";
     import Header from "../../sections/Header.svelte";
 
@@ -54,7 +55,9 @@
             <div class="container__hero-column container__hero-column--left">
                 <IconRadioLemasDark />
             </div>
-            <div class="container__hero-column container__hero-column--right"></div>
+            <div
+                class="container__hero-column container__hero-column--right"
+            ></div>
         </div>
     </section>
 
@@ -81,6 +84,15 @@
             </div>
             <div class="footer__item">
                 <SocialMedia />
+            </div>
+        </div>
+
+        <div class="footer__copyright">
+            <span>© 2025 RadioLemas. Todos los derechos reservados.</span>
+            
+            <div class="footer__copyright-in">
+                <Link href="/legal">Aviso Legal</Link>
+                <Link href="/privacidad">Política de privacidad</Link>
             </div>
         </div>
     </div>
