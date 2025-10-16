@@ -27,9 +27,10 @@
 </script>
 
 <Header bind:home id="home">
-    <h1 class="header__title header__title--home">
+    
+    <Link href="/#home" className="header__logo header__logo--home">
         <IconLogoHeader />
-    </h1>
+    </Link>
 
     <MobileMenu bind:openMenu />
     <MenuHeader />
