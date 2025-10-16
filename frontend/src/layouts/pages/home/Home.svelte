@@ -19,7 +19,8 @@
 
     /** Indica si es una página de usuario */
     let home: boolean = true;
-    let lema: string = "La Poderosa Online";
+    // let lema: string = "La Poderosa Online";
+    let lema: string = "Un lema de prueba";
     let openMenu: boolean = false;
 </script>
 
