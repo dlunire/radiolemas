@@ -49,6 +49,13 @@
             <!-- Fallback para navegadores antiguos -->
             <img src="./hero.png" alt="Imagen de cabecera" />
         </picture>
+
+        <div class="container__hero-info">
+            <div class="container__hero-column container__hero-column--left">
+                <IconRadioLemasDark />
+            </div>
+            <div class="container__hero-column container__hero-column--right"></div>
+        </div>
     </section>
 
     <ContainerNews />
