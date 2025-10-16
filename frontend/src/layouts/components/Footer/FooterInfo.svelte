@@ -11,7 +11,10 @@
     <div class="footer__cards">
         <div class="footer__item footer__item--logo">
             <div>
-                <IconRadioLemasDark />
+                <Link href="/#home" native={true} className="footer__link footer__link--logo">
+                    <IconRadioLemasDark />
+                </Link>
+
                 <InfoContact />
             </div>
         </div>
