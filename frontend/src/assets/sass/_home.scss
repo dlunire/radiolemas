@@ -345,6 +345,11 @@
                 family: "Roboto Condensed", "Roboto", "Raleway", "Open Sans", sans-serif, arial;
             }
         }
+
+        &--copyright {
+            border-top: 1px solid rgba(white, 0.05);
+            max-width: unset;
+        }
     }
 
     &__cards {
