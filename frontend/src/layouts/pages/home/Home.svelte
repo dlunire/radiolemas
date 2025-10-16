@@ -28,7 +28,7 @@
 
 <Header bind:home id="home">
     
-    <Link href="/#home" className="header__logo header__logo--home">
+    <Link href="/#home" className="header__logo header__logo--home" native={true}>
         <IconLogoHeader />
     </Link>
 
