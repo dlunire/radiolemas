@@ -3,6 +3,7 @@
     import Contact from "../../components/Container/Contact.svelte";
     import ContainerNav from "../../components/Container/ContainerNav.svelte";
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
+    import Hero from "../../components/Container/Hero.svelte";
     import Programing from "../../components/Container/Programing.svelte";
     import Tendencies from "../../components/Container/Tendencies.svelte";
     import FooterInfo from "../../components/Footer/FooterInfo.svelte";
@@ -12,7 +13,6 @@
     import MobileMenu from "../../components/Header/MobileMenu.svelte";
     import WindowMenu from "../../components/Header/WindowMenu.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
-    import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
     import Link from "../../routers/components/Link.svelte";
     import Container from "../../sections/Container.svelte";
     import Header from "../../sections/Header.svelte";
@@ -41,27 +41,7 @@
 <Container dashboard={false} install={false} home={true}>
     <ContainerNav bind:lema />
 
-    <section class="container__hero">
-        <picture>
-            <!-- Imagen para pantallas pequeñas -->
-            <source srcset="./hero-mobile.png" media="(max-width: 500px)" />
-
-            <!-- Imagen por defecto (pantallas grandes) -->
-            <source srcset="./hero.png" />
-
-            <!-- Fallback para navegadores antiguos -->
-            <img src="./hero.png" alt="Imagen de cabecera" />
-        </picture>
-
-        <div class="container__hero-info">
-            <div class="container__hero-column container__hero-column--left">
-                <IconRadioLemasDark />
-            </div>
-            <div
-                class="container__hero-column container__hero-column--right"
-            ></div>
-        </div>
-    </section>
+    <Hero />
 
     <ContainerNews />
     <Tendencies />
