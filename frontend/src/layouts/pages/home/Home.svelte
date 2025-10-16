@@ -5,6 +5,7 @@
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
     import Programing from "../../components/Container/Programing.svelte";
     import Tendencies from "../../components/Container/Tendencies.svelte";
+    import InfoContact from "../../components/Footer/InfoContact.svelte";
     import Links from "../../components/Footer/Links.svelte";
     import MenuFooter from "../../components/Footer/MenuFooter.svelte";
     import SocialMedia from "../../components/Footer/SocialMedia.svelte";
@@ -13,6 +14,7 @@
     import MenuMobileHeader from "../../components/Header/MenuMobileHeader.svelte";
     import MobileMenu from "../../components/Header/MobileMenu.svelte";
     import WindowMenu from "../../components/Header/WindowMenu.svelte";
+    import IconContact from "../../icons/IconContact.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
     import Container from "../../sections/Container.svelte";
@@ -59,7 +61,10 @@
     <div class="footer__inner footer__inner--home" slot="footer-content">
         <div class="footer__cards">
             <div class="footer__item footer__item--logo">
-                <IconRadioLemasDark />
+                <div>
+                    <IconRadioLemasDark />
+                    <InfoContact />
+                </div>
             </div>
 
             <div class="footer__item footer__item--links">
