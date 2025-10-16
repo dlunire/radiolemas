@@ -978,7 +978,8 @@
         align-items: center;
         gap: 5px;
         min-height: 35px;
-
+        padding-left: 15px;
+        
         &:not(:first-of-type) {
             border-top: 1px solid rgba(white, 0.05);
         }
