@@ -88,12 +88,14 @@
             </div>
         </div>
 
-        <div class="footer__copyright">
-            <span>© 2025 RadioLemas. Todos los derechos reservados.</span>
-            
-            <div class="footer__copyright-info">
-                <Link href="/legal" className="footer__link">Aviso Legal</Link>
-                <Link href="/privacidad" className="footer__link">Política de privacidad</Link>
+        <div class="footer__inner footer__inner--copyright">
+            <div class="footer__copyright">
+                <span>© 2025 RadioLemas. Todos los derechos reservados.</span>
+                
+                <div class="footer__copyright-info">
+                    <Link href="/legal" className="footer__link">Aviso Legal</Link>
+                    <Link href="/privacidad" className="footer__link">Política de privacidad</Link>
+                </div>
             </div>
         </div>
     </div>
