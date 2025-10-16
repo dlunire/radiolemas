@@ -8,6 +8,7 @@
         family: "Roboto", "Open Sans", sans-serif, arial;
         weight: 350;
     }
+
     line-height: 1.6;
     background-color: $background;
 }
@@ -15,6 +16,7 @@
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
+
     &::before,
     &::after {
         box-sizing: inherit;
@@ -33,6 +35,7 @@ main {
 
 a {
     text-decoration: none;
+
     &:not([class]) {
         &:hover {
             text-decoration: underline;
@@ -49,6 +52,7 @@ code {
     padding: 3px 5px;
     background-color: rgba(black, 0.1);
     border-radius: 5px;
+
     font: {
         size: 0.9rem;
     }
@@ -72,6 +76,7 @@ blockquote {
     border-radius: 4px;
     padding: 20px 40px;
     margin-bottom: 30px;
+
     h1,
     h2,
     h3,
@@ -81,11 +86,14 @@ blockquote {
         margin: 0;
         color: orange;
         padding-bottom: 5px;
+
         font: {
             size: 1rem;
         }
+
         text-transform: uppercase;
     }
+
     p {
         &:last-of-type {
             margin-bottom: 0;
@@ -101,9 +109,15 @@ hr {
 }
 
 .overflow {
-    overflow: auto;
+
+    @media screen and (max-width: 750px) {
+        overflow: auto;
+    }
 
     &-hidden {
-        overflow: hidden;
+
+        @media screen and (max-width: 750px) {
+            overflow: hidden;
+        }
     }
 }

@@ -23,11 +23,10 @@
     let label: string = "Menú";
 
     function windowsMenu(openMenu: boolean): void {
-        if (!(nav instanceof HTMLElement) || !(main instanceof HTMLElement))
-            return;
+        if (!(main instanceof HTMLElement)) return;
 
-        main.classList.toggle('overflow-hidden', openMenu);
-        document.body.classList.toggle('overflow-hidden', openMenu);
+        main.classList.toggle("overflow-hidden", openMenu);
+        document.body.classList.toggle("overflow-hidden", openMenu);
     }
 
     $: windowsMenu(openMenu);
