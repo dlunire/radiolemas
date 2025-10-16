@@ -1,29 +1,39 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+
     export let openMenu: boolean = false;
-    let value: string = "auto";
+
+    let nav: HTMLElement | null = null;
+    let main: HTMLElement | null = null;
+
+    onMount(() => {
+        if (!(nav instanceof HTMLElement)) return;
+
+        main = nav.closest("main");
+        if (!(main instanceof HTMLElement)) return;
+
+        main.classList.remove("overflow-hidden");
+        document.body.classList.remove("overflow-hidden");
+    });
 
     function onclick(event: MouseEvent): void {
         openMenu = !openMenu;
-        value = openMenu ? "hidden" : "auto";
-
-        const { target: button } = event;
-        if (!(button instanceof HTMLButtonElement)) return;
-
-        const main: HTMLElement | null = button.closest("main");
-        if (!(main instanceof HTMLElement)) return;
-
-        main.style.setProperty("overflow", value);
     }
 
     let label: string = "Menú";
 
-    $: {
-        label = openMenu ? "Cerrar" : "Menú";
-        document.body.style.setProperty("overflow", value);
+    function windowsMenu(openMenu: boolean): void {
+        if (!(nav instanceof HTMLElement) || !(main instanceof HTMLElement))
+            return;
+
+        main.classList.toggle('overflow-hidden', openMenu);
+        document.body.classList.toggle('overflow-hidden', openMenu);
     }
+
+    $: windowsMenu(openMenu);
 </script>
 
-<nav class="mobile">
+<nav class="mobile" bind:this={nav}>
     <button
         class="button button--menu"
         aria-label="Menu"

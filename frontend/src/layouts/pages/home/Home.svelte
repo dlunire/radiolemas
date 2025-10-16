@@ -14,7 +14,6 @@
     import MenuMobileHeader from "../../components/Header/MenuMobileHeader.svelte";
     import MobileMenu from "../../components/Header/MobileMenu.svelte";
     import WindowMenu from "../../components/Header/WindowMenu.svelte";
-    import IconContact from "../../icons/IconContact.svelte";
     import IconLogoHeader from "../../icons/IconLogoHeader.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
     import Container from "../../sections/Container.svelte";
