@@ -156,9 +156,17 @@
         $darken: $darken * (-1);
     }
 
-    @if math.unit($darken) != "%" {
-        $darken: $darken * 1%;        
+    @if math.unit($darken) !="%" {
+        $darken: $darken * 1%;
     }
 
     @return color.adjust($color: $color, $lightness: $darken * (-1));
+}
+
+/// Devuelve la lista de fuentes con la fuente principal seleccionada.
+/// 
+/// @param {String} $font ["Roboto Condensed"] - Fuente principal que encabezará la lista.
+/// @return {List} Lista de fuentes para usar en `font-family`.
+@function get-font($font: "Roboto Condensed") {
+    @return ($font, "Roboto", "Open Sans", sans-serif, arial);
 }
