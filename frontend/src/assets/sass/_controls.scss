@@ -818,6 +818,10 @@
         &--border {
             @include border(1px, 0.3, black, "top");
         }
+
+        &--contact {
+            border-top: 1px solid rgba(black, 0.3);
+        }
     }
 
     &__fieldset {
