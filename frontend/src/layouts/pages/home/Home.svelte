@@ -24,7 +24,7 @@
     let openMenu: boolean = false;
 </script>
 
-<Header bind:home id="home">
+<Header bind:home>
     <Link
         href="/#home"
         className="header__logo header__logo--home"
