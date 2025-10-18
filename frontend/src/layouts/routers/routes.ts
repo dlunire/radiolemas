@@ -13,6 +13,8 @@ import History from '../pages/admin/History.svelte';
 import Register from '../pages/admin/Register.svelte';
 import Profile from '../pages/admin/Profile.svelte';
 import Settings from '../pages/admin/Settings.svelte';
+import Online from '../pages/home/Online.svelte';
+import News from '../pages/home/News.svelte';
 
 export const routes: Route[] = [
     route('/', getComponent(Home), []),
@@ -26,7 +28,9 @@ export const routes: Route[] = [
     route('/dashboard/register', getComponent(Register), []),
     route('/dashboard/profile', getComponent(Profile), []),
     route('/dashboard/settings', getComponent(Settings), []),
-
+    
     // Página principal:
-    route('/', getComponent(Home), [])
+    route('/', getComponent(Home), []),
+    route('/online', getComponent(Online), []),
+    route('/news', getComponent(News), []),
 ];

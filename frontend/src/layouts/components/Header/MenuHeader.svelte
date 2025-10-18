@@ -11,14 +11,15 @@
 <div class="header__menu">
     <ul class="menu menu--home">
         <li class="menu__item menu__item--home">
-            <a
-                href={getFullURL("/#home")}
-                class="menu__link menu__link--home"
-                aria-label="Home">
-                    <IconHome />
-                    <span>Home</span>
-                </a
+            <Link
+                href="/#home"
+                className="menu__link menu__link--home"
+                ariaLabel="Home"
+                native={false}
             >
+                <IconHome />
+                <span>Home</span>
+            </Link>
         </li>
 
         <li class="menu__item menu__item--home">
@@ -36,31 +37,31 @@
                 href="/online"
                 ariaLabel="En Vivo"
                 className="menu__link menu__link--home"
-                title="En Vivo">
-                    <IconStation />
-                    <span>En Vivo</span>
-                </Link
+                title="En Vivo"
             >
+                <IconStation />
+                <span>En Vivo</span>
+            </Link>
         </li>
         <li class="menu__item menu__item--home">
             <Link
                 href="/news"
                 ariaLabel="En Vivo"
                 className="menu__link menu__link--home"
-                title="En Vivo">
-                    <IconNews />
-                    <span>News</span>
-                </Link
+                title="En Vivo"
             >
+                <IconNews />
+                <span>News</span>
+            </Link>
         </li>
         <li class="menu__item menu__item--home">
             <a
                 href={getFullURL("/#contact")}
-                class="menu__link menu__link--home">
-                    <IconContact />
-                    <span>Contacto</span>
-                </a
+                class="menu__link menu__link--home"
             >
+                <IconContact />
+                <span>Contacto</span>
+            </a>
         </li>
     </ul>
 </div>
