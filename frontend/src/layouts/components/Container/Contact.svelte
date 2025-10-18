@@ -55,6 +55,9 @@
                                 id="names"
                                 placeholder="Por ejemplo, David González"
                                 class="form__input form__input--contact"
+                                inputmode="text"
+                                required={true}
+                                aria-required="true"
                             />
                         </label>
 
@@ -69,6 +72,9 @@
                                 id="email"
                                 placeholder="Por ejemplo, correo@dominio.com"
                                 class="form__input form__input--contact"
+                                inputmode="email"
+                                required={true}
+                                aria-required="true"
                             />
                         </label>
 
@@ -83,6 +89,9 @@
                                 id="subject"
                                 placeholder="Por ejemplo, Publicidad de producto"
                                 class="form__input form__input--contact"
+                                inputmode="text"
+                                aria-required="true"
+                                required={true}
                             />
                         </label>
 
@@ -96,6 +105,9 @@
                                 id="subject"
                                 placeholder="Escriba su mensaje aquí"
                                 class="form__textarea form__textarea--contact"
+                                inputmode="text"
+                                aria-required="true"
+                                required={true}
                             ></textarea>
                         </label>
                     </div>
