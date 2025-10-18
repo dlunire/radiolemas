@@ -720,19 +720,28 @@
         background-color: var(--input-color);
         color: var(--fore-color);
         border: 1px solid var(--border-color);
-        padding: 0 20px;
+        padding: 0 10px;
         height: 35px;
-        border-radius: 20px;
+        border-radius: 3px;
         width: 100%;
         display: flex;
         text-align: left;
         justify-content: flex-start;
-        font: inherit;
-        transition: 300ms ease;
+        transition: 300ms ease;        
+        
+        font: {
+            family: get-font("Raleway");
+            weight: 500;
+        }
 
         &,
         &:focus {
             outline: 1px solid transparent;
+        }
+
+        &:focus {
+            box-shadow: inset 0 0 3px rgba($primary-color, 0.2);
+            --border-color: #{rgba($primary-color, 0.7)};
         }
 
         & {
@@ -773,7 +782,6 @@
 
         &--contact {
             margin-top: 0;
-            border-radius: 4px;
         }
     }
 
@@ -877,10 +885,26 @@
         resize: none;
         font: inherit;
         width: 100%;
+        border-radius: 3px;
+        @include border(1px, 0.4);
+        transition: 300ms ease;
+
+        &, &:focus {
+            outline: 1px solid transparent;
+        }
+        &:focus {
+            @include border(1px, 0.7, $primary-color);
+            box-shadow: inset 0 0 4px rgba($primary-color, 0.3);
+        }
+
+        font: {
+            family: get-font("Raleway");
+            weight: 500;
+        }
 
         &--contact {
             min-height: 250px;
-            padding: 10px 20px;
+            padding: 10px;
         }
     }
 

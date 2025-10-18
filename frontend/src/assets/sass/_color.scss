@@ -71,12 +71,13 @@
 
     &--login {
         --text-color: white;
-        
+
         &:hover {
             @include background-color($color: $primary-color);
         }
-        
-        &, &:active {
+
+        &,
+        &:active {
             @include background-color($color: darken-color(10%, $primary-color));
         }
     }
@@ -88,7 +89,8 @@
             @include background-color($color: $primary-color);
         }
 
-        &, &:active {
+        &,
+        &:active {
             @include background-color($color: darken-color(10%, $primary-color));
         }
     }
@@ -123,10 +125,6 @@
 
     &__input {
         @include border-color();
-
-        &:focus {
-            @include border-color(0.7);
-        }
     }
 }
 
