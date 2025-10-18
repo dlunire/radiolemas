@@ -2,6 +2,7 @@
     import IconNews from "../../icons/IconNews.svelte";
     import IconRadioLemasDark from "../../icons/IconRadioLemasDark.svelte";
     import IconStation from "../../icons/IconStation.svelte";
+    import Link from "../../routers/components/Link.svelte";
 </script>
 
 <section class="container__hero">
@@ -22,15 +23,15 @@
         </div>
 
         <div class="container__hero-column container__hero-column--right">
-            <button class="button button--hero button--online">
+            <Link href="/online" title="En Vivo" className="button button--hero button--online">
                 <IconStation />
                 <span>Escuchar en Vivo</span>
-            </button>
+            </Link>
 
-            <button class="button button--hero button--news">
+            <Link href="/news" title="Noticias" className="button button--hero button--news">
                 <IconNews />
                 <span>Noticias</span>
-            </button>
+            </Link>
         </div>
     </div>
 </section>
