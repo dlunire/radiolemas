@@ -14,4 +14,5 @@ DLRoute::get('/online', [HomeController::class, 'online']);
 DLRoute::get('/news', [HomeController::class, 'news']);
 
 # Test - Iframe
-DLRoute::get('/iframe', [HomeController::class, 'iframe']);
+// DLRoute::get('/iframe', [HomeController::class, 'iframe']);
+

@@ -44,7 +44,7 @@ final class HomeController extends BaseController {
      * @return string
      */
     public function iframe(): string {
-        if (!isset($_SERVER['HTTP_SEC_FETCH_DEST']) || $_SERVER['HTTP_SEC_FETCH_DEST'] !== 'iframe') {
+        if (!$this->is_iframe()) {
             throw new ForbiddenException("Acceso denegado");
         }
         return $this->get_frontend_content("Test", "Una prueba del marco flotante");
