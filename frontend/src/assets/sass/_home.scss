@@ -201,6 +201,23 @@
             }
         }
 
+        @media screen and (min-width: 501px) and (max-width: 810px) {
+            min-height: 150.433px;
+
+            picture,
+            svg,
+            img {
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+
         &-info {
             position: absolute;
             margin: auto;
@@ -249,7 +266,7 @@
             }
 
             &--right {
-                @media screen and (max-width: 700px) {
+                @media screen and (max-width: 500px) {
                     display: none;
                 }
 
@@ -1154,7 +1171,7 @@
         img {
             display: flex;
             position: relative;
-            margin: 0 auto; 
+            margin: 0 auto;
             min-width: unset;
             min-height: unset;
             max-width: unset;

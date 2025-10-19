@@ -607,6 +607,11 @@
         @media screen and (max-width: 880px) {
             height: 40px;
         }
+
+        svg {
+            position: relative !important;
+            margin: 0 !important;
+        }
     }
 
     &--online {
@@ -622,7 +627,7 @@
 
     &--news {
         svg {
-            margin-right: 7px;
+            margin-right:  7px !important;
         }
 
         &:hover {
