@@ -72,7 +72,7 @@ final class DLExceptionHandler {
          */
         $error_default = [
             "status" => false,
-            "error" => $exception->getMessage(),
+            "message" => $exception->getMessage(),
             "code" => $code
         ];
 
@@ -83,7 +83,8 @@ final class DLExceptionHandler {
          */
         $error = DLOutput::get_json([
             "status" => false,
-            "error" => $exception->getMessage(),
+            "message" => $exception->getMessage(),
+            "code" => $code,
 
             "details" => [
                 "filename" => $exception->getFile(),
