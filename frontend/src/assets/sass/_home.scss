@@ -211,6 +211,7 @@
             display: flex;
             z-index: 1;
             overflow: hidden;
+            max-width: $max-width;
         }
 
         &-column {
@@ -250,6 +251,11 @@
             &--right {
                 @media screen and (max-width: 700px) {
                     display: none;
+                }
+
+                @media screen and (max-width: 1250px) {
+                    flex-direction: column;
+                    gap: 10px;
                 }
             }
         }

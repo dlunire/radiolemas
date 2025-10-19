@@ -603,6 +603,10 @@
             weight: 700;
             family: get-font("Raleway");
         }
+
+        @media screen and (max-width: 880px) {
+            height: 40px;
+        }
     }
 
     &--online {
