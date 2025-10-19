@@ -16,6 +16,15 @@
 
 .header {
 
+    &--online {
+        position: fixed;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: auto;
+    }
+
     &--home {
         @include background-color(1, white);
         padding: 0;

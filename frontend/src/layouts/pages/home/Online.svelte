@@ -25,7 +25,7 @@
     let openMenu: boolean = false;
 </script>
 
-<Header bind:home>
+<Header bind:home tokens={["header--online"]}>
     <Link
         href="/#home"
         className="header__logo header__logo--home"
