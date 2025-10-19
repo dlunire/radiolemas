@@ -9,7 +9,11 @@
     getFullURL("/create/user"),
     getFullURL("/login"),
     getFullURL("/"),
-    getFullURL("/blog")
+    getFullURL("/blog"),
+    getFullURL("/online"),
+    getFullURL("/news"),
+    getFullURL("/legal"),
+    getFullURL("/privacy"),
   ];
 </script>
 

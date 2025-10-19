@@ -18,4 +18,22 @@ final class HomeController extends BaseController {
     public function index(): string {
         return $this->get_frontend_content("Bienvenido a RadioLemas", "Bienvenidos a Radios Lemas");
     }
+
+    /**
+     * Carga la página En Vivo (/online)
+     * 
+     * @return string
+     */
+    public function online(): string {
+        return $this->get_frontend_content("En Vivo", "Escuche su noticia en vivo");
+    }
+    
+    /**
+     * Carga la página Noticias (/news)
+     * 
+     * @return string
+     */
+    public function news(): string {
+        return $this->get_frontend_content("Noticias", "Lea las noticias que más le guste");
+    }
 }

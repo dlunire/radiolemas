@@ -5,7 +5,6 @@
     import IconOclock from "../../icons/IconOclock.svelte";
     import IconStation from "../../icons/IconStation.svelte";
     import Link from "../../routers/components/Link.svelte";
-    import { getFullURL } from "../../routers/sources/router";
 </script>
 
 <div class="header__menu">
@@ -23,14 +22,14 @@
         </li>
 
         <li class="menu__item menu__item--home">
-            <a
-                href={getFullURL("/#programming")}
-                class="menu__link menu__link--home"
-                aria-label="ProgramacióTotalmehnte.n"
+            <Link
+                href="/#programming"
+                className="menu__link menu__link--home"
+                ariaLabel="ProgramacióTotalmehnte.n"
             >
                 <IconOclock />
                 <span>Programación</span>
-            </a>
+            </Link>
         </li>
         <li class="menu__item menu__item--home">
             <Link
@@ -55,13 +54,10 @@
             </Link>
         </li>
         <li class="menu__item menu__item--home">
-            <a
-                href={getFullURL("/#contact")}
-                class="menu__link menu__link--home"
-            >
+            <Link href="/#contact" className="menu__link menu__link--home">
                 <IconContact />
                 <span>Contacto</span>
-            </a>
+            </Link>
         </li>
     </ul>
 </div>

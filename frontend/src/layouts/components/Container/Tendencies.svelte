@@ -1,19 +1,10 @@
 <script lang="ts">
-    import { onMount } from "svelte";
     import TrendItemNews from "./TrendItemNews.svelte";
+    import Section from "./Section.svelte";
 
-    let section: HTMLElement | null = null;
-
-    onMount(() => {
-        if (!(section instanceof HTMLElement)) return;
-        if (location.hash != "#tendencies") return;
-        
-        section.scrollIntoView({
-            behavior: "smooth",
-        });
-    });
+    const classList: string[] = ["section--home", "section--news"];
 </script>
-<section class="section section--home section--news" id="tendencies" bind:this={section}>
+<Section id="tendencies" {classList}>
     <div class="section__inner section__inner--article">
         <h2 class="section__title section__title--news" aria-label="Recientes">
             Noticias en tendencias
@@ -28,4 +19,4 @@
             </section>
         </div>
     </div>
-</section>
+</Section>

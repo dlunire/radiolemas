@@ -1,24 +1,12 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import Table from "../Tables/Table.svelte";
+    import Section from "./Section.svelte";
 
-    let section: HTMLElement | null = null;
-
-    onMount(() => {
-        if (!(section instanceof HTMLElement)) return;
-        if (location.hash != "#about") return;
-
-        section.scrollIntoView({
-            behavior: "smooth",
-        });
-    });
+    const classList: string[] = ["section--home", "section--news"];
 </script>
 
-<section
-    class="section section--home section--news"
-    id="programming"
-    bind:this={section}
->
+<Section {classList} id="programming">
     <div class="section__inner section__inner--article">
         <h2
             class="section__title section__title--news"
@@ -31,4 +19,4 @@
             <Table showControls={false} />
         </div>
     </div>
-</section>
+</Section>

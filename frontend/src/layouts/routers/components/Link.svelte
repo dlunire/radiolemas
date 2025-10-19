@@ -13,11 +13,12 @@
     let rel: string = "follow";
     function onclick(event: MouseEvent) {
         openMenu = false;
-        console.log({ native, href });
         if (native) return;
-
         event.preventDefault();
-        navigate(href);
+        
+        const url: URL = new URL(getFullURL(href));
+        navigate(url.pathname);
+        location.hash = url.hash;
     }
 
     $: safeRel = target === "_blank" ? "noopener noreferrer" : rel;

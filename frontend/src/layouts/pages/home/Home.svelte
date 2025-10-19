@@ -28,7 +28,8 @@
     <Link
         href="/#home"
         className="header__logo header__logo--home"
-        native={true}
+        native={false}
+        ariaLabel="Logotipo"
     >
         <IconLogoHeader />
     </Link>
