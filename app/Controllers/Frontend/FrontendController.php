@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DLUnire\Controllers\Frontend;
 
 use DLCore\Core\BaseController;
+use DLRoute\Server\DLServer;
 use DLUnire\Services\Install\Install;
 
 /**
@@ -42,5 +43,25 @@ final class FrontendController extends BaseController {
         $style = $install->get_style();
 
         return $style;
+    }
+
+    /**
+     * Devuelve el favicon de la aplicación
+     * 
+     * @return string
+     */
+    public function favicon(): string {
+        /** @var string $root */
+        $root = DLServer::get_document_root();
+
+        /** @var string $separator */
+        $separator = DIRECTORY_SEPARATOR;
+
+        /** @var string $filename */
+        $filename = "{$root}{$separator}public{$separator}favicon.svg";
+
+        if (!file_exists($filename)) return "";
+
+        return file_get_contents($filename) ?? '';
     }
 }

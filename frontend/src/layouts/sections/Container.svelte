@@ -5,6 +5,7 @@
     export let install: boolean = true;
     export let home: boolean = false;
     export let author: string = "David E Luna M (DLUnire)";
+    export let vendor: string = "Sistemas Cúcuta";
 </script>
 
 <div class="container">
@@ -25,28 +26,34 @@
                 class:footer__author--dashboard={dashboard}
                 class:footer__author--home={home}
             >
-                Desarrollado por <a
+                Powered by <a
                     href="https://github.com/dlunire"
                     class="footer__link"
                     class:footer__link--dashboard={dashboard}
                     target="_blank"
+                    title="{author} • {vendor}"
                 >
                     <IconCodigosdelFuturo />
                     <span>{author}</span>
+                    <span class="separator separator--dot">•</span>
+                    <span>{vendor}</span>
                 </a>
             </div>
         </div>
     {:else}
         <div class="footer__info" class:footer__info--home={home}>
             <div class="footer__author" class:footer__autor--home={home}>
-                Desarrollado por <a
+                Powered by <a
                     href="https://github.com/dlunire"
                     class="footer__link"
                     class:footer__link--dashboard={dashboard}
                     target="_blank"
+                    title="{author} • {vendor}"
                 >
                     <IconCodigosdelFuturo />
                     <span>{author}</span>
+                    <span class="separator separator--dot">•</span>
+                    <span>{vendor}</span>
                 </a>
             </div>
         </div>
