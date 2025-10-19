@@ -1157,7 +1157,7 @@
     bottom: 0;
     scroll-margin-top: var(--header-height);
     z-index: 100;
-    height: calc(100dvh - var(--header-height));
+    height: calc(100vh - var(--header-height));
     display: flex;
     flex-direction: column;
 
@@ -1227,5 +1227,11 @@
             border-bottom: 1px solid rgba(white, 0.05);
             border-top: 1px solid rgba(white, 0.05);
         }
+    }
+}
+
+@supports (height: 100dvh) {
+    .online {
+        height: calc(100dvh - var(--header-height));
     }
 }
