@@ -72,7 +72,8 @@ final class DLExceptionHandler {
          */
         $error_default = [
             "status" => false,
-            "error" => "Error {$code}"
+            "error" => $exception->getMessage(),
+            "code" => $code
         ];
 
         /**
