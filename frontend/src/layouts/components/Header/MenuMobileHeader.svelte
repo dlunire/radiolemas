@@ -16,8 +16,8 @@
             title: "Web de Google",
             native: true,
             target: "_blank",
-            className: "menu__link menu__link--mobile"
-        }
+            className: "menu__link menu__link--mobile",
+        },
     ];
 </script>
 
@@ -37,11 +37,11 @@
                 href="/#home"
                 native={true}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>
-                    <IconHome />
-                    <span>Home</span>
-                </Link
+                bind:openMenu
             >
+                <IconHome />
+                <span>Home</span>
+            </Link>
         </li>
 
         <li class="menu__item menu__item--mobile">
@@ -49,11 +49,11 @@
                 href="/#programming"
                 native={true}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>
-                    <IconOclock />
-                    <span>Programación</span>
-                </Link
+                bind:openMenu
             >
+                <IconOclock />
+                <span>Programación</span>
+            </Link>
         </li>
 
         <li class="menu__item menu__item--mobile">
@@ -61,11 +61,11 @@
                 href="/online"
                 native={false}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>
-                    <IconStation />
-                    <span>En Vivo</span>
-                </Link
+                bind:openMenu
             >
+                <IconStation />
+                <span>En Vivo</span>
+            </Link>
         </li>
 
         <li class="menu__item menu__item--mobile">
@@ -73,41 +73,42 @@
                 href="/news"
                 native={false}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>
-                    <IconNews />
-                    <span>Noticias</span>
-                </Link
+                bind:openMenu
             >
+                <IconNews />
+                <span>Noticias</span>
+            </Link>
         </li>
         <li class="menu__item menu__item--mobile">
             <Link
                 href="/#contact"
                 native={true}
                 className="menu__link menu__link--mobile"
-                bind:openMenu>
-                    <IconContact />
-                    <span>Contacto</span>
-                </Link
+                bind:openMenu
             >
-        </li>.
+                <IconContact />
+                <span>Contacto</span>
+            </Link>
+        </li>
+        .
     </menu>
 
     {#if links.length > 0}
-    <!-- Otros enlaces -->
-    <h2 class="grow__title" aria-label="Otros enlaces">
-        <span>Otros enlaces</span>
-    </h2>
+        <!-- Otros enlaces -->
+        <h2 class="grow__title" aria-label="Otros enlaces">
+            <span>Otros enlaces</span>
+        </h2>
 
-    <menu class="menu menu--mobile">
-        {#each links as link}
-            <li class="menu__item menu__item--mobile">
-                <Link {...link}>
-                    <IconLInk />
-                    <span>{link.title}</span>
-                </Link>
-            </li>
-        {/each}
-    </menu>
+        <menu class="menu menu--mobile">
+            {#each links as link}
+                <li class="menu__item menu__item--mobile">
+                    <Link {...link}>
+                        <IconLInk />
+                        <span>{link.title}</span>
+                    </Link>
+                </li>
+            {/each}
+        </menu>
     {/if}
 </div>
 
