@@ -4,7 +4,7 @@
     export let dashboard: boolean = false;
     export let install: boolean = true;
     export let home: boolean = false;
-    export let author: string = "David E Luna M (DLUnire)";
+    export let author: string = "David E Luna M";
     export let vendor: string = "Sistemas Cúcuta";
 </script>
 

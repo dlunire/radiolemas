@@ -21,7 +21,8 @@ final class Install extends SaveData {
             "/file",
             "/js",
             "/style",
-            "/favicon"
+            "/favicon",
+            "/manifest"
         ]);
         
         $this->get_frontend_path('index.js');

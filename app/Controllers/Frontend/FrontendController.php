@@ -64,4 +64,14 @@ final class FrontendController extends BaseController {
 
         return file_get_contents($filename) ?? '';
     }
+
+    /**
+     * Carga el archivo manifest de la Aplicación Web Progresiva
+     * 
+     * @return array
+     */
+    public function manifest(): array {
+
+        return [];
+    }
 }
