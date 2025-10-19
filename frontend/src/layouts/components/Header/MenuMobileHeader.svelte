@@ -35,7 +35,7 @@
         <li class="menu__item menu__item--mobile">
             <Link
                 href="/#home"
-                native={true}
+                native={false}
                 className="menu__link menu__link--mobile"
                 bind:openMenu
             >
@@ -47,7 +47,7 @@
         <li class="menu__item menu__item--mobile">
             <Link
                 href="/#programming"
-                native={true}
+                native={false}
                 className="menu__link menu__link--mobile"
                 bind:openMenu
             >
@@ -82,7 +82,7 @@
         <li class="menu__item menu__item--mobile">
             <Link
                 href="/#contact"
-                native={true}
+                native={false}
                 className="menu__link menu__link--mobile"
                 bind:openMenu
             >
