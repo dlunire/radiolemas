@@ -313,6 +313,10 @@
         color: var(--text-color);
         --icon-color: var(--text-color);
     }
+
+    &:target>* {
+        animation: 600ms ease show-section forwards;
+    }
 }
 
 .sidebar {
