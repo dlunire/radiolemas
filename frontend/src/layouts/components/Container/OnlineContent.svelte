@@ -10,10 +10,8 @@
     </header>
 
     <div class="online__content">
-        <div>
-            <IconRadioLemasDark />
-            <h2 class="online__title" aria-label="{lema}">{lema}</h2>
-        </div>
+        <IconRadioLemasDark />
+        <h2 class="online__title" aria-label="{lema}">{lema}</h2>
     </div>
 
     <footer class="online__footer">
