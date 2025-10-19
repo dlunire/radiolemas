@@ -4,6 +4,7 @@
     import ContainerNav from "../../components/Container/ContainerNav.svelte";
     import ContainerNews from "../../components/Container/ContainerNews.svelte";
     import Hero from "../../components/Container/Hero.svelte";
+    import OnlineContent from "../../components/Container/OnlineContent.svelte";
     import Programing from "../../components/Container/Programing.svelte";
     import Tendencies from "../../components/Container/Tendencies.svelte";
     import FooterInfo from "../../components/Footer/FooterInfo.svelte";
@@ -40,10 +41,7 @@
 </Header>
 
 <Container dashboard={false} install={false} home={true}>
-    <ContainerNav bind:lema />
-    <!-- <Hero /> -->
-    <ContainerNews />
-    <FooterInfo slot="footer-content" />
+    <OnlineContent />
 </Container>
 
 <WindowMenu bind:openMenu>

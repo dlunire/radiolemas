@@ -102,6 +102,7 @@
     min-height: 47px;
     display: flex;
     justify-content: center;
+    animation: 300ms ease fade-in forwards;
 
     &::before {
         content: "";
