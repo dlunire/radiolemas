@@ -17,7 +17,6 @@
         <li class="menu__item menu__item--footer">
             <Link
                 href="/#home"
-                native={true}
                 className="menu__link menu__link--footer"
             >
                 <IconHome />
@@ -28,7 +27,6 @@
         <li class="menu__item menu__item--footer">
             <Link
                 href="/#programming"
-                native={true}
                 className="menu__link menu__link--footer"
             >
                 <IconOclock />
@@ -39,7 +37,6 @@
         <li class="menu__item menu__item--footer">
             <Link
                 href="/online"
-                native={false}
                 className="menu__link menu__link--footer"
             >
                 <IconStation />
@@ -50,7 +47,6 @@
         <li class="menu__item menu__item--footer">
             <Link
                 href="/news"
-                native={false}
                 className="menu__link menu__link--footer"
             >
                 <IconNews />
@@ -60,7 +56,6 @@
         <li class="menu__item menu__item--footer">
             <Link
                 href="/#contact"
-                native={true}
                 className="menu__link menu__link--footer"
             >
                 <IconContact />
