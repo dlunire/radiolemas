@@ -19,8 +19,7 @@
 
     /** Indica si es una página de usuario */
     let home: boolean = true;
-    // let lema: string = "La Poderosa Online";
-    let lema: string = "Un lema de prueba";
+    let lema: string = "La Poderosa Online";
     let openMenu: boolean = false;
 </script>
 
@@ -28,7 +27,6 @@
     <Link
         href="/#home"
         className="header__logo header__logo--home"
-        native={false}
         ariaLabel="Logotipo"
     >
         <IconLogoHeader />

@@ -146,6 +146,17 @@
                 padding-left: 15px;
                 padding-right: 15px;
             }
+
+            @media screen and (max-width: 500px) {
+                justify-content: center;
+            }
+        }
+
+        &-lema {
+
+            @media screen and (max-width: 750px) {
+                display: none;
+            }
         }
 
         &--home {
@@ -1013,6 +1024,11 @@
 
 .links {
     flex-grow: 1;
+
+
+    &--nav {
+        flex-grow: 0;
+    }
 
     &__title {
         margin: 0;
