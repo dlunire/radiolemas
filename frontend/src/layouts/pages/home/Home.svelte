@@ -52,7 +52,7 @@
     <FooterInfo slot="footer-content" />
 </Container>
 
-<WindowMenu bind:openMenu>
+<WindowMenu bind:openMenu mobile={true}>
     <ContainerNav slot="header" />
 
     <div class="window__container" slot="container">
