@@ -13,7 +13,7 @@
     export let links: ILink[] = [
         {
             href: "https://www.google.com",
-            title: "Web de Google",
+            title: "Test para ir a Google",
             native: true,
             target: "_blank",
             className: "menu__link menu__link--mobile",
