@@ -10,6 +10,7 @@ use DLUnire\Models\Entities\Filename;
 use DLUnire\Models\Tables\Filenames;
 use DLUnire\Services\Utilities\CSVParser;
 use DLUnire\Services\Utilities\File;
+use DLUnire\Services\Utilities\FileManager;
 use Exception;
 use Framework\Abstracts\BaseController;
 
@@ -83,9 +84,40 @@ final class FileController extends BaseController {
     /**
      * Permite recuperar el archivo enviado al servidor
      * 
-     * @return void
+     * @return array{
+     *      status: boolean,
+     *      success: string,
+     *      token: string
+     * }
      */
-    public function store() {
+    public function store(): array {
+        /** @var FileManager $filemanager */
+        $filemanager = new FileManager();
+
+        /** @var string $mimetype */
+        $mimetype = $this->get_string("mimetype");
+
+        /** @var string $token */
+        $token = $filemanager->upload($this, 'file', $mimetype);
+
+        /** @var array $files */
+        $files = Filenames::where('filenames_token', $token)
+            ->order_by('filenames_created_at')->desc()->get();
+
+        /** @var int $quantity */
+        $quantity = count($files);
+
+        /** @var string $label */
+        $label = $quantity !== 1
+            ? "Se han recibido correctamente los archivos"
+            : "Archivo recibido correctamente";
+
         
+        http_response_code(201);
+        return [
+            "status" => true,
+            "success" => $label,
+            "token" => $token
+        ];
     }
 }
