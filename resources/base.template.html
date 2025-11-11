@@ -7,8 +7,6 @@
 
 <body>
     @print('content')
+    <script crossorigin type="module" src="{{ script() }}" nonce="{{ $frontend->token ?? 'Token Nonce' }}"></script>
 </body>
-
-<script crossorigin type="module" src="{{ script() }}" nonce="{{ $frontend->token ?? 'Token Nonce' }}"></script>
-
 </html>
