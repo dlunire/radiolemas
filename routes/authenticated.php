@@ -77,8 +77,3 @@ DLRoute::get('/compiler', function () {
 
     return $reader->render_to_array($file);
 });
-
-## Realizar una prueba con el sistema de rutas
-DLRoute::get('/test', function () {
-    return "Alguna salida";
-});

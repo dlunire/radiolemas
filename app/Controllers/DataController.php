@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace DLUnire\Controllers;
 
+use DLUnire\Models\DTO\ManifestIcon;
+use DLUnire\Models\Tables\Filenames;
+use DLUnire\Services\Utilities\FileManager;
 use DLUnire\Services\Utilities\Manifest;
 use Framework\Abstracts\BaseController;
 
@@ -55,6 +58,21 @@ final class DataController extends BaseController {
 
         /** @var string $orientation */
         $orientation = $this->get_string('orientation');
+
+        /** @var FileManager $filemanager */
+        $filemanager = new FileManager();
+
+        /** @var array $files */
+        $files = Filenames::where('filenames_token', $filemanager->get_token())
+            ->order_by('filenames_created_at')->desc()->get();
+
+        $icons = [];
+
+        foreach ($files as $file) {
+            if (!is_string($file)) continue;
+
+            
+        }
 
         $config = [
             'name' => $name,
