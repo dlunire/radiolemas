@@ -120,4 +120,23 @@ final class FileController extends BaseController {
             "token" => $token
         ];
     }
+
+    /**
+     * Devuelve el token actualmente activo
+     *
+     * @return array{
+     *      token: string
+     * }
+     */
+    public function get_current_token(): array {
+        /** @var FileManager $filemanager */
+        $filemanager = new FileManager();
+
+        /** @var non-empty-string|null $token */
+        $token = $filemanager->get_token();
+
+        return [
+            "token" => $token
+        ];
+    }
 }

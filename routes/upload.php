@@ -23,4 +23,4 @@ DLRoute::post(uri: '/file/upload', controller: [FileController::class, 'store'])
  * GET /file/token
  * ```
  */
-DLRoute::get("/file/token", [FileController::class, 'get_token']);
+DLRoute::get("/file/token", [FileController::class, 'get_current_token']);
