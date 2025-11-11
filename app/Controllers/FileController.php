@@ -45,17 +45,22 @@ final class FileController extends BaseController {
         /** @var bool $preview */
         $preview = boolval($this->get_input('preview'));
 
+        /** @var boolean $is_download */
+        $is_download = boolval($this->get_input('download'));
+
         /** @var FilenameData $filename */
         $filename = FilenameView::get_file($uuid, $private);
 
-        $this->download_file($filename, 100 * 1024 * 1024);
+        if ($is_download) {
+            $this->download_file($filename, 100 * 1024 * 1024);
+        }
 
         /** @var string $root */
         $root = DLServer::get_document_root();
 
         /** @var string $separator */
         $separator = DIRECTORY_SEPARATOR;
-
+        
         /** @var string $file */
         $file = "{$root}{$separator}{$filename->name}";
 
@@ -116,9 +121,11 @@ final class FileController extends BaseController {
      * @return void
      */
     private function download_file(FilenameData $file, int $max_size = 10485760): void {
-        return;
         if ($file->size < $max_size) return;
 
+        /**
+         * @var string $filename
+         */
         $filename = basename($file->name);
 
         header('Content-Description: File Transfer');

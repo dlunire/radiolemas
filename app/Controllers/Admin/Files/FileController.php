@@ -79,4 +79,13 @@ final class FileController extends BaseController {
             "details" => $tests
         ];
     }
+
+    /**
+     * Permite recuperar el archivo enviado al servidor
+     * 
+     * @return void
+     */
+    public function store() {
+        
+    }
 }

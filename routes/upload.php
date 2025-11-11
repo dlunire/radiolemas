@@ -3,4 +3,4 @@
 use DLRoute\Requests\DLRoute;
 use DLUnire\Controllers\Admin\Files\FileController;
 
-DLRoute::post('/file/upload', [FileController::class, 'store']);
+DLRoute::post(uri: '/file/upload', controller: [FileController::class, 'store']);

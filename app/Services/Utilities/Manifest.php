@@ -32,7 +32,7 @@ final class Manifest extends SaveData {
      * @param array $manifest Manifiesto de la aplicación
      * @return boolean
      * 
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function save(array $manifest): bool {
         

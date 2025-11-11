@@ -32,7 +32,8 @@ final class File {
         /** @var string $token */
         $token = $controller->generate_uuid();
 
-
+        $_SESSION['token-file'] = $token;
+        
         /** @var array $files */
         $files = $controller->upload_file($field, $mimetype);
 
@@ -67,7 +68,7 @@ final class File {
             $filenames[] = new Filename($datafile);
         }
 
-        if (count($datafiles) < 1) {
+        if (\count($datafiles) < 1) {
             throw new StorageException("Tipo MIME inesperado: se esperaba «{$mimetype}».", 400);
         }
 
