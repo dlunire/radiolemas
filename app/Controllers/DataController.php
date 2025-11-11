@@ -25,26 +25,54 @@ final class DataController extends BaseController {
      * @return array<string, string|array<int, array<string,string>>
      */
     public function manifest(): array {
-        return [];
+        return (new Manifest())->get();
     }
 
     /**
      * Guarda los datos de la aplicación
      * 
-     * @return void
+     * @return array
      */
-    public function set_manifest(): void {
-        
+    public function set_manifest(): array {
+
         /** @var Manifest() $manifest */
         $manifest = new Manifest();
 
+        /** @var string $name */
         $name = $this->get_string("name");
-        $short_name = $this->get_string("short-name");
-        $display = $this->get_string("display");
-        $backgrund = $this->get_string("background");
-        $theme = $this->get_string("theme");
-        
 
-        $manifest->save($this);
+        /** @var string $short_name */
+        $short_name = $this->get_string("short-name");
+
+        /** @var string $display */
+        $display = $this->get_string("display");
+
+        /** @var string $background */
+        $background = $this->get_string("background");
+
+        /** @var string $theme */
+        $theme = $this->get_string("theme");
+
+        /** @var string $orientation */
+        $orientation = $this->get_string('orientation');
+
+        $config = [
+            'name' => $name,
+            'short_name' => $short_name,
+            'start_url' => "",
+            'display' => $display,
+            'background_color' => $background,
+            'theme_color' => $theme,
+            'orientation' => $orientation,
+            'icons' => [],
+        ];
+
+        $manifest->save($config);
+
+        http_response_code(201);
+        return  [
+            "status" => true,
+            "success" => "Aplicación Web Progresiva (PWA) configurada correctamente"
+        ];
     }
 }

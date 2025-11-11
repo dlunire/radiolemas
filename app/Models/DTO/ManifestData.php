@@ -38,7 +38,16 @@ final class ManifestData {
     /** @var string $start_url URL corta o relativa de la aplicación */
     public readonly string $start_url;
 
-    /** @var string $display */
+    /**
+     * @var string $display Modo de visualización de la PWA según el manifiesto Web App Manifest.
+     * Define cómo se presenta la aplicación en el navegador/dispositivo:
+     * - 'standalone': Como app nativa (sin barra de navegador).
+     * - 'fullscreen': Pantalla completa, sin marcos ni barras.
+     * - 'minimal-ui': Controles mínimos (ej: botones atrás/recargar).
+     * - 'browser': Modo navegador completo con URL y controles.
+     * 
+     * Valida contra las constantes DISPLAY. Obligatorio para PWAs.
+     */
     public readonly string $display;
 
     /** @var string $background_color Color de fondo de la aplicación */
@@ -80,7 +89,7 @@ final class ManifestData {
         $this->name = $this->get_value('name');
         $this->short_name = $this->get_value('short_name');
         $this->start_url = $this->get_value('start_url');
-        
+
         /** @var string $display */
         $display = $this->get_value('display');
 
