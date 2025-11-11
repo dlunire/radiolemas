@@ -61,7 +61,7 @@ $auth->logged(function () {
     ## Actualiza la configuración del sistema:
     DLRoute::post('/dashboard/settings', [SettingsController::class, 'store']);
 });
-## Certificados al servidor:
+## Permite enviar archivos al servidor:
 DLRoute::post('/dashboard/upload', [FileController::class, 'upload']);
 
 ## PROBAR COMPILADOR
