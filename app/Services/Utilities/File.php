@@ -26,14 +26,14 @@ final class File {
      * @param bool $private Opcional. Indica si el archivo debe estar almacenado en modo privado. Por defecto es `true`.
      * @return array<Filename> Lista de archivos subidos con su información asociada.
      */
-    public static function upload(BaseController $controller, string $field = 'file', string $mimetype = '*/*',  string $basedir = "/storage/file", bool $private = true): array {
+    public static function upload(BaseController $controller, string $field = 'file', string $mimetype = '*/*', string $basedir = "/storage/file", bool $private = true): array {
         $controller->set_basedir($basedir);
 
         /** @var string $token */
         $token = $controller->generate_uuid();
 
         $_SESSION['token-file'] = $token;
-        
+
         /** @var array $files */
         $files = $controller->upload_file($field, $mimetype);
 
@@ -44,7 +44,8 @@ final class File {
         $filenames = [];
 
         foreach ($files as $file) {
-            if (!($file instanceof RequestsFilename)) continue;
+            if (!($file instanceof RequestsFilename))
+                continue;
 
             /** @var string $uuid */
             $uuid = $controller->generate_uuid();
@@ -52,11 +53,11 @@ final class File {
             $datafile = [
                 'filenames_uuid' => $uuid,
                 'filenames_name' => $file->target_file,
-                'filenames_basedir' =>  $file->relative_path,
+                'filenames_basedir' => $file->relative_path,
                 'filenames_token' => $token,
                 'filenames_private' => $private ? 1 : 0,
                 'filenames_size' => $file->size,
-                'filenames_readable_size' =>  $file->readable_size,
+                'filenames_readable_size' => $file->readable_size,
                 'filenames_type' => $file->type,
                 'filenames_format' => $file->file_format,
                 'filenames_timezone' => Filenames::get_timezone()
@@ -96,8 +97,10 @@ final class File {
         /** @var string $filename */
         $filename = "{$root}{$separator}{$target_file}";
 
-        if (!file_exists($filename)) return;
-        if (!self::sensitive_file($type)) return;
+        if (!file_exists($filename))
+            return;
+        if (!self::sensitive_file($type))
+            return;
 
         /** @var string $content */
         $content = file_get_contents($filename);

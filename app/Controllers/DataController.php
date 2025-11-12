@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DLUnire\Controllers;
 
+use DLRoute\Server\DLServer;
 use DLUnire\Errors\BadRequestException;
 use DLUnire\Models\DTO\ManifestIcon;
 use DLUnire\Models\Tables\Filenames;
@@ -86,6 +87,7 @@ final class DataController extends BaseController {
         foreach ($files as $file) {
             if (!is_array($file)) continue;
             
+
             $icon = [
                 "src" => $file[""],
                 "type" => $file['filenames_type'],
@@ -118,5 +120,41 @@ final class DataController extends BaseController {
             "status" => true,
             "success" => "Aplicación Web Progresiva (PWA) configurada correctamente"
         ];
+    }
+
+    /**
+     * Devuelve el icono del manifiesto
+     *
+     * @param array $file Datos preliminares de los archivos de la base de datos
+     * @return ManifestIcon
+     */
+    private function get_icon(array $file): ManifestIcon {
+
+        /** @var string $root */
+        $root = DLServer::get_document_root();
+
+        /** @var string $separator */
+        $separator = DIRECTORY_SEPARATOR;
+
+        /** @var string|null $uuid */
+        $uuid = $file['filenames_uuid'] ?? null;
+
+        $type = $file['filenames_type'] ?? null;
+
+        if (!\preg_match("/^imagen\/png$/", $type)) {
+            throw new BadRequestException("El formato de imagen no es un PNG válido. Por favor, intente de nuevo enviando archivos PNG");
+        }
+
+        /** @var string $sizes */
+        $sizes    = "";
+
+        /** @var array $icon */
+        $icon = [
+            "src" => route("/file/public/{$uuid}"),
+            "sizes" => $sizes,
+            "type" => $type
+        ];
+
+        return new ManifestIcon($icon);
     }
 }

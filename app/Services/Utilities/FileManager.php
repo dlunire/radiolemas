@@ -58,15 +58,24 @@ final class FileManager {
      * devolverá el token del archivo o grupo de archivos.
      * 
      * @param \Framework\Abstracts\BaseController $controller
-     * @param string $field
-     * @param string $mimetype
+     * @param string $field Campo de archivo
+     * @param string $mimetype Tipo de datos que será aceptado.
+     * @param boolean $private [Opcional] Indica si debe establecerse una ruta autenticada o no en el archivo
+     *                         enviado al servidor.
      * @return string
      * 
      * @throws \DLCore\Core\Errors\ForbiddenException
      */
-    public function upload(BaseController $controller, string $field, string $mimetype): string {
+    public function upload(BaseController $controller, string $field, string $mimetype, bool $private = false): string {
         $this->validate_format($controller, $mimetype);
-        $files = File::upload($controller, $field, $mimetype, '/storage/uploads/file');
+
+        File::upload(
+            $controller,
+            $field,
+            $mimetype,
+            '/storage/uploads/file',
+            $private
+        );
 
         return $this->get_token();
     }
