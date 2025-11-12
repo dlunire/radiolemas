@@ -1,6 +1,7 @@
 <?php
 
 use DLRoute\Requests\DLRoute;
+use DLUnire\Controllers\Config\StationController;
 use DLUnire\Controllers\DataController;
 
 /**
@@ -22,3 +23,11 @@ DLRoute::get('/manifest', [DataController::class, 'manifest']);
  * Temporalmente, sin autenticar.
  */
 DLRoute::post('/manifest/create', [DataController::class, 'set_manifest']);
+
+/**
+ * Esta ruta no requiere ser autenticada.
+ * 
+ * Se obtiene el nombre y lema de su aplicación Web. Un lema que se encuentra guardado en un archivo binario. Si
+ * el lema y nombre no existe, entonces, se visualizarán nombres genéricos en la plataforma.
+ */
+DLRoute::get('/station', [StationController::class, 'index']);
