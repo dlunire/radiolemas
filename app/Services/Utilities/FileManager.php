@@ -66,7 +66,7 @@ final class FileManager {
      */
     public function upload(BaseController $controller, string $field, string $mimetype): string {
         $this->validate_format($controller, $mimetype);
-        File::upload($controller, $field, $mimetype, '/storage/uploads/file');
+        $files = File::upload($controller, $field, $mimetype, '/storage/uploads/file');
 
         return $this->get_token();
     }
@@ -103,5 +103,14 @@ final class FileManager {
         }
 
         return trim($token);
+    }
+
+    /**
+     * Elimina el token asociado al archivo
+     *
+     * @return void
+     */
+    public function clear_token(): void {
+        $_SESSION['token-file'] = null;
     }
 }

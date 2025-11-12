@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DLUnire\Controllers\Admin\Files;
 
+use DLUnire\Errors\BadRequestException;
 use DLUnire\Models\DTO\FastArray;
 use DLUnire\Models\DTO\FilenameData;
 use DLUnire\Models\Entities\Filename;
@@ -89,6 +90,8 @@ final class FileController extends BaseController {
      *      success: string,
      *      token: string
      * }
+     * 
+     * @throws \DLUnire\Errors\BadRequestException
      */
     public function store(): array {
         /** @var FileManager $filemanager */
@@ -106,6 +109,11 @@ final class FileController extends BaseController {
 
         /** @var int $quantity */
         $quantity = count($files);
+
+        if ($quantity < 1) {
+            throw new BadRequestException("El campo de archivo de tu formulario debe contener archivos con formato válido");
+        }
+
 
         /** @var string $label */
         $label = $quantity !== 1

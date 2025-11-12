@@ -36,6 +36,8 @@ final class DataController extends BaseController {
      * Guarda los datos de la aplicación
      * 
      * @return array
+     * 
+     * @throws \DLUnire\Errors\BadRequestException
      */
     public function set_manifest(): array {
 
@@ -109,6 +111,7 @@ final class DataController extends BaseController {
         ];
 
         $manifest->save($config);
+        $filemanager->clear_token();
 
         http_response_code(201);
         return  [

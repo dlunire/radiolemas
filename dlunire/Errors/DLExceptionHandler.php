@@ -7,6 +7,9 @@ use DLCore\Config\Logs;
 use Framework\Config\Environment;
 use Error;
 use Exception;
+use PDOException;
+use RuntimeException;
+use TypeError;
 
 /**
  * Captura los errores del sistema y devuelve un error 500 según esté
@@ -55,7 +58,7 @@ final class DLExceptionHandler {
      * @param Exception $exception
      * @return void
      */
-    public static function handle(Exception|Error $exception): void {
+    public static function handle(Exception|RuntimeException|PDOException|TypeError|Error $exception): void {
         /**
          * Devuelve el código de error
          * 
@@ -63,6 +66,10 @@ final class DLExceptionHandler {
          */
         $code = (int) $exception->getCode();
 
+        if ($code == 0) {
+            $code = 500;
+        }
+        
         header("Content-Type: application/json; charset=utf-8", true, $code);
 
         /**
