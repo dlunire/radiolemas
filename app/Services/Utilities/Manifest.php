@@ -104,7 +104,7 @@ final class Manifest extends SaveData {
      * @return ManifestData|null
      */
     public function get_manifest(): ?ManifestData {
-        /** @var ManifestData $manifest */
+        /** @var ManifestData|null $manifest */
         $manifest = null;
 
         try {

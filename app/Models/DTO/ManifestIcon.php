@@ -21,8 +21,13 @@ use Traversable;
  * @license Comercial
  */
 final class ManifestIcon implements IteratorAggregate {
+    /** @var string $src Ruta del archivo de imagen */
     public readonly string $src;
+
+    /** @var string $sizes Tamaño o tamaños de la imagen */
     public readonly string $sizes;
+
+    /** @var string $type Formato de la imagen */
     public readonly string $type;
 
     /**

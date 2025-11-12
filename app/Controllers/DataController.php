@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DLUnire\Controllers;
 
+use DLUnire\Errors\BadRequestException;
 use DLUnire\Models\DTO\ManifestIcon;
 use DLUnire\Models\Tables\Filenames;
 use DLUnire\Services\Utilities\FileManager;
@@ -62,16 +63,38 @@ final class DataController extends BaseController {
         /** @var FileManager $filemanager */
         $filemanager = new FileManager();
 
+        /** @var string|null $toke_file */
+        $token_file = $filemanager->get_token();
+
+        if (!(is_string($token_file))) {
+            throw new BadRequestException("Debe subir primero los iconos en formato PNG para crear el manifiesto de aplicación", 400);
+        }
+
         /** @var array $files */
         $files = Filenames::where('filenames_token', $filemanager->get_token())
             ->order_by('filenames_created_at')->desc()->get();
 
+        /**
+         * Imagen de iconos del archivo de manifiesto (manifest).
+         * 
+         * @var ManifestIcon[]
+         */
         $icons = [];
 
         foreach ($files as $file) {
-            if (!is_string($file)) continue;
-
+            if (!is_array($file)) continue;
             
+            $icon = [
+                "src" => $file[""],
+                "type" => $file['filenames_type'],
+                "sizes" => ""
+            ];
+
+            /** Permite validar que la estructura es correcta */
+            new ManifestIcon($icon);
+
+            /** Pero esto es lo que se asigna para serializar al transformarse en datos binarios */
+            $icons[] = $icon;
         }
 
         $config = [
