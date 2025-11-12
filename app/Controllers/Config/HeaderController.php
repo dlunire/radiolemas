@@ -6,6 +6,7 @@ namespace DLUnire\Controllers\Config;
 
 use DLUnire\Models\DTO\HeaderData;
 use DLUnire\Models\DTO\HeaderItem;
+use DLUnire\Models\Tables\Filenames;
 use DLUnire\Services\Utilities\FileManager;
 use DLUnire\Services\Utilities\Headers;
 use Framework\Abstracts\BaseController;
@@ -40,9 +41,21 @@ final class HeaderController extends BaseController {
         /** @var Headers $headers */
         $headers = new Headers();
 
+        /** @var string $token_pc Token de imagen para PCs, laptos o tables */
+        $token_pc = $this->get_uuid('token-pc');
+
+        /** @var string $token_mobile Token de imagen para Smartphones */
+        $token_mobile = $this->get_uuid('token-mobile');
+
+        /** @var array $pc_image_data */
+        $pc_image_data = Filenames::where('filenames_token', $token_pc)->first();
+
+        /** @var array $mobile_image_data */
+        $mobile_image_data = Filenames::where('filenames__token', $token_mobile)->first();
+
         $current_item = [
-            "image_pc" => $this->get_uuid('token-pc'),
-            "image_mobild" => $this->get_uuid('token-mobile'),
+            "image_pc" => route("/file/public/{$pc_image_data['filenames_uuid']}"),
+            "image_mobile" => route("/file/public/{$mobile_image_data['filenames_uuid']}"),
             "title" => $this->get_required("title"),
             "description" => $this->get_input('description'),
             "href" => $this->get_input('href')
