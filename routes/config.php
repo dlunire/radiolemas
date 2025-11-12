@@ -31,3 +31,19 @@ DLRoute::post('/manifest/create', [DataController::class, 'set_manifest']);
  * el lema y nombre no existe, entonces, se visualizarán nombres genéricos en la plataforma.
  */
 DLRoute::get('/station', [StationController::class, 'index']);
+
+/**
+ * Esta ruta requiere ser autenticada.
+ * 
+ * Esta ruta permite guardar el nombre legal y lema o consigna de la estación de radio
+ * en formato binario.
+ * 
+ * Cada vez que guarde información se sobreescribirá la información previa que haya sido guardada.
+ */
+DLRoute::post('/station', [StationController::class, 'store']);
+
+/**
+ * No require autenticación
+ * 
+ * Lee las cabeceras existentes. Máximo, se permitirán entre 5 a 10 cabeceras aproximadamente
+ */

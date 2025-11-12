@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DLUnire\Controllers\Config;
 
+use DLUnire\Models\DTO\StationData;
+use DLUnire\Services\Utilities\Station;
 use Framework\Abstracts\BaseController;
 
 /**
@@ -24,10 +26,29 @@ final class StationController extends BaseController {
     /**
      * Devuelve la configuración actual
      *
-     * @return array
+     * @return StationData
      */
-    public function index(): array {
+    public function index(): StationData {
 
-        return [];
+        /** @var Station $station */
+        $station = new Station();
+
+        return $station->get_info();
+    }
+
+    /**
+     * Guarda la información de la estación de radio en un archivo binario.
+     * 
+     * @return array{status: boolean, success: string}
+     */
+    public function store(): array {
+        $station = new Station();
+        $station->save($this->get_required("name"), $this->get_required("motto"));
+
+        http_response_code(201);
+        return [
+            "status" => true,
+            "success" => "Información guardada correctamente"
+        ];
     }
 }
