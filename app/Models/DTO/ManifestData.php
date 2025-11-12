@@ -73,8 +73,7 @@ final class ManifestData {
      */
     public function __construct(array $manifest) {
         $this->manifest = $manifest;
-
-        $this->icons = [];
+        
         $this->load_options();
         $this->load_icons();
     }

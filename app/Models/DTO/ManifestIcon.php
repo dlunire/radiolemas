@@ -31,37 +31,37 @@ final class ManifestIcon implements IteratorAggregate {
     public readonly string $type;
 
     /**
-     * Datos a ser cargados
+     * Procesa y valida los iconos que serán cargados
      * 
-     * @var array{
-     *  src: string,
-     *  sizes: string,
-     *  type: string
-     * }
+     * @param array{src: string, sizes: string, type: string } $icon Icono a ser procesado
      * 
      * throws InvalidArgumentException
      */
-    public function __construct(array $data) {
+    public function __construct(array $icon) {
 
         /** @var string|null $src */
-        $src = $data['src'] ?? null;
+        $src = $icon['src'] ?? null;
 
         /** @var string|null $sizes */
-        $sizes = $data['sizes'] ?? null;
-
+        $sizes = $icon['sizes'] ?? null;
+        
         /** @var string|null $type */
-        $type = $data['type'] ?? null;
-
+        $type = $icon['type'] ?? null;
+        
         if (!is_string($src)) {
-            throw new InvalidArgumentException("__construct: Se esperaba una cadena en el campo «src»", 500);
+            throw new InvalidArgumentException("__construct: Se esperaba una cadena en el campo «src»", 400);
         }
 
         if (!is_string($sizes)) {
-            throw new InvalidArgumentException("__construct: Se esperaba una cadena en el campo «sizes»", 500);
+            throw new InvalidArgumentException("__construct: Se esperaba una cadena en el campo «sizes»", 400);
         }
 
         if (!is_string($type)) {
-            throw new InvalidArgumentException("__construct: Se esperaba una cadena en el campo «type»", 500);
+            throw new InvalidArgumentException("__construct: Se esperaba una cadena en el campo «type»", 400);
+        }
+
+        if ($type !== "image/png") {
+            throw new InvalidArgumentException("El formato esperado es «image/png», pero se obtuvo «{$type}»", 400);
         }
 
         $this->src = $src;

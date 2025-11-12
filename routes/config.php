@@ -2,13 +2,12 @@
 
 use DLRoute\Requests\DLRoute;
 use DLUnire\Controllers\DataController;
-use DLUnire\Controllers\Frontend\FrontendController;
 
 /**
  * Debe cargar el manifiesto actualmente existente en el servidor. Si el manifiesto
  * no existe, entonces, devolverá un JSON vacío.
  */
-DLRoute::get('/manifest', [FrontendController::class, 'manifest']);
+DLRoute::get('/manifest', [DataController::class, 'manifest']);
 
 /**
  * Esta ruta será autenticada en el futuro.

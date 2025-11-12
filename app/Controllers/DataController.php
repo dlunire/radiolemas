@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DLUnire\Controllers;
 
+use DLRoute\Config\FileInfo;
 use DLRoute\Server\DLServer;
 use DLUnire\Errors\BadRequestException;
 use DLUnire\Models\DTO\ManifestIcon;
@@ -80,25 +81,24 @@ final class DataController extends BaseController {
         /**
          * Imagen de iconos del archivo de manifiesto (manifest).
          * 
-         * @var ManifestIcon[]
+         * @var ManifestIcon[] $icons
          */
         $icons = [];
 
         foreach ($files as $file) {
-            if (!is_array($file)) continue;
-            
+            if (!is_array($file))
+                continue;
 
-            $icon = [
-                "src" => $file[""],
-                "type" => $file['filenames_type'],
-                "sizes" => ""
-            ];
 
-            /** Permite validar que la estructura es correcta */
-            new ManifestIcon($icon);
+            /** @var ManifestIcon $icon Devuelve ManifestIcon con los datos previamenteee validados */
+            $icon = $this->get_icon($file);
 
             /** Pero esto es lo que se asigna para serializar al transformarse en datos binarios */
-            $icons[] = $icon;
+            $icons[] = [
+                "src" => $icon->src,
+                "sizes" => $icon->sizes,
+                "type" => $icon->type
+            ];
         }
 
         $config = [
@@ -109,14 +109,14 @@ final class DataController extends BaseController {
             'background_color' => $background,
             'theme_color' => $theme,
             'orientation' => $orientation,
-            'icons' => [],
+            'icons' => $icons,
         ];
 
         $manifest->save($config);
         $filemanager->clear_token();
 
         http_response_code(201);
-        return  [
+        return [
             "status" => true,
             "success" => "Aplicación Web Progresiva (PWA) configurada correctamente"
         ];
@@ -136,17 +136,29 @@ final class DataController extends BaseController {
         /** @var string $separator */
         $separator = DIRECTORY_SEPARATOR;
 
-        /** @var string|null $uuid */
-        $uuid = $file['filenames_uuid'] ?? null;
+        /** @var string $uuid */
+        $uuid = strval($file['filenames_uuid'] ?? '');
 
-        $type = $file['filenames_type'] ?? null;
+        /** @var string $type */
+        $type = strval($file['filenames_type'] ?? '');
+        $type= trim($type);
 
-        if (!\preg_match("/^imagen\/png$/", $type)) {
+        /** @var string $name */
+        $name = strval($file['filenames_name'] ?? '');
+        $name = $this->normalize_route($name);
+
+        if (!\preg_match("/^image\/png$/", $type)) {
             throw new BadRequestException("El formato de imagen no es un PNG válido. Por favor, intente de nuevo enviando archivos PNG");
         }
 
+        /** @var string $filename */
+        $filename = "{$root}{$separator}{$name}";
+        
+        /** @var object{width: int, height: int } $info */
+        $info = FileInfo::get_dimensions($filename);
+
         /** @var string $sizes */
-        $sizes    = "";
+        $sizes = "{$info->width}x{$info->height}";
 
         /** @var array $icon */
         $icon = [
@@ -156,5 +168,15 @@ final class DataController extends BaseController {
         ];
 
         return new ManifestIcon($icon);
+    }
+
+    /**
+     * Normaliza las rutas a las rutas del sistema operativo
+     *
+     * @param string $route Ruta a ser normalizada
+     * @return string
+     */
+    private function normalize_route(string $route): string {
+        return preg_replace("/[\/\\\\]+/", DIRECTORY_SEPARATOR, $route);
     }
 }
