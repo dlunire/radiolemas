@@ -40,19 +40,9 @@ final class HeaderController extends BaseController {
         /** @var Headers $headers */
         $headers = new Headers();
 
-        /**
-         * Administrador de archivos
-         * 
-         * @var FileManager $file
-         */
-        $file = new FileManager();
-
-        $file->upload($this, 'file-pc', "image/*", false);
-        $file->upload($this, 'file-mobile', "image/*", false);
-
         $current_item = [
-            "image_pc" => "",
-            "image_mobild" => "",
+            "image_pc" => $this->get_uuid('token-pc'),
+            "image_mobild" => $this->get_uuid('token-mobile'),
             "title" => $this->get_required("title"),
             "description" => $this->get_input('description'),
             "href" => $this->get_input('href')
