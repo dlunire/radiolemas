@@ -1,6 +1,7 @@
 <?php
 
 use DLRoute\Requests\DLRoute;
+use DLUnire\Controllers\Config\HeaderController;
 use DLUnire\Controllers\Config\StationController;
 use DLUnire\Controllers\DataController;
 
@@ -47,3 +48,11 @@ DLRoute::post('/station', [StationController::class, 'store']);
  * 
  * Lee las cabeceras existentes. Máximo, se permitirán entre 5 a 10 cabeceras aproximadamente
  */
+DLRoute::get('/headers', [HeaderController::class, 'index']);
+
+/**
+ * Requiere convertirse en una ruta autenticada
+ * 
+ * Permite guardar los datos de la cabecera para ser consultadas más tarde.
+ */
+DLRoute::post('/headers', [HeaderController::class,'store']);

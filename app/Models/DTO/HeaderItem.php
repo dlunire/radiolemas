@@ -16,6 +16,10 @@ use InvalidArgumentException;
  * @license Comercial
  */
 final class HeaderItem {
+
+    /** @var string $uuid Identificador Único Universal (UUIDv4) */
+    public readonly string $uuid;
+
     /** @var string $image_pc Cabecera para PC, tablet o laptos */
     public readonly string $image_pc;
 
@@ -79,6 +83,12 @@ final class HeaderItem {
         /** @var string|null $href */
         $href = $this->get_value('href');
 
+        /** @var string|null $uuid */
+        $uuid = $this->get_value('uuid');
+
+        if (!$this->is_uuid($uuid)) {
+            throw new InvalidArgumentException("Se esperaba un Identificador Único Universal en el campo «uuid»", 400);
+        }
 
         if (!is_string($image_pc)) {
             throw new InvalidArgumentException("La cabecera para PC, laptos o tables es requerida", 400);
@@ -97,5 +107,22 @@ final class HeaderItem {
         $this->title = $title;
         $this->description = $description;
         $this->href = $href;
+        $this->uuid = $uuid;
+    }
+
+    /**
+     * Verifica si la entrada es un Identificador Único Universal (UUIDv4)
+     *
+     * @param mixed $input Entrada a ser analizada.
+     * @return boolean
+     */
+    private function is_uuid(mixed $input): bool {
+        if (!is_string($input)) return false;
+        $input = trim($input);
+
+        /** @var string $pattern */
+        $pattern = "/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i";
+
+        return boolval(preg_match($pattern, $input));
     }
 }

@@ -17,9 +17,9 @@ use DLUnire\Exceptions\HeaderValidationException;
  */
 final class HeaderData {
     /**
-     * Lista de cabeceras
+     * Lista de cabeceras organizados por UUIDv4
      *
-     * @var array<int, HeaderItem>
+     * @var array<string, HeaderItem>
      */
     public readonly array $headers;
 
@@ -46,12 +46,12 @@ final class HeaderData {
         /** @var HeaderItem[] $headers */
         $headers = [];
 
-        foreach ($this->data as $item) {
+        foreach ($this->data['headers'] ?? [] as $key => $item) {
             if (!is_array($item)) {
                 throw new HeaderValidationException();
             }
-
-            $headers[] = new HeaderItem($item);
+            
+            $headers[$key] = new HeaderItem($item);
         }
 
         $this->headers = $headers;

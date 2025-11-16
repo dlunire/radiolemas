@@ -30,13 +30,15 @@ final class Headers extends SaveData {
         $this->entropy = hash('sha256', 'Una frase de almacenamiento');
     }
 
+    /**
+     * Almacena los datos de la cabecera en un archivo binario
+     *
+     * @param array $data Datos a ser almacenado
+     * @return void
+     */
     public function save(array $data) : void {
-
         /** @var string|bool $raw_data */
         $raw_data = json_encode($data);
-
-        /** @var non-empty-string $hash */
-        $hash = hash('sha256', $raw_data);
 
         $this->save_data($this->target, $raw_data, $this->entropy);
     }

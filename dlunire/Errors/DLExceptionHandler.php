@@ -65,11 +65,11 @@ final class DLExceptionHandler {
          * @var integer $code
          */
         $code = (int) $exception->getCode();
-
-        if ($code == 0) {
+        
+        if ($code < 100 || $code > 599) {
             $code = 500;
         }
-        
+
         header("Content-Type: application/json; charset=utf-8", true, $code);
 
         /**
