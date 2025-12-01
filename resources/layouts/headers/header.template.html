@@ -42,7 +42,7 @@
 <!-- <meta http-equiv="Content-Security-Policy"
     content="script-src *.tawk.to *.jsdelivr.net *.google.com *.gstatic.com 'nonce-{{ $frontend->token ?? 'Token Nonce' }}'; object-src 'none'"> -->
 <!-- <meta http-equiv="Content-Security-Policy" content="'nonce-{{ $frontend->token ?? 'Token Nonce' }}'; object-src 'none'"> -->
-<meta http-equiv="Content-Security-Policy" content="
+<!-- <meta http-equiv="Content-Security-Policy" content="
     script-src 'nonce-{{ $frontend->token }}';
     object-src 'none';
     base-uri 'none';
@@ -51,4 +51,23 @@
     style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
     connect-src 'self' https://api.tawk.to;
     frame-src https://embed.tawk.to https://www.google.com https://maps.google.com;
+"> -->
+
+<meta http-equiv="Content-Security-Policy" content="
+    script-src
+        'nonce-{{ $frontend->token }}'
+        'strict-dynamic'
+        https://www.google.com
+        https://*.google.com
+        https://*.googleapis.com
+        https://*.gstatic.com
+    ;
+    object-src 'none';
+    base-uri 'none';
+    img-src 'self';
+    font-src 'self' https://fonts.gstatic.com;
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    connect-src 'self';
+    frame-src https://www.google.com https://*.google.com;
 ">
+

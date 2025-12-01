@@ -23,7 +23,6 @@
             );
         });
 
-        console.log({ newTokens, tokens });
         header.classList.add(...newTokens);
     });
 </script>

@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DLUnire\Exceptions;
-
-use DLUnire\Errors\BadRequestException;
-
+namespace DLUnire\Errors;
 
 /**
  * Excepción específica para errores de validación de cabeceras.

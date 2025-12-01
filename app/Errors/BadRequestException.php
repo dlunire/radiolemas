@@ -1,10 +1,11 @@
 <?php
+
+namespace DLUnire\Errors;
+
 /**
  * Copyright (c) 2025 David E Luna M
  * Licensed under the MIT License. See LICENSE file for details.
  */
-
-namespace DLUnire\Errors;
 
 use Exception;
 
@@ -44,7 +45,7 @@ class BadRequestException extends Exception {
      *
      * @return int
      */
-    public function getHttpCode(): int {
+    public function get_http_code(): int {
         return $this->http_code;
     }
 }

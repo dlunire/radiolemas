@@ -1,6 +1,7 @@
 <?php
 
 use DLRoute\Requests\DLRoute;
+use DLStorage\Storage\SaveData;
 use DLUnire\Controllers\Config\HeaderController;
 use DLUnire\Controllers\Config\StationController;
 use DLUnire\Controllers\DataController;
@@ -56,3 +57,25 @@ DLRoute::get('/headers', [HeaderController::class, 'index']);
  * Permite guardar los datos de la cabecera para ser consultadas más tarde.
  */
 DLRoute::post('/headers', [HeaderController::class,'store']);
+
+class ClassName extends SaveData {
+    /** @var string $entropy */
+    public string $entropy = "Base de datos";
+
+    public function get_current_content() {
+        /** @var string $filename */
+        $filename = "credentials" . DIRECTORY_SEPARATOR . "database";
+
+        /** @var string $content */
+        $content = $this->read_storage_data($filename, $this->entropy);
+
+        return $content;
+    }
+}
+
+DLRoute::get('/test', function() {
+    $instance = new ClassName();
+
+    $content = $instance->get_current_content();
+    return json_decode($content);
+});

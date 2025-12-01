@@ -15,11 +15,6 @@
     let notification: HTMLElement | null = null;
     let timeout: number | null = null;
 
-    onMount(() => {
-        if (!(notification instanceof HTMLElement)) return;
-        document.body.appendChild(notification);
-    });
-
     $: if (open) {
         if (timeout) clearTimeout(timeout);
 
@@ -52,6 +47,13 @@
         info = false;
         open = false;
     }
+
+    function update(element: HTMLElement | null = null): void {
+        if (!(element instanceof HTMLElement)) return;
+        document.body.appendChild(element);
+    }
+
+    $: update(notification);
 </script>
 
 {#if open}

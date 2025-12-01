@@ -26,7 +26,7 @@
 
         <div class="contact__column contact__column--form">
             <h3 class="contact__title">Contacto</h3>
-            <Form method="post" action="/api/contact" bind:loading>
+            <Form method="post" action="/api/v1/contact" bind:loading>
                 {#snippet content()}
                     <div class="form__inner form__inner--contact">
                         <label
