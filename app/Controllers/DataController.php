@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace DLUnire\Controllers;
 
-use DLRoute\Config\FileInfo;
-use DLRoute\Server\DLServer;
 use DLUnire\Errors\BadRequestException;
 use DLUnire\Models\DTO\ManifestIcon;
 use DLUnire\Models\Tables\Filenames;
+use DLUnire\Services\Traits\Normalize;
 use DLUnire\Services\Utilities\FileManager;
 use DLUnire\Services\Utilities\Manifest;
 use Framework\Abstracts\BaseController;
 
 /**
- * Configura la aplicación web progresiva (Progresive Web Application)
+ * Configura la aplicación web progresiva (Progresive Web Application). Es decir, permite almacenar
+ * los datos de la configuración de la misma para facilitar la personalización.
  * 
  * @package DLUnire\Controllers
  * @version v0.0.1
@@ -24,6 +24,7 @@ use Framework\Abstracts\BaseController;
  * @license Comercial
  */
 final class DataController extends BaseController {
+    use Normalize;
 
     /**
      * Carga el manifest de la aplicación
@@ -31,7 +32,7 @@ final class DataController extends BaseController {
      * @return array<string, string|array<int, array<string,string>>
      */
     public function manifest(): array {
-        return (new Manifest())->get();
+        return new Manifest()->get();
     }
 
     /**
@@ -70,7 +71,7 @@ final class DataController extends BaseController {
         /** @var string|null $toke_file */
         $token_file = $filemanager->get_token();
 
-        if (!(is_string($token_file))) {
+        if (!(\is_string($token_file))) {
             throw new BadRequestException("Debe subir primero los iconos en formato PNG para crear el manifiesto de aplicación", 400);
         }
 
@@ -86,7 +87,7 @@ final class DataController extends BaseController {
         $icons = [];
 
         foreach ($files as $file) {
-            if (!is_array($file))
+            if (!\is_array($file))
                 continue;
 
 
@@ -120,63 +121,5 @@ final class DataController extends BaseController {
             "status" => true,
             "success" => "Aplicación Web Progresiva (PWA) configurada correctamente"
         ];
-    }
-
-    /**
-     * Devuelve el icono del manifiesto
-     *
-     * @param array $file Datos preliminares de los archivos de la base de datos
-     * @return ManifestIcon
-     */
-    private function get_icon(array $file): ManifestIcon {
-
-        /** @var string $root */
-        $root = DLServer::get_document_root();
-
-        /** @var string $separator */
-        $separator = DIRECTORY_SEPARATOR;
-
-        /** @var string $uuid */
-        $uuid = strval($file['filenames_uuid'] ?? '');
-
-        /** @var string $type */
-        $type = strval($file['filenames_type'] ?? '');
-        $type= trim($type);
-
-        /** @var string $name */
-        $name = strval($file['filenames_name'] ?? '');
-        $name = $this->normalize_route($name);
-
-        if (!\preg_match("/^image\/png$/", $type)) {
-            throw new BadRequestException("El formato de imagen no es un PNG válido. Por favor, intente de nuevo enviando archivos PNG");
-        }
-
-        /** @var string $filename */
-        $filename = "{$root}{$separator}{$name}";
-        
-        /** @var object{width: int, height: int } $info */
-        $info = FileInfo::get_dimensions($filename);
-
-        /** @var string $sizes */
-        $sizes = "{$info->width}x{$info->height}";
-
-        /** @var array $icon */
-        $icon = [
-            "src" => route("/file/public/{$uuid}"),
-            "sizes" => $sizes,
-            "type" => $type
-        ];
-
-        return new ManifestIcon($icon);
-    }
-
-    /**
-     * Normaliza las rutas a las rutas del sistema operativo
-     *
-     * @param string $route Ruta a ser normalizada
-     * @return string
-     */
-    private function normalize_route(string $route): string {
-        return preg_replace("/[\/\\\\]+/", DIRECTORY_SEPARATOR, $route);
     }
 }

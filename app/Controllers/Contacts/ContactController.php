@@ -50,6 +50,13 @@ final class ContactController extends BaseController {
             "content" => $content
         ];
 
+        /**
+         * **NOTA IMPORTANTE:**
+         * 
+         * Se require una tabla que reciba el contacto de los usuarios, por lo tanto, el 
+         * mensaje que actualmente reciben es una simulación.
+         */
+
         http_response_code(201);
         return [
             "status" => true,
