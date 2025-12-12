@@ -42,13 +42,22 @@ final class StationController extends BaseController {
      * @return array{status: boolean, success: string}
      */
     public function store(): array {
+        /**
+         * Instancia del manejador de la estación de Radio
+         * 
+         * @var Station $station
+         */
         $station = new Station();
-        $station->save($this->get_required("name"), $this->get_required("motto"));
+
+        $station->save(
+            name: $this->get_required("name"),
+            motto: $this->get_required("motto")
+        );
 
         http_response_code(201);
         return [
             "status" => true,
-            "success" => "Información guardada correctamente"
+            "success" => "Información de la emisora actualizada correctamente"
         ];
     }
 }

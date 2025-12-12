@@ -82,7 +82,6 @@ final class Manifest extends SaveData {
     public function get(): array {
         /** @var array $manifest */
         $manifest = [];
-
         try {
             /** @var string $string_content */
             $string_content = $this->read_storage_data($this->target, $this->entropy);

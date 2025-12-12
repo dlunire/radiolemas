@@ -32,7 +32,7 @@ final class DataController extends BaseController {
      * @return array<string, string|array<int, array<string,string>>
      */
     public function manifest(): array {
-        return new Manifest()->get();
+        return (new Manifest())->get();
     }
 
     /**
@@ -102,6 +102,11 @@ final class DataController extends BaseController {
             ];
         }
 
+        /**
+         * Configuración del manifiesto
+         * 
+         * @var array<string, string> $config
+         */
         $config = [
             'name' => $name,
             'short_name' => $short_name,

@@ -1,16 +1,16 @@
 <?php
 
 use DLRoute\Requests\DLRoute;
-use DLStorage\Storage\SaveData;
 use DLUnire\Controllers\Config\HeaderController;
 use DLUnire\Controllers\Config\StationController;
 use DLUnire\Controllers\DataController;
+use DLUnire\Controllers\Streaming\StreamingController;
 
 /**
  * Debe cargar el manifiesto actualmente existente en el servidor. Si el manifiesto
  * no existe, entonces, devolverá un JSON vacío.
  */
-DLRoute::get('/manifest', [DataController::class, 'manifest']);
+DLRoute::get('/api/v1/manifest', [DataController::class, 'manifest']);
 
 /**
  * Esta ruta será autenticada en el futuro.
@@ -24,7 +24,7 @@ DLRoute::get('/manifest', [DataController::class, 'manifest']);
  * 
  * Temporalmente, sin autenticar.
  */
-DLRoute::post('/manifest/create', [DataController::class, 'set_manifest']);
+DLRoute::post('/api/v1/manifest/create', [DataController::class, 'set_manifest']);
 
 /**
  * Esta ruta no requiere ser autenticada.
@@ -32,7 +32,7 @@ DLRoute::post('/manifest/create', [DataController::class, 'set_manifest']);
  * Se obtiene el nombre y lema de su aplicación Web. Un lema que se encuentra guardado en un archivo binario. Si
  * el lema y nombre no existe, entonces, se visualizarán nombres genéricos en la plataforma.
  */
-DLRoute::get('/station', [StationController::class, 'index']);
+DLRoute::get('/api/v1/station', [StationController::class, 'index']);
 
 /**
  * Esta ruta requiere ser autenticada.
@@ -42,40 +42,33 @@ DLRoute::get('/station', [StationController::class, 'index']);
  * 
  * Cada vez que guarde información se sobreescribirá la información previa que haya sido guardada.
  */
-DLRoute::post('/station', [StationController::class, 'store']);
+DLRoute::post('/api/v1/station', [StationController::class, 'store']);
 
 /**
  * No require autenticación
  * 
  * Lee las cabeceras existentes. Máximo, se permitirán entre 5 a 10 cabeceras aproximadamente
  */
-DLRoute::get('/headers', [HeaderController::class, 'index']);
+DLRoute::get('/api/v1/headers', [HeaderController::class, 'index']);
 
 /**
  * Requiere convertirse en una ruta autenticada
  * 
  * Permite guardar los datos de la cabecera para ser consultadas más tarde.
  */
-DLRoute::post('/headers', [HeaderController::class,'store']);
+DLRoute::post('/api/v1/headers', [HeaderController::class,'store']);
 
-class ClassName extends SaveData {
-    /** @var string $entropy */
-    public string $entropy = "Base de datos";
+/**
+ * Require autenticación.
+ * 
+ * Permite almacenar la ruta de Streming de la emisora de radio en un archivo binario.
+ */
+DLRoute::post('/api/v1/streaming/create', [StreamingController::class, 'store']);
 
-    public function get_current_content() {
-        /** @var string $filename */
-        $filename = "credentials" . DIRECTORY_SEPARATOR . "database";
+/**
+ * No requiere autenticación.
+ * 
+ * Devuelve la ruta previamente almacenada en un formato binario.
+ */
+DLroute::get('/api/v1/streaming', [StreamingController::class, 'index']);
 
-        /** @var string $content */
-        $content = $this->read_storage_data($filename, $this->entropy);
-
-        return $content;
-    }
-}
-
-DLRoute::get('/test', function() {
-    $instance = new ClassName();
-
-    $content = $instance->get_current_content();
-    return json_decode($content);
-});
