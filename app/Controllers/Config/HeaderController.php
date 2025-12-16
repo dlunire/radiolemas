@@ -36,9 +36,9 @@ final class HeaderController extends BaseController {
     /**
      * Almacena los datos de la cabecera en formato binario
      *
-     * @return void
+     * @return array
      */
-    public function store() {
+    public function store(): array {
 
         /** @var string $uuid Identificador Único Universal (UUIDv4) */
         $uuid = $this->generate_uuid();
@@ -69,6 +69,11 @@ final class HeaderController extends BaseController {
             "href" => $this->get_input('href')
         ];
 
+        /**
+         * Datos de la cabecera
+         * 
+         * @var array<string, array<mixed>> $data
+         */
         $data = [
             "headers" => $this->item_to_array($headers)
         ];
@@ -76,7 +81,11 @@ final class HeaderController extends BaseController {
         $data['headers'][$uuid] = $current_item;
         $headers->save($data);
 
-
+        http_response_code(201);
+        return [
+            "status" => true,
+            "success" => "Portada de página principal almacenada correctamente"
+        ];
     }
 
     /**

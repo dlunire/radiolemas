@@ -3,7 +3,7 @@ name: 🚀 Desplegando Radiolemas
 on:
   push:
     branches:
-      - dev
+      - master
 
 jobs:
   deploy:
