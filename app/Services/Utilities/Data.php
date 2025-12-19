@@ -9,7 +9,7 @@ use InvalidArgumentException;
 
 /**
  * Interactúa con DLStorage para almacenar datos en formato binario de forma estructurada
- * de forma genérica.
+ * y genérica.
  * 
  * **Importante:** En esta abstracción se evita lanzar excepciones durante la lectura.
  * Las excepciones solo se propagan durante la operación de guardado o validación deliberada.
@@ -28,16 +28,23 @@ final class Data extends SaveData {
 
     /**
      * Llave o frase de entropía que se utilizará para cifrar los datos en formato binario.
+     * La llave de entropía puede ser texto o directamente bytes crudos.
      *
      * @var string|null $entropy
      */
     private ?string $entropy = null;
 
     /**
-     * Devuelve los datos a partir del nombre de archivo sin extensión. Si el archivo
-     * no existe o el valor devuelto no tiene el formato esperado, entonces, devolverá `NULL`.
+     * Devuelve el contenido previamente almacenado partir de un nombre de archivo. No debes colocar
+     * extensión, porque el sistema se encarga de agregarlo automáticamente.
+     * 
+     * **Importante:**
+     * Si el archivo no existe o el formato no es el esperado, entonces, el valor devuelto será `NULL`. Esta
+     * es una acción deliberada que busca indicar si hay contenido válido o no.
+     * 
+     * El objetivo de devolver un valor nulo es indicar que no hay nada allí, aunque exista.
      *
-     * @param string $filename Nombre de archivo.
+     * @param string $filename Nombre de archivo. No debe escribir su extensión.
      * @return array|null
      */
     public function get(string $filename): ?array {
@@ -56,38 +63,58 @@ final class Data extends SaveData {
     }
 
     /**
-     * Almacena los datos en formato binario. Los datos de entrada son un array.
+     * Almacena los datos en formato binario. Los datos de entrada son un _array_. Puede ser cualquier
+     * tipo de _array_, pero se recomienda que sea asociativo, es decir, de tipo `"clave" => "valor"`.
      * 
      * ### Recomendaciones
      * 
-     * Se recomienda pasar como argumento de entrada en el segundo parámetro un array asociativo
-     * para que se almacenen en formato JSON en el contenedor binario los datos. Debe establecer
-     * el parámetro `$eval` a `true` para que el formato de array sea validado.
+     * Es preferible pasar como argumento en el parámetro `$data` un array asociativo sobre cualquier tipo
+     * de array, porque la primera mantiene una estructura mucho más predecible.
      * 
-     * El array que haya ingresado se transformará a formato JSON, que a su vez será transformado a
-     * formato binario. 
+     * Sin embargo, se recomienda pasar el argumento `true` en el parámetro `$eval` para que valide que sea 
+     * un array asociativo. La validación es opcional, porque por razones prácticas el desarrollador debe
+     * decidir si debe validarlo o no.
      * 
-     * @example location description
+     * ### Formato del array asociativo
+     * 
+     * Un array asociativo debe cumplicar con las siguientes características:
+     * - Debe tener, al menos, un carácter. Significa que debe ser de tipo `string`.
+     * - El carácter por el que debe comenzar debe ser una letra del alfabeto.
+     * - No distingue minúscula de mayúsculas.
+     * - Los caracteres admitidos son:
+     *      - Letras del alfabeto ([a-zA-Z])
+     *      - Guion (-)
+     *      - Subguión (_)
+     * 
+     * @example location Ejemplo básico
      * 
      * ```
      * <?php
-     * $raw_data = [...];
+     * $raw_data = [
+     *      "clave" => "valor"
+     *      "otra_clave" => 30,
+     *      "clave-con-guiones" => "Valor de la clave con guiones",
+     *      "con_subguion" => "Clave con subguión"
+     * ];
      * $data = new Data();
      * $data->set_entropy('Tu llave de entropía aquí. También se permiten datos binarios crudos');
      * $data->save('filename', $raw_data);
      * ```
      * 
-     * > **Importante:** Los datos no deben tener BOM, porque se almacenará un archivo binario sin
-     * > carga útil (`payload`).
+     * > **Importante:**
+     * > Los datos no deben tener BOM, porque se almacenará un archivo binario sin
+     * > carga útil (`payload`). Esto no se da en todos los contextos, sino en contextos específicos, donde
+     * > por ejemplo, un parser podría transformar un archivo CSV con BOM a formato _array_.
+     * 
+     * El método `Data::save` utiliza otros métodos para cumplir con el objetivo descrito en esta documentación.
      * 
      * @param string $filename Nombre de archivo (sin extensión).
      * @param array $data Datos a ser almacenados.
-     * @param bool $eval [Opcional] Permite de forma deliverada decidir si se desea evaluar si se trata
-     *                   de un `array` asociativo. Si se decide evaluar y el array no es asociativo,
-     *                   entonces, lanzará una excepción.
-     * 
-     *                   El valor por defecto es `false`.
+     * @param bool $eval [Opcional] Permite de forma deliverada decidir si se desea evaluar si el argumento en el
+     *                   el parámetro `$data` es un _array_ asociativo o no.
      * @return void
+     * 
+     * @throws InvalidArgumentException
      */
     public function save(string $filename, array $data, bool $eval = false): void {
         $this->validate_associative_array(array: $data, eval: $eval);
@@ -100,7 +127,13 @@ final class Data extends SaveData {
     }
 
     /**
-     * Establece la llave de entropía para almacenar datos binarios.
+     * Establece la llave de entropía para almacenar datos binarios. La llave o frase de entropía
+     * está ligada directamente al resultado final de transformación de bytes.
+     * 
+     * La llave de entropía puede ser texto o directamente bytes crudos. Debe ser la misma para recuperar
+     * el contenido previamente almacenado.
+     * 
+     * La llave de entropía se almacena como un hash de tipo `sha256`.
      *
      * @param string|null $entropy Llave de entropía.
      * @return void
@@ -110,7 +143,7 @@ final class Data extends SaveData {
     }
 
     /**
-     * Devuelve la frase de entropía
+     * Devuelve la frase o llave de entropía tal y como se almacenó previamente.
      *
      * @return string|null
      */
@@ -119,20 +152,23 @@ final class Data extends SaveData {
     }
 
     /**
-     * Lee el archivo previamente almacenado. Si éste no existe, simplemente devolverá un `null`
+     * Lee el archivo previamente almacenado. Si éste no existe, simplemente devolverá un `null`. Se
+     * busca de forma deliverada convertir una excepción en un valor nulo que será devuelto si el archivo
+     * no existe o no es el formato esperado.
      *
+     * @param string $filename Archivo a ser leído. No debe colocar extensión.
      * @return string|null
      */
     private function read_file(string $filename): ?string {
 
         /**
-         * Llave de entropía
+         * Llave de entropía previamente establecida.
          * 
          * @var string|null $entropy
          */
         $entropy = $this->get_phrase();
 
-        /** @var string|null $content */
+        /** @var string|null $content Contenido que será devuelto, sea nulo o no. */
         $content = null;
 
         try {
@@ -145,8 +181,12 @@ final class Data extends SaveData {
     }
 
     /**
-     * Lanza una excepción de tipo `InvalidArgumentException` cuando el array a evaluar no es un array
-     * asociativo y el segundo parámetro tiene como argumento `true`.
+     * Lanza una excepción de tipo `InvalidArgumentException` cuando el array a evaluar no es
+     * asociativo. El parámetro `$eval` debe tener el argumento `true` para que se active la validación.
+     * 
+     * Esto es una acción deliverada con el objeto de permitir al programador evaluar si se trata o no de un 
+     * _array_ asociativo. Esta acción deliverada tiene el propósito de ser utilizado por el método
+     * `$this->save(...)` de la forma en la que se hizo para facilitar el objetivo planteado.
      * 
      * ### Criterio a tomar en cuenta
      * 
@@ -155,8 +195,8 @@ final class Data extends SaveData {
      * 
      * La clave del array asociativo debe tener, al menos, un carácter.
      * 
-     * @param array $array Array a ser evaluado.
-     * @param bool $eval Permite decidir de forma delivarada si desea evaluar un array o no. Cuando 
+     * @param array $array Array a ser evaluado opcionalmente en función del argumento del segundo parámetro.
+     * @param bool $eval Permite decidir de forma delivarada si desea evaluar un _array_ o no. Cuando 
      *                   su valor es `true` evalúa si el array es asociativo o no. El valor por defecto
      *                   es `false`. 
      * @return void
