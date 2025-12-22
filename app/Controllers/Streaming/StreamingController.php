@@ -2,6 +2,7 @@
 
 namespace DLUnire\Controllers\Streaming;
 
+use DLUnire\Services\Utilities\ConfigStorage;
 use Framework\Abstracts\BaseController;
 
 /**
@@ -14,6 +15,12 @@ use Framework\Abstracts\BaseController;
  * @license Comercial
  */
 final class StreamingController extends BaseController {
+    /**
+     * Ruta del contenedor binario del streaming
+     *
+     * @var string $filename
+     */
+    private string $filename = '/streaming/station';
 
     /**
      * Almacena los datos del streaming a petición del usuario
@@ -36,7 +43,27 @@ final class StreamingController extends BaseController {
          */
         $url = $this->get_string("url");
 
-        // Esta es una prueba que estoy realizando con esto.
+        /**
+         * Identificador Único Universal (UUID)
+         * 
+         * @var string $uuid
+         */
+        $uuid = $this->generate_uuid();
+
+        /**
+         * Instancia de la configuración.
+         * 
+         * @var ConfigStorage $config
+         */
+        $config = new ConfigStorage();
+
+        $config->save(filename: $this->filename, data: [
+            "streaming" => [
+                "uuid" => $uuid,
+                "name" => trim($name),
+                "url" => trim($url)
+            ]
+        ], eval: true);
     }
 
     /**
@@ -44,9 +71,11 @@ final class StreamingController extends BaseController {
      *
      * @return array
      */
-    public function index(): array {
+    public function index(): ?array {
+        /** @var ConfigStorage $config */
+        $config = new ConfigStorage();
 
-        return [];
+        return $config->get(filename: $this->filename);
     }
 }
 
