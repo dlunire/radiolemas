@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DLUnire\Services\Utilities;
 
+use DLCore\Config\DLValues;
 use DLStorage\Storage\SaveData;
 use InvalidArgumentException;
 
@@ -25,6 +26,8 @@ use InvalidArgumentException;
  * @license Comercial
  */
 final class Data extends SaveData {
+
+    use DLValues;
 
     /**
      * Llave o frase de entropía que se utilizará para cifrar los datos en formato binario.
@@ -79,12 +82,16 @@ final class Data extends SaveData {
      * 
      * Un array asociativo debe cumplicar con las siguientes características:
      * - Debe tener, al menos, un carácter. Significa que debe ser de tipo `string`.
-     * - El carácter por el que debe comenzar debe ser una letra del alfabeto.
+     * - El carácter por el que debe comenzar debe ser una siempre una letra del alfabeto. Se
+     *   exceptúa si se trata de una clave con el formato UUID.
      * - No distingue minúscula de mayúsculas.
      * - Los caracteres admitidos son:
      *      - Letras del alfabeto ([a-zA-Z])
      *      - Guion (-)
      *      - Subguión (_)
+     *      - No se admiten números, excepto que sean un Identificador Único Universal (UUID).
+     * 
+     * @link https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-format
      * 
      * @example location Ejemplo básico
      * 
@@ -216,7 +223,8 @@ final class Data extends SaveData {
      * 
      * - Debe tener al menos un carácter, por lo tanto, solo se permiten letras del alfabeto, 
      *   guiones o subguiones.
-     * - Debe empezar por una letra del alfabeto como mínimo, sean minúsculas o mayúsculas.
+     * - Debe empezar por una letra del alfabeto como mínimo, sean minúsculas o mayúsculas,
+     *   excepto que sea un valor con formato UUID.
      * 
      * Es fundamental que la clave se convierta en una cadena de texto vacía si es otro tipo de dato
      * para evaluar por expresión regular la consistencia de lo que se espera como clave de un array.
@@ -235,14 +243,16 @@ final class Data extends SaveData {
         /** @var string $pattern */
         $pattern = "/^[a-z][a-z-_]*$/i";
 
-        /** @var string $message */
-        $message = "Se esperaba un array asociativo";
-
         /** @var boolean $is_valid */
         $is_valid = \boolval(value: preg_match(pattern: $pattern, subject: trim(string: $key)));
 
-        if (!$is_valid) {
-            throw new InvalidArgumentException(message: $message);
+        if (!$is_valid && !$this->is_uuid($key)) {
+            throw new InvalidArgumentException(
+                \sprintf(
+                    'Clave inválida "%s". Las claves deben empezar con letra y solo contener letras, guiones (-) o subguiones (_). Los números no están permitidos, salvo que la clave sea un UUID válido.',
+                    var_export($key, true)
+                )
+            );
         }
     }
 }

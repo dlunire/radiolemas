@@ -67,7 +67,7 @@ class ConfigStorage {
          * @var array|null $current_data
          */
         $current_data = $this->data->get(filename: $filename);
-
+        
         if (!\is_array($current_data)) {
             $current_data = [];
         }

@@ -25,9 +25,9 @@ final class StreamingController extends BaseController {
     /**
      * Almacena los datos del streaming a petición del usuario
      *
-     * @return void
+     * @return array
      */
-    public function store(): void {
+    public function store(): array {
         
         /**
          * Nombre del servidor streaming de la emisora
@@ -57,17 +57,27 @@ final class StreamingController extends BaseController {
          */
         $config = new ConfigStorage();
 
+        /** @var array $data */
+        $data = [];
+
         $config->save(filename: $this->filename, data: [
-            "streaming" => [
+            "{$uuid}" => [
                 "uuid" => $uuid,
                 "name" => trim($name),
                 "url" => trim($url)
             ]
         ], eval: true);
+
+        http_response_code(response_code: 201);
+        return [
+            "status" => true,
+            "success" => "Streaming almacenado correctamente",
+            "details" => $this->get_values()
+        ];
     }
 
     /**
-     * Devuelve el streaming de la emisora.
+     * Devuelve una lista de streaming de la emisora.
      *
      * @return array
      */
@@ -75,7 +85,8 @@ final class StreamingController extends BaseController {
         /** @var ConfigStorage $config */
         $config = new ConfigStorage();
 
-        return $config->get(filename: $this->filename);
+        return [
+            "streaming" => $config->get(filename: $this->filename)
+        ];
     }
 }
-

@@ -49,7 +49,7 @@ DLRoute::post('/api/v1/station', [StationController::class, 'store']);
  * 
  * Lee las cabeceras existentes. Máximo, se permitirán entre 5 a 10 cabeceras aproximadamente
  */
-DLRoute::get('/api/v1/headers', [HeaderController::class, 'index']);
+DLRoute::get(uri: '/api/v1/headers', controller: [HeaderController::class, 'index']);
 
 /**
  * Requiere convertirse en una ruta autenticada
