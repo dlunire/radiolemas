@@ -70,5 +70,5 @@ DLRoute::post('/api/v1/streaming/create', [StreamingController::class, 'store'])
  * 
  * Devuelve la ruta previamente almacenada en un formato binario.
  */
-DLroute::get('/api/v1/streaming', [StreamingController::class, 'index']);
+DLRoute::get('/api/v1/streaming', [StreamingController::class, 'index']);
 
