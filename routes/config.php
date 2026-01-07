@@ -1,10 +1,13 @@
 <?php
 
 use DLRoute\Requests\DLRoute;
+use DLStorage\Storage\SaveData;
 use DLUnire\Controllers\Config\HeaderController;
 use DLUnire\Controllers\Config\StationController;
 use DLUnire\Controllers\DataController;
+use DLUnire\Controllers\SocialMedia\SocialMediaController;
 use DLUnire\Controllers\Streaming\StreamingController;
+use DLUnire\Models\Tables\Filenames;
 
 /**
  * Debe cargar el manifiesto actualmente existente en el servidor. Si el manifiesto
@@ -56,7 +59,7 @@ DLRoute::get(uri: '/api/v1/headers', controller: [HeaderController::class, 'inde
  * 
  * Permite guardar los datos de la cabecera para ser consultadas más tarde.
  */
-DLRoute::post('/api/v1/headers', [HeaderController::class,'store']);
+DLRoute::post('/api/v1/headers', [HeaderController::class, 'store']);
 
 /**
  * Require autenticación.
@@ -72,3 +75,9 @@ DLRoute::post('/api/v1/streaming/create', [StreamingController::class, 'store'])
  */
 DLRoute::get('/api/v1/streaming', [StreamingController::class, 'index']);
 
+/**
+ * Requiere autenticación
+ * 
+ * Almacena las redes disponible del quien controle esta plataforma
+ */
+DLRoute::post(uri: "/api/v1/socialmedia", controller: [SocialMediaController::class, 'store']);

@@ -43,10 +43,10 @@ final class FileController extends BaseController {
      */
     private function print_file(string $uuid, bool $private = false): void {
         /** @var bool $preview */
-        $preview = boolval($this->get_input('preview'));
+        $preview = \boolval($this->get_input('preview'));
 
         /** @var boolean $is_download */
-        $is_download = boolval($this->get_input('download'));
+        $is_download = \boolval($this->get_input('download'));
 
         /** @var FilenameData $filename */
         $filename = FilenameView::get_file($uuid, $private);
