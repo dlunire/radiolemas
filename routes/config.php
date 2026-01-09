@@ -81,3 +81,10 @@ DLRoute::get('/api/v1/streaming', [StreamingController::class, 'index']);
  * Almacena las redes disponible del quien controle esta plataforma
  */
 DLRoute::post(uri: "/api/v1/socialmedia", controller: [SocialMediaController::class, 'store']);
+
+/**
+ * No requiere autenticación
+ * 
+ * Las redes sociales son visibles
+ */
+DLRoute::get('/api/v1/socialmedia', [SocialMediaController::class, 'index']);

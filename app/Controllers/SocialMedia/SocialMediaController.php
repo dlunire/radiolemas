@@ -62,11 +62,24 @@ final class SocialMediaController extends BaseController {
             "patreon" => $patreon
         ]);
 
-        http_response_code(201);
+        http_response_code(response_code: 201);
         return [
             "status" => true,
-            "success" => ""
+            "success" => "Red social actualizada correctamente"
         ];
     }
 
+    /**
+     * Devuelve las redes sociales previamente almacenadas.
+     *
+     * @return array
+     */
+    public function index(): array {
+        /** @var ConfigStorage $socialmedia */
+        $socialmedia = new ConfigStorage();
+
+        return [
+            "socialmedia" => $socialmedia->get('/socialmedia/socialmedia')
+        ];
+    }
 }
